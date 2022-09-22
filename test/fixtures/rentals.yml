@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  duration: 1
+  current: false
+  user: one
+  item: one
+
+two:
+  duration: 1
+  current: false
+  user: two
+  item: two

@@ -74,6 +74,7 @@ GEM
       tzinfo (~> 2.0)
     bcrypt (3.1.18)
     builder (3.2.4)
+    byebug (11.1.3)
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.1.10)
@@ -170,6 +171,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.2)
   activerecord-reset-pk-sequence
   bcrypt (~> 3.1.7)
+  byebug (~> 11.1, >= 11.1.3)
   debug
   pg (~> 1.1)
   puma (~> 5.0)
