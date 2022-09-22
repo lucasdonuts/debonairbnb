@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export const NavButton = ({ path = '/', text = 'Back' }) => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ export const NavButton = ({ path = '/', text = 'Back' }) => {
       case '/login':
         return "button is-primary is-light";
       case '/signup':
+      case '/logout':
         return "button is-primary";
       default:
         return "button";
@@ -23,4 +25,22 @@ export const NavButton = ({ path = '/', text = 'Back' }) => {
       { text }
     </button>
   )
+}
+
+export const AuthRoute = ({ children, currentUser }) => {
+  const navigate = useNavigate();
+  console.log(children)
+
+  useEffect( () => {
+    if(!currentUser){
+      navigate('/login')
+    }
+  })
+
+  return(
+    <>
+      { children }
+    </>
+  )
+
 }

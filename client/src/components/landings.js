@@ -1,11 +1,22 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { NavButton } from '../tools/hooks';
+import { SignupForm } from './auth';
 
-export const Root = () => {
+export const Root = ({ currentUser }) => {
+  const navigate = useNavigate();
+  
+  useEffect( () => {
+    if(currentUser){
+      navigate('/home');
+    }
+  }, [])
+
   return(
-    <>
-      <NavButton path='/signup' text='Sign Up' />
+    <div className="columns is-centered">
+      <SignupForm />
       <NavButton path='/login' text='Log In' />
-    </>
+    </div>
   )
 }
 

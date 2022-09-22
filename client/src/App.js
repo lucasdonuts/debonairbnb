@@ -5,17 +5,20 @@ import { getCurrentUser } from './reducers/userSlice';
 import { useEffect } from 'react';
 
 import { Root, NotFound } from './components/landings';
-import SignupForm from './components/SignupForm';
-import LoginForm from './components/LoginForm';
-// import Home from './components/Home';
+import { SignupForm, LoginForm } from './components/auth';
+import { AuthRoute } from './tools/hooks';
+import Home from './components/Home';
 
 function App() {
   const { currentUser, isLoading } = useSelector( store => store.user );
+  console.log("🚀 ~ file: App.js ~ line 14 ~ App ~ currentUser", currentUser);
   const dispatch = useDispatch();
 
   useEffect( () => {
     dispatch(getCurrentUser());
   }, [])
+
+  console.log("After useEffect: ", currentUser)
 
   if(isLoading){
     return(
@@ -34,12 +37,20 @@ function App() {
     <div className="section is-large columns is-centered">
       <div className="column is-9-widescreen is-11">
         <Routes>
-          <Route index element={ <Root /> }/>
+          <Route index element={ <Root currentUser={ currentUser } /> }/>
 
           <Route path="/signup" element={ <SignupForm /> } />
+
           <Route path="/login" element={ <LoginForm /> } />
 
+          <Route path='/home' element={
+            <AuthRoute currentUser={ currentUser }>
+              <Home />
+            </AuthRoute>
+          } />
+
           <Route path="*" element={ <NotFound /> } />
+
         </Routes>
       </div>
     </div>

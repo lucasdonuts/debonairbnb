@@ -1,7 +1,124 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavButton } from "../tools/hooks";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setCurrentUser,
+  clearCurrentUser,
+  setErrors,
+} from "../reducers/userSlice";
 
-const SignupForm = () => {
+export const LoginForm = () => {
+  const { errors, currentUser } = useSelector((state) => state.user);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/home");
+    }
+  }, [currentUser]);
+
+  const errorElements = errors.map((error) => {
+    return (
+      <p key={error} className="help is-danger">
+        {error}
+      </p>
+    );
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  console.log(formData);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Convert this to redux when you don't hate it
+    fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          dispatch(setCurrentUser(user));
+          dispatch(setErrors([]));
+          navigate("/home");
+        });
+      } else {
+        res.json().then((data) => {
+          dispatch(setErrors(data.errors));
+        });
+      }
+    });
+  };
+
+  return (
+    <div className="columns is-centered">
+      <div className="column is-8">
+        <div className="box">
+          <p className="title has-text-centered">DebonairBnB</p>
+          <p className="subtitle has-text-centered">Log In</p>
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  required
+                  onChange={handleChange}
+                  className="input"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  required
+                  onChange={handleChange}
+                  className="input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+
+            {errorElements}
+
+            <div className="field is-grouped is-grouped-centered">
+              <div className="control">
+                <button className="button is-success">Login</button>
+              </div>
+              <div className="control">
+                <NavButton />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const SignupForm = () => {
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -29,8 +146,6 @@ const SignupForm = () => {
       .then((res) => res.json())
       .then(console.log);
   };
-
-  console.log(formData);
 
   return (
     <div className="columns is-centered">
@@ -178,4 +293,20 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export const LogoutButton = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    fetch("/logout", { method: "DELETE" }).then(() => {
+      dispatch(clearCurrentUser());
+      navigate("/");
+    });
+  };
+
+  return (
+    <button onClick={handleLogout} className="button is-primary">
+      Log Out
+    </button>
+  );
+};
