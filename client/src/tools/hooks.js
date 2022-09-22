@@ -29,7 +29,6 @@ export const NavButton = ({ path = '/', text = 'Back' }) => {
 
 export const AuthRoute = ({ children, currentUser }) => {
   const navigate = useNavigate();
-  console.log(children)
 
   useEffect( () => {
     if(!currentUser){

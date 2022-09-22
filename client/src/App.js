@@ -11,14 +11,14 @@ import Home from './components/Home';
 
 function App() {
   const { currentUser, isLoading } = useSelector( store => store.user );
-  console.log("🚀 ~ file: App.js ~ line 14 ~ App ~ currentUser", currentUser);
+  // console.log("🚀 ~ file: App.js ~ line 14 ~ App ~ currentUser", currentUser);
   const dispatch = useDispatch();
 
   useEffect( () => {
     dispatch(getCurrentUser());
   }, [])
 
-  console.log("After useEffect: ", currentUser)
+  
 
   if(isLoading){
     return(

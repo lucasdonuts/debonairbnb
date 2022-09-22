@@ -1,16 +1,18 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// const initialState = {
-//   userInfo: {}, // May be unnecessary
-//   currentUser: null,
-//   isLoading: true,
-//   errors: [],
-// }
-
 export const getCurrentUser = createAsyncThunk('user/getCurrentUser', () => {
   return fetch('/current_user')
-    .then( res => res.json() )
+    .then( res => {
+      if(res.ok){
+        return res.json()
+      } else {
+        // res.status
+        return Promise.reject(new Error(res.statusText))
+      }
+    })
 })
+
+// createAsyncThunk('user/actionName', callbackFunction )
 
 const userSlice = createSlice({
   name: 'user',
@@ -41,13 +43,15 @@ const userSlice = createSlice({
       state.isLoading = true;
     },
     [getCurrentUser.fulfilled](state, action) {
+      // console.log(action)
       state.currentUser = action.payload;
       state.isLoading = false;
     },
-    // [getCurrentUser.rejected](state, action) {
-    //   state.isLoading = false;
-    //   state.errors.push(action.error.message)
-    // }
+    [getCurrentUser.rejected](state, action) {
+      // console.log("🚀 ~ file: userSlice.js ~ line 51 ~ action", action)
+      state.isLoading = false;
+      state.errors.push(action.error.message)
+    }
   }
 })
 

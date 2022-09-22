@@ -1,18 +1,13 @@
-import { NavButton } from '../tools/hooks';
 import { LogoutButton } from './auth';
+import ItemsContainer from './ItemsContainer';
 
 const Home = () => {
   return(
     <div className="container">
       <LogoutButton />
-      
+      <ItemsContainer />
     </div>
   )
 };
 
 export default Home;
-
-{/* <>
-      <p className="title">Home Page</p>
-      <LogoutButton />
-    </> */}

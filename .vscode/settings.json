@@ -1,6 +1,11 @@
 {
   "cSpell.ignoreWords": [
     "bulma",
-    "fullwidth"
-  ]
+    "fullwidth",
+    "reduxjs",
+    "vcentered"
+  ],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
 }

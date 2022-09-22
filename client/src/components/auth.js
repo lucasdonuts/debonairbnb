@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setCurrentUser,
   clearCurrentUser,
-  setErrors,
+  setErrors
 } from "../reducers/userSlice";
 
 export const LoginForm = () => {
-  const { errors, currentUser } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
+  const [ errors, setErrors ] = useState([]);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -43,7 +44,6 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Convert this to redux when you don't hate it
     fetch("/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -52,12 +52,11 @@ export const LoginForm = () => {
       if (res.ok) {
         res.json().then((user) => {
           dispatch(setCurrentUser(user));
-          dispatch(setErrors([]));
           navigate("/home");
         });
       } else {
         res.json().then((data) => {
-          dispatch(setErrors(data.errors));
+          setErrors(data.errors);
         });
       }
     });
@@ -128,6 +127,9 @@ export const SignupForm = () => {
     password_confirmation: "",
   });
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -137,14 +139,23 @@ export const SignupForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Convert this to redux when you don't hate it
     fetch("/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((res) => res.json())
-      .then(console.log);
+      .then( res => {
+        if (res.ok) {
+          res.json().then((user) => {
+            dispatch(setCurrentUser(user));
+            navigate("/home");
+          });
+        } else {
+          res.json().then((data) => {
+            setErrors(data.errors)
+          });
+        }
+      } )
   };
 
   return (
