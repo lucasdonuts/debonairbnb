@@ -3,10 +3,10 @@ import ItemsContainer from './ItemsContainer';
 
 const Home = () => {
   return(
-    <div className="container">
+    <>
       <LogoutButton />
       <ItemsContainer />
-    </div>
+    </>
   )
 };
 

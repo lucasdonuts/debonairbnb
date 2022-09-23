@@ -12,8 +12,6 @@ export const getCurrentUser = createAsyncThunk('user/getCurrentUser', () => {
     })
 })
 
-// createAsyncThunk('user/actionName', callbackFunction )
-
 const userSlice = createSlice({
   name: 'user',
   initialState: {

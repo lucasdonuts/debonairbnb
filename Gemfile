@@ -35,3 +35,6 @@ end
 gem 'active_model_serializers', '~> 0.10.2'
 
 gem 'activerecord-reset-pk-sequence'
+
+gem 'rest-client'
+gem 'addressable', '~> 2.8', '>= 2.8.1'

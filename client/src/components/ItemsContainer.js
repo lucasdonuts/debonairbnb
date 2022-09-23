@@ -21,7 +21,10 @@ const ItemsContainer = () => {
 
   return (
     <>
-      <div className="section columns is-multiline is-centered">{itemsToDisplay}</div>
+      <div className="container columns is-multiline is-centered">
+        {itemsToDisplay}
+      </div>
+      {/* <div className="section columns is-multiline is-centered">{itemsToDisplay}</div> */}
       {/* <div className="is-flex is-flex-wrap-wrap">{itemsToDisplay}</div> */}
     </>
   );

@@ -1,4 +1,5 @@
 import 'bulma/css/bulma.min.css';
+import './stylesheets/App.css';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCurrentUser } from './reducers/userSlice';
@@ -34,8 +35,9 @@ function App() {
 
   return (
     // <NavBar />
-    <div className="section is-large columns is-centered">
-      <div className="column is-9-widescreen is-11">
+    <div className="section columns is-centered">
+      <div className="column is-fluid is-11">
+      {/* <div className="column is-9-widescreen is-11"> */}
         <Routes>
           <Route index element={ <Root currentUser={ currentUser } /> }/>
 
