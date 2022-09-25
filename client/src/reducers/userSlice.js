@@ -6,7 +6,6 @@ export const getCurrentUser = createAsyncThunk('user/getCurrentUser', () => {
       if(res.ok){
         return res.json()
       } else {
-        // res.status
         return Promise.reject(new Error(res.statusText))
       }
     })

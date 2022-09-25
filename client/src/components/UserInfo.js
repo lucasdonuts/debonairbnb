@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
-
-const UserInfo = ({ user, setEditMode }) => {
+const UserInfo = ({ user }) => {
   return(
     <>
       <div className="is-flex">

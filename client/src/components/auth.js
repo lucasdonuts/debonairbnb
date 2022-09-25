@@ -169,7 +169,7 @@ export const SignupForm = () => {
 
   return (
     <div className="columns is-centered">
-      <div className="column is-8">
+      <div className="column is-10">
         <div className="box">
           <p className="title has-text-centered">DebonairBnB</p>
           <p className="subtitle has-text-centered">Sign up is free!</p>
@@ -250,7 +250,7 @@ export const SignupForm = () => {
                     </p>
                   </div>
                   <p className="help">
-                    This will be how you will log in to your account
+                    This is how you will log in to your account
                   </p>
                 </div>
               </div>

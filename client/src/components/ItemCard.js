@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const ItemCard = ({ item }) => {
   // const { name, image, sex, category, size, price } = item;
   // console.log(item)
 
   return (
-    <div className="column is-3 is-2-fullhd">
+    <Link to={ `/items/${item.id}` } className="column is-3 is-2-fullhd">
       {/* // <div className="is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd"> */}
       <div className="card">
         <div className="card-image">
@@ -17,7 +19,7 @@ const ItemCard = ({ item }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

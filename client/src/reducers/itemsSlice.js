@@ -27,7 +27,6 @@ const itemsSlice = createSlice({
       state.isLoading = false;
       state.entities = [];
       state.entities = [ ...state.entities, ...action.payload]
-      console.log("🚀 ~ file: itemsSlice.js ~ line 37 ~ entities", state.entities)
     }
   }
 })
