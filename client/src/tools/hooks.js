@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 export const NavButton = ({ path = '/', text = 'Back' }) => {
   const navigate = useNavigate();
@@ -27,8 +28,9 @@ export const NavButton = ({ path = '/', text = 'Back' }) => {
   )
 }
 
-export const AuthRoute = ({ children, currentUser }) => {
+export const AuthRoute = ({ children, /* currentUser */ }) => {
   const navigate = useNavigate();
+  const { currentUser } = useSelector( state => state.user );
 
   useEffect( () => {
     if(!currentUser){

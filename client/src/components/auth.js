@@ -19,11 +19,11 @@ export const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (currentUser) {
-      navigate("/home");
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     navigate("/home");
+  //   }
+  // }, [currentUser]);
 
   const errorElements = errors.map((error) => {
     return (
@@ -118,6 +118,7 @@ export const LoginForm = () => {
 };
 
 export const SignupForm = () => {
+  const [ errors, setErrors ] = useState([]);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -129,6 +130,14 @@ export const SignupForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const errorElements = errors.map((error) => {
+    return (
+      <p key={error} className="help is-danger">
+        {error}
+      </p>
+    );
+  });
 
   const handleChange = (e) => {
     setFormData({
@@ -281,7 +290,7 @@ export const SignupForm = () => {
                 </div>
               </div>
             </div>
-
+            
             <div className="field is-horizontal">
               <div className="field-label is-hidden"></div>
               <div className="field-body">
@@ -297,6 +306,7 @@ export const SignupForm = () => {
                 </div>
               </div>
             </div>
+            { errorElements }
           </form>
         </div>
       </div>

@@ -11,7 +11,10 @@ class ApplicationController < ActionController::API
   end
 
   def invalid_record_response(invalid)
+    byebug
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end
+  # syntax needed to access specific error details
+  # e.attribute.to_s.gsub(/_/, " ").capitalize + " " + e.message.downcase
   
 end
