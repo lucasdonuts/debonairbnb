@@ -6,12 +6,11 @@ class ItemsController < ApplicationController
   end
   
   def show
-    item = Item.find!(params[:id])
+    item = Item.find(params[:id])
     render json: item, status: :ok
   end
 
   def create
-    byebug
     item = Item.create!(item_params)
     render json: item, status: :created
   end

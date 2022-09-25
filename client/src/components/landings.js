@@ -23,7 +23,7 @@ export const Root = ({ currentUser }) => {
 export const NotFound = () => {
   return(
     <>
-      <h1 className="title">
+      <h1 className="title has-text-white">
         Not Found
       </h1>
     </>

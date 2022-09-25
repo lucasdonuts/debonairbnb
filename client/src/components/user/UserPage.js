@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentUser, clearCurrentUser } from "../reducers/userSlice";
+import { updateCurrentUser, clearCurrentUser } from "../../reducers/userSlice";
 import { useNavigate } from 'react-router-dom';
 
 import EditUserForm from "./EditUserForm";
@@ -15,7 +15,7 @@ const UserPage = () => {
   const navigate = useNavigate();
 
   const updateUser = (updatedUser) => {
-    dispatch(setCurrentUser(updatedUser));
+    dispatch(updateCurrentUser(updatedUser));
     setEditMode(false);
   };
 

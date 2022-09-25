@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { LogoutButton } from './auth';
 
 const NavBar = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -24,6 +25,9 @@ const NavBar = () => {
           {/* Your Account Link/ Maybe dropdown */}
           <p className="is-size-4">Account{/* Profile Icon or something */}</p>
         </NavLink>
+      </div>
+      <div className="navbar-item">
+        <LogoutButton />
       </div>
     </>
   );

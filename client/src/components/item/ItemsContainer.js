@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuid } from 'uuid';
-import { getItems } from "../reducers/itemsSlice";
+import { getItems } from "../../reducers/itemsSlice";
 import ItemCard from "./ItemCard";
+import Loading from '../Loading';
 
 const ItemsContainer = () => {
   const { entities: items, isLoading } = useSelector((state) => state.items);
@@ -17,7 +18,7 @@ const ItemsContainer = () => {
   });
 
   if (isLoading) {
-    return <h1 className="title">Loading...</h1>;
+    return <Loading />
   }
 
   return (

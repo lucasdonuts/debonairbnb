@@ -29,6 +29,9 @@ const userSlice = createSlice({
     },
     clearCurrentUser(state){
       state.currentUser = null;
+    },
+    updateCurrentUser(state, action){
+      state.currentUser = action.payload;
     }
     // addUsers (Does this need to be in state?)
     // getUsers (?)
@@ -52,6 +55,11 @@ const userSlice = createSlice({
   }
 })
 
-export const { setCurrentUser, clearCurrentUser, setErrors } = userSlice.actions;
+export const {
+  setCurrentUser,
+  updateCurrentUser,
+  clearCurrentUser,
+  setErrors
+} = userSlice.actions;
 
 export default userSlice.reducer;
