@@ -1,10 +1,10 @@
-import { LogoutButton } from './auth';
 import ItemsContainer from './item/ItemsContainer';
+import UserItems from './user/UserItems';
 
 const Home = () => {
   return(
     <>
-      <ItemsContainer />
+      <UserItems />
     </>
   )
 };

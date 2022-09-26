@@ -2,7 +2,7 @@ class RentalsController < ApplicationController
 
   def show
     rental = Rental.find!(params[:id])
-    render json: rental, status: :ok
+    render json: rental, include: ['item'], status: :ok
   end
 
   def create

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCurrentUser } from '../../reducers/userSlice';
+import { getCurrentUser } from '../../reducers/userSlice';
 
 const ItemPage = () => {
   const { currentUser: user } = useSelector((state) => state.user);
@@ -30,6 +30,7 @@ const ItemPage = () => {
 
   const handleBorrowClick = (e) => {
     e.stopPropagation();
+    // Show confirmation pop-up
     setModalVisible(true);
   };
 
@@ -45,10 +46,9 @@ const ItemPage = () => {
       .then((res) => res.json())
       .then((data) => {
         setItem(data.item);
-        dispatch(updateCurrentUser(data.user));
+        dispatch(getCurrentUser());
         setIsRented(true);
         setModalVisible(false);
-        console.log(data);
       });
   };
 
@@ -65,7 +65,7 @@ const ItemPage = () => {
       .then(res => res.json())
       .then( data => {
         setIsRented(false);
-        dispatch(updateCurrentUser(data.user))
+        dispatch(getCurrentUser(data.user))
       })
   }
   // console.log(user.rentals)

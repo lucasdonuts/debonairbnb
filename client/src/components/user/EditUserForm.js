@@ -49,8 +49,8 @@ const EditUserForm = ({ user, updateUser }) => {
     <div className="columns is-centered">
       <div className="column is-8">
         <div className="box">
-          <p className="title has-text-centered">DebonairBnB</p>
-          <p className="subtitle has-text-centered">Sign up is free!</p>
+          {/* <p className="title has-text-centered">DebonairBnB</p> */}
+          <p className="subtitle has-text-centered">Change your Account Details</p>
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
               <div className="field-label is-hidden">

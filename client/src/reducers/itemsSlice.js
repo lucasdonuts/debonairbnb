@@ -20,9 +20,7 @@ const itemsSlice = createSlice({
     isLoading: true,
   },
   reducers: {
-    // addItem(state, action){
-
-    // }
+    
   },
   extraReducers: {
     [getItems.pending](state){
@@ -35,7 +33,5 @@ const itemsSlice = createSlice({
     }
   }
 })
-
-// export const { addItem, updateItem } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

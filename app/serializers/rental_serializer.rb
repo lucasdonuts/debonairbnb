@@ -1,6 +1,10 @@
 class RentalSerializer < ActiveModel::Serializer
-  attributes :id, :duration, :current, :item_id, :user_id
+  attributes :id, :duration, :current, :item
   
-  has_one :user
-  has_one :item
+  belongs_to :user
+  belongs_to :item
+
+  def item
+    object.item
+  end
 end

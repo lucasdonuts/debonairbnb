@@ -23,7 +23,7 @@ const ItemsContainer = () => {
 
   return (
     <>
-      <div className="container columns is-multiline is-centered">
+      <div className="columns is-multiline is-centered">
         {itemsToDisplay}
       </div>
     </>

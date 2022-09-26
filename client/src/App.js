@@ -32,7 +32,7 @@ function App() {
     <>
       <NavBar />
       <div className="section columns is-centered">
-        <div className="column is-fluid is-11">
+        <div className="column is-11">
           <Routes>
             <Route index element={<Root currentUser={currentUser} />} />
             <Route path="/signup" element={<SignupForm />} />
