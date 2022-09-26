@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  skip_before_action :authenticate, only: [:create]
+  
   def show
     user = User.find_by(id: session[:user_id])
     if user
@@ -26,15 +27,6 @@ class UsersController < ApplicationController
     user.destroy
     head :no_content
   end
-
-  # def current_user
-  #   user = User.find_by(id: session[:user_id])
-  #   if user
-  #     render json: user, serializer: UserSerializer, status: :ok
-  #   else
-  #     render json: { errors: ['Must be logged in'] }, status: :unauthorized
-  #   end
-  # end
 
   private
 
