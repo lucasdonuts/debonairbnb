@@ -12,8 +12,8 @@ const ItemsContainer = () => {
     name: { active: false, value: "" },
     sex: { active: false, value: "" },
     category: { active: false, value: "" },
-    size: { active: false, value: "" },
-    price: { active: false, value: "" },
+    // size: { active: false, value: "" },
+    // price: { active: false, value: "" },
   });
 
   const dispatch = useDispatch();
@@ -74,50 +74,53 @@ const ItemsContainer = () => {
 
   return (
     <>
-      <div className="field">
-        <div className="control">
-          <input
-            onChange={changeFilters}
-            className="input"
-            name="name"
-            type="text"
-            placeholder="Search"
-            value={filters.name.value}
-          />
-        </div>
-      </div>
-      <div className="field is-grouped is-grouped-centered">
-        <div className="control">
-          <div className="select">
-            <select name="category" onChange={changeFilters} value={filters.category.value}>
-              <option value="">All Categories</option>
-              { categoryOptions }
-            </select>
+      <div className="box pt-1">
+        <p className="has-text-centered is-size-4">Filters</p>
+        <div className="field">
+          <div className="control">
+            <input
+              onChange={changeFilters}
+              className="input"
+              name="name"
+              type="text"
+              placeholder="Search"
+              value={filters.name.value}
+            />
           </div>
         </div>
-        <div className="control">
-          <label className="radio">
-            <input onChange={changeFilters} type="radio" name="sex" value="" />
-            Both
-          </label>
-          <label className="radio">
-            <input
-              onChange={changeFilters}
-              type="radio"
-              name="sex"
-              value="Men"
-            />
-            Men
-          </label>
-          <label className="radio">
-            <input
-              onChange={changeFilters}
-              type="radio"
-              name="sex"
-              value="Women"
-            />
-            Women
-          </label>
+        <div className="field is-grouped is-grouped-centered">
+          <div className="control">
+            <div className="select">
+              <select name="category" onChange={changeFilters} value={filters.category.value}>
+                <option value="">All Categories</option>
+                { categoryOptions }
+              </select>
+            </div>
+          </div>
+          <div className="control">
+            <label className="radio">
+              <input onChange={changeFilters} type="radio" name="sex" value="" />
+              Both
+            </label>
+            <label className="radio">
+              <input
+                onChange={changeFilters}
+                type="radio"
+                name="sex"
+                value="Men"
+              />
+              Men
+            </label>
+            <label className="radio">
+              <input
+                onChange={changeFilters}
+                type="radio"
+                name="sex"
+                value="Women"
+              />
+              Women
+            </label>
+          </div>
         </div>
       </div>
       <div className="columns is-multiline is-centered">{itemsToDisplay}</div>

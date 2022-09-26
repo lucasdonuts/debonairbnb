@@ -6,22 +6,21 @@ import Loading from '../Loading';
 
 const UserItems = () => {
   const { currentUser: user, isLoading } = useSelector( state => state.user );
+  const [ itemCards, setItemCards ] = useState([]);
   const [ currentRentals, setCurrentRentals ] = useState([]);
   const [ pastRentals, setPastRentals ] = useState([]);
 
   useEffect( () => {
-    setCurrentRentals(user.rentals.map( rental =>{
-      if(rental.current){
-        return <ItemCard item={rental.item} key={uuid()} />
-      }
-    }))
+    setItemCards(user.rentals.map( rental => <ItemCard item={rental.item} current={rental.current} key={uuid()} /> ))
+  }, [])
 
-    setPastRentals(user.rentals.map( rental =>{
-      if(!rental.current){
-        return <ItemCard item={rental.item} key={uuid()} />
-      }
-    }))
-  }, [user])
+  useEffect( () => {
+    setCurrentRentals(itemCards.filter( card => card.props.current ))
+    setPastRentals(itemCards.filter( card => !card.props.current ))
+  }, [itemCards])
+
+  console.log( "Item Cards: ", itemCards )
+  console.log( "Current Rentals: ", currentRentals )
 
   if (isLoading) {
     return <Loading />
