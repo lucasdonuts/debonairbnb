@@ -11,6 +11,7 @@ import { Root, NotFound } from "./components/landings";
 import { SignupForm, LoginForm } from "./components/auth";
 import { AuthRoute } from "./tools/hooks";
 import Home from "./components/Home";
+import Shop from './components/Shop';
 import UserPage from './components/user/UserPage';
 import ItemPage from './components/item/ItemPage';
 
@@ -42,6 +43,14 @@ function App() {
               element={
                 <AuthRoute>
                   <Home />
+                </AuthRoute>
+              }
+            />
+            <Route
+              path="/shop"
+              element={
+                <AuthRoute>
+                  <Shop />
                 </AuthRoute>
               }
             />

@@ -8,12 +8,12 @@ const NavBar = () => {
   const userLinks = (
     <>
       <div className="navbar-item">
-        <NavLink to="/home" end>
+        <NavLink to="/shop" end>
           <p className="is-size-4">Shop</p>
         </NavLink>
       </div>
       <div className="navbar-item">
-        <NavLink to="" end>
+        <NavLink to="/home" end>
           {" "}
           {/* Your rentals */}
           <p className="is-size-4">Your Rentals</p>

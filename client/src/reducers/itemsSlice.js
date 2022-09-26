@@ -18,9 +18,12 @@ const itemsSlice = createSlice({
   initialState: {
     entities: [],
     isLoading: true,
+    categories: []
   },
   reducers: {
-    
+    getCategories(state) {
+      state.categories = [...new Set(state.entities.map( item => item.category ))]
+    }
   },
   extraReducers: {
     [getItems.pending](state){
@@ -33,5 +36,7 @@ const itemsSlice = createSlice({
     }
   }
 })
+
+export const { getCategories } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

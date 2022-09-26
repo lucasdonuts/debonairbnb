@@ -65,7 +65,7 @@ const ItemPage = () => {
       .then(res => res.json())
       .then( data => {
         setIsRented(false);
-        dispatch(getCurrentUser(data.user))
+        dispatch(getCurrentUser())
       })
   }
   // console.log(user.rentals)
