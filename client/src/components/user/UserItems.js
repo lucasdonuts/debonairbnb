@@ -19,9 +19,6 @@ const UserItems = () => {
     setPastRentals(itemCards.filter( card => !card.props.current ))
   }, [itemCards])
 
-  console.log( "Item Cards: ", itemCards )
-  console.log( "Current Rentals: ", currentRentals )
-
   if (isLoading) {
     return <Loading />
   }
