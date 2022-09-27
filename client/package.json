@@ -21,7 +21,7 @@
   "scripts": {
     "css-build": "node-sass --omit-source-map-url sass/mystyles.scss src/stylesheets/mystyles.css",
     "css-watch": "npm run css-build -- --watch",
-    "start": "PORT=4000 react-scripts start && npm run css-watch",
+    "start": "npm run css-watch & PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

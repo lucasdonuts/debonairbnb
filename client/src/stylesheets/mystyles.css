@@ -1,5 +1,6 @@
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
 .pagination-next,
@@ -7875,3 +7876,19 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
+
+.is-brand-font {
+  font-family: "Oooh Baby", cursive;
+  font-weight: bold; }
+
+.navbar-brand > .navbar-menu {
+  background-color: #363636;
+  padding: 0; }
+
+.navbar-item {
+  height: 100%; }
+
+.navbar-item,
+a.navbar-item:focus,
+a.navbar-item:hover {
+  color: white; }

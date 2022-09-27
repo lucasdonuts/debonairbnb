@@ -15,7 +15,7 @@ const NavBar = () => {
   //     )}
 
   return (
-    <nav className="navbar is-transparent">
+    <nav className="navbar">
       <div className="navbar-brand">
         <a className="navbar-item" href="https://bulma.io">
           <img
@@ -164,46 +164,62 @@ export const OldNav = () => {
 
   const userLinks = (
     <>
-      <div className="navbar-item">
-        <NavLink to="/shop" end>
-          <p className="is-size-4">Shop</p>
-        </NavLink>
-      </div>
-      <div className="navbar-item">
-        <NavLink to="/home" end>
-          {" "}
-          {/* Your rentals */}
-          <p className="is-size-4">Your Rentals</p>
-        </NavLink>
-      </div>
-      <div className="navbar-item">
-        <NavLink to="/account" end>
-          {" "}
-          {/* Your Account Link/ Maybe dropdown */}
-          <p className="is-size-4">Account{/* Profile Icon or something */}</p>
-        </NavLink>
-      </div>
-      <div className="navbar-item">
+      {/* <div className="navbar-item"> */}
+      <NavLink className="navbar-item" to="/shop" end>
+        <p className="is-size-4">Shop</p>
+      </NavLink>
+      {/* </div> */}
+      {/* <div className="navbar-item"> */}
+      <NavLink className="navbar-item" to="/home" end>
+        {" "}
+        {/* Your rentals */}
+        <p className="is-size-4">Your Rentals</p>
+      </NavLink>
+      {/* </div> */}
+      {/* <div className="navbar-item"> */}
+      <NavLink className="navbar-item" to="/account" end>
+        {" "}
+        {/* Your Account Link/ Maybe dropdown */}
+        <p className="is-size-4">Account{/* Profile Icon or something */}</p>
+      </NavLink>
+      {/* </div> */}
+      {/* <div className="navbar-item">
         <LogoutButton />
-      </div>
+      </div> */}
     </>
   );
 
   return (
     <nav
-      className="navbar is-dark"
+      // className="navbar is-dark"
+      className="navbar is-dark columns is-centered m-0"
       role="navigation"
       aria-label="main navigation"
     >
-      <div className="navbar-brand">
-        <div className="navbar-menu has-background-grey-darker is-active">
-          <div className="is-flex navbar-start">
-            <div className="navbar-item">
-              <NavLink to="/" end>
-                <p className="is-size-4">DebonairBnB</p>
-              </NavLink>
-            </div>
+      <div className="navbar-brand column is-11 is-8-fullhd p-0">
+        {/* <div className="navbar-brand mx-auto"> */}
+        <div className="navbar-menu is-active is-flex is-justify-content-space-between">
+          <div className="navbar-start is-flex">
+            {/* <div className="navbar-item"> */}
+            <NavLink to="/" className="navbar-item" end>
+              <p className="is-brand-font has-text-white is-size-3">
+                DebonairBnB
+              </p>
+            </NavLink>
+            {/* </div> */}
             {currentUser && userLinks}
+          </div>
+          <div className="navbar-end">
+            {currentUser && (
+              <div className="navbar-item">
+                <LogoutButton />
+              </div>
+            )}
+            {/* <NavLink to="/" className="navbar-item" end>
+              <p className="is-brand-font has-text-white is-size-3">
+                DebonairBnB
+              </p>
+            </NavLink> */}
           </div>
         </div>
       </div>

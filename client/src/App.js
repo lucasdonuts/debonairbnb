@@ -36,7 +36,7 @@ function App() {
       {/* <NavBar /> */}
       <OldNav />
       <div className="section columns is-centered">
-        <div className="column is-11 is-9-fullhd">
+        <div className="column is-11 is-9-fullhd has-text-centered">
           <Routes>
             <Route index element={<Root currentUser={currentUser} />} />
             <Route path="/signup" element={<SignupForm />} />
