@@ -1,4 +1,5 @@
-import "bulma/css/bulma.min.css";
+// import "bulma/css/bulma.min.css";
+import "./stylesheets/mystyles.css";
 import "./stylesheets/App.css";
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
