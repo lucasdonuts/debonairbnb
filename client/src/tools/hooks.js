@@ -30,13 +30,15 @@ export const NavButton = ({ path = '/', text = 'Back' }) => {
 
 export const AuthRoute = ({ children, /* currentUser */ }) => {
   const navigate = useNavigate();
-  const { currentUser } = useSelector( state => state.user );
-
+  const { currentUser, isLoading } = useSelector( state => state.user );
+  
   useEffect( () => {
+    console.log("Inside useEffect: ", currentUser)
     if(!currentUser){
+      console.log('navigate')
       navigate('/login')
     }
-  })
+  }, [])
 
   return(
     <>

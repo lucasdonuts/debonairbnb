@@ -6,16 +6,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { getCurrentUser } from "./reducers/userSlice";
 import { useEffect } from "react";
 
-import Loading from './components/Loading';
+import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
-import { OldNav } from './components/NavBar';
+import { OldNav } from "./components/NavBar";
 import { Root, NotFound } from "./components/landings";
 import { SignupForm, LoginForm } from "./components/auth";
 import { AuthRoute } from "./tools/hooks";
 import Home from "./components/Home";
-import Shop from './components/Shop';
-import UserPage from './components/user/UserPage';
-import ItemPage from './components/item/ItemPage';
+import Shop from "./components/Shop";
+import UserPage from "./components/user/UserPage";
+import ItemPage from "./components/item/ItemPage";
 
 function App() {
   const { currentUser, isLoading } = useSelector((store) => store.user);
@@ -26,9 +26,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   return (
@@ -65,7 +63,22 @@ function App() {
                 </AuthRoute>
               }
             />
-            <Route path="/items/:id" element={<ItemPage />} />
+            <Route
+              path="/items"
+              element={
+                <AuthRoute>
+                  <Shop />
+                </AuthRoute>
+              }
+            />
+            <Route
+              path="/items/:id"
+              element={
+                <AuthRoute>
+                  <ItemPage />
+                </AuthRoute>
+              }
+            />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

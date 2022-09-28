@@ -10,7 +10,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getItems = createAsyncThunk('items/getItems', () => {
   return fetch('/items')
-    .then(res => res.json() )
+    .then(res => {
+      if(res.ok){
+        return res.json()
+      } else {
+        return []
+      }
+    })
 })
 
 const itemsSlice = createSlice({
@@ -31,8 +37,7 @@ const itemsSlice = createSlice({
     },
     [getItems.fulfilled](state, action){
       state.isLoading = false;
-      state.entities = [];
-      state.entities = [ ...state.entities, ...action.payload]
+      state.entities = action.payload
     }
   }
 })

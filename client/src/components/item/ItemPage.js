@@ -9,6 +9,8 @@ const ItemPage = () => {
   const [isRented, setIsRented] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [duration, setDuration] = useState(1);
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const params = useParams();
   const dispatch = useDispatch();
@@ -43,13 +45,19 @@ const ItemPage = () => {
         duration: duration,
       }),
     })
-      .then((res) => res.json())
-      .then((data) => {
-        setItem(data.item);
-        dispatch(getCurrentUser());
-        setIsRented(true);
-        setModalVisible(false);
-      });
+      .then((res) => {
+        if(res.ok){
+          res.json().then((data) => {
+            setItem(data.item);
+            dispatch(getCurrentUser());
+            setIsRented(true);
+            setModalVisible(false);
+          });
+        } else {
+          res.json().then( data => setErrors([...errors, data.errors]) )
+        }
+      })
+      
   };
 
   const returnItem = () => {
@@ -71,8 +79,8 @@ const ItemPage = () => {
   // console.log(user.rentals)
 
   const borrowButton = (
-    <button onClick={handleBorrowClick} className="button">
-      Borrow
+    <button onClick={handleBorrowClick} className="button is-primary">
+      Borrow This Item
     </button>
   );
 
@@ -83,8 +91,8 @@ const ItemPage = () => {
   );
 
   const returnButton = (
-    <button onClick={returnItem} className="button">
-      Return
+    <button onClick={returnItem} className="button is-primary is-light">
+      Return This Item
     </button>
   );
 
@@ -97,22 +105,97 @@ const ItemPage = () => {
     return disabledButton;
   };
 
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
+
   return (
     <div className="item-details box">
       <div className="columns is-centered">
         <div className="column">
-          <div className="is-fullwidth">
-            <p className="title is-size-4">{item.name}</p>
-            <div className="columns">
-              <div className="column is-half">
-                
-              </div>
-              <div className="column is-half">
-
-              </div>
+          <p className="title is-size-4">{item.name}</p>
+          <div className="columns">
+            <div className="column is-half">
+              <figure className="image">
+                <img src={item.image} alt={`${item.name} image`} />
+              </figure>
+            </div>
+            <div className="column is-half my-auto">
+              {/* name, image, sex, size, price, category */}
+              <p>
+                <strong className="has-text-primary is-size-4">
+                  ${item.price}
+                </strong>
+                /day
+              </p>
+              {getButton()}
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Modal */}
+      <div
+        id="confirm-borrow"
+        className={modalVisible ? "modal is-active" : "modal"}
+      >
+        <div className="modal-background"></div>
+        <div className="modal-card has-text-centered" onClick={stopPropagation}>
+          <div className="modal-card-body">
+            <p className="modal-card-title mb-3">Borrow {item.name}?</p>
+            <section className="columns is-mobile modal-card-image">
+              <div className="column is-4 is-offset-4">
+                <figure className="image is-2by3">
+                  <img src={item.image} alt={item.name} />
+                </figure>
+              </div>
+            </section>
+
+            <div className="field is-grouped is-grouped-centered">
+              <div className="control">
+                <div className="select">
+                  <select
+                    onChange={(e) => setDuration(parseInt(e.target.value))}
+                    defaultValue="1"
+                  >
+                    <option value="">
+                      How long?
+                    </option>
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="4">4 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="6">6 Days</option>
+                    <option value="7">7 Days</option>
+                    <option value="8">8 Days</option>
+                    <option value="9">9 Days</option>
+                    <option value="10">10 Days</option>
+                  </select>
+                </div>
+              </div>
+              <p className="control">
+                <button onClick={borrowItem} className="button is-primary">
+                  Borrow
+                </button>
+              </p>
+              <p className="control">
+                <button
+                  onClick={() => setModalVisible(false)}
+                  className="button"
+                >
+                  Cancel
+                </button>
+              </p>
+            </div>
+            <p className="is-danger">{ errors }</p>
+          </div>
+        </div>
+        <button
+          onClick={() => setModalVisible(false)}
+          className="modal-close is-large"
+          aria-label="close"
+        ></button>
       </div>
     </div>
   );

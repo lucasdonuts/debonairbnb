@@ -7,9 +7,13 @@ class RentalsController < ApplicationController
 
   def create
     user = User.find(session[:user_id])
-    rental = user.rentals.create!(rental_params)
-    rental.update!(current: true);
-    render json: rental, status: :created
+    if Rental.where(item_id: params[:item_id], user_id: user.id, current: true).empty?
+      rental = user.rentals.create!(rental_params)
+      rental.update!(current: true);
+      render json: rental, status: :created
+    else
+      render json: { errors: "Item is currently unavailable" }, status: :forbidden
+    end
   end
 
   def update

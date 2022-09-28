@@ -19,6 +19,12 @@ export const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/home");
+    }
+  }, [currentUser]);
+
   const errorElements = errors.map((error) => {
     return (
       <p key={error} className="help is-danger">

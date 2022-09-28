@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 import EditUserForm from "./EditUserForm";
 import UserInfo from "./UserInfo";
+import Loading from '../Loading';
 
 const UserPage = () => {
-  const { currentUser: user } = useSelector((state) => state.user);
+  const { currentUser: user, isLoading } = useSelector((state) => state.user);
   const [editMode, setEditMode] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 

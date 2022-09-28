@@ -15,7 +15,6 @@ export const Root = ({ currentUser }) => {
   return(
     <div className="columns is-centered">
       <SignupForm />
-      <NavButton path='/login' text='Log In' />
     </div>
   )
 }
