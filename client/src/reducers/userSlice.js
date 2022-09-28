@@ -16,15 +16,11 @@ const userSlice = createSlice({
   initialState: {
     currentUser: null,
     isLoading: true
-    // errors: [],
   },
   reducers: {
     setCurrentUser(state, action){
       state.currentUser = action.payload;
     },
-    // setErrors(state, action){
-    //   state.errors.push(action.payload);
-    // },
     clearCurrentUser(state){
       state.currentUser = null;
     },
@@ -40,10 +36,6 @@ const userSlice = createSlice({
       state.currentUser = action.payload;
       state.isLoading = false;
     }
-    // [getCurrentUser.rejected](state, action) {
-    //   state.isLoading = false;
-    //   state.errors.push(action.error.message)
-    // }
   }
 })
 

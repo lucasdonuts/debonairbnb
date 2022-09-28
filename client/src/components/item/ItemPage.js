@@ -9,7 +9,6 @@ const ItemPage = () => {
   const [isRented, setIsRented] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [duration, setDuration] = useState(1);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const params = useParams();
@@ -104,10 +103,6 @@ const ItemPage = () => {
     return disabledButton;
   };
 
-  const toggleDropdown = () => {
-    setDropdownVisible(!dropdownVisible);
-  };
-
   return (
     <div className="item-details box">
       <div className="columns is-centered">
@@ -116,7 +111,7 @@ const ItemPage = () => {
           <div className="columns">
             <div className="column is-half">
               <figure className="image">
-                <img src={item.image} alt={`${item.name} image`} />
+                <img src={item.image} alt={`${item.name}`} />
               </figure>
             </div>
             <div className="column is-half my-auto">
