@@ -25,6 +25,7 @@ export const NotFound = () => {
       <h1 className="title has-text-white">
         Not Found
       </h1>
+      <NavButton path="/home" text="Home" />
     </>
   )
 }
