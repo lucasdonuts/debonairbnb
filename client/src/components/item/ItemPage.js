@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getCurrentUser } from '../../reducers/userSlice';
+import { getCurrentUser } from "../../reducers/userSlice";
 
 const ItemPage = () => {
   const { currentUser: user } = useSelector((state) => state.user);
@@ -54,20 +54,20 @@ const ItemPage = () => {
 
   const returnItem = () => {
     fetch(`/rentals`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         item_id: item.id,
         user_id: user.id,
-        current: false
-      })
+        current: false,
+      }),
     })
-      .then(res => res.json())
-      .then( data => {
+      .then((res) => res.json())
+      .then((data) => {
         setIsRented(false);
-        dispatch(getCurrentUser())
-      })
-  }
+        dispatch(getCurrentUser());
+      });
+  };
   // console.log(user.rentals)
 
   const borrowButton = (
@@ -77,11 +77,15 @@ const ItemPage = () => {
   );
 
   const disabledButton = (
-    <button className="button" disabled>Unavailable</button>
+    <button className="button" disabled>
+      Unavailable
+    </button>
   );
 
   const returnButton = (
-    <button onClick={ returnItem } className="button">Return</button>
+    <button onClick={returnItem} className="button">
+      Return
+    </button>
   );
 
   const getButton = () => {
@@ -94,75 +98,23 @@ const ItemPage = () => {
   };
 
   return (
-    <>
-      <p className="title has-text-white">{item.name}</p>
-      {getButton()}
-      <br />
-      <img src={item.image} alt={item.name} />
-
-      {/* Modal */}
-      <div
-        id="confirm-borrow"
-        className={modalVisible ? "modal is-active" : "modal"}
-      >
-        <div className="modal-background"></div>
-        <div className="modal-card has-text-centered" onClick={stopPropagation}>
-          <div className="modal-card-body">
-            <p className="modal-card-title mb-3">Borrow {item.name}?</p>
-            <section className="columns is-mobile modal-card-image">
-              <div className="column is-4 is-offset-4">
-                <figure className="image is-2by3">
-                  <img src={item.image} alt={item.name} />
-                </figure>
+    <div className="item-details box">
+      <div className="columns is-centered">
+        <div className="column">
+          <div className="is-fullwidth">
+            <p className="title is-size-4">{item.name}</p>
+            <div className="columns">
+              <div className="column is-half">
+                
               </div>
-            </section>
+              <div className="column is-half">
 
-            <div className="field is-grouped is-grouped-centered">
-              <div className="control">
-                <div className="select">
-                  <select
-                    onChange={(e) => setDuration(parseInt(e.target.value))}
-                    defaultValue="1"
-                  >
-                    <option value="">
-                      How long?
-                    </option>
-                    <option value="1">1 Day</option>
-                    <option value="2">2 Days</option>
-                    <option value="3">3 Days</option>
-                    <option value="4">4 Days</option>
-                    <option value="5">5 Days</option>
-                    <option value="6">6 Days</option>
-                    <option value="7">7 Days</option>
-                    <option value="8">8 Days</option>
-                    <option value="9">9 Days</option>
-                    <option value="10">10 Days</option>
-                  </select>
-                </div>
               </div>
-              <p className="control">
-                <button onClick={borrowItem} className="button is-primary">
-                  Borrow
-                </button>
-              </p>
-              <p className="control">
-                <button
-                  onClick={() => setModalVisible(false)}
-                  className="button"
-                >
-                  Cancel
-                </button>
-              </p>
             </div>
           </div>
         </div>
-        <button
-          onClick={() => setModalVisible(false)}
-          className="modal-close is-large"
-          aria-label="close"
-        ></button>
       </div>
-    </>
+    </div>
   );
 };
 

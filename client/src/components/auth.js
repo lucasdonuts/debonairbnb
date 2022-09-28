@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setCurrentUser,
   clearCurrentUser,
-  setErrors
+  setErrors,
 } from "../reducers/userSlice";
 
 export const LoginForm = () => {
   const { currentUser } = useSelector((state) => state.user);
-  const [ errors, setErrors ] = useState([]);
+  const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -18,12 +18,6 @@ export const LoginForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     navigate("/home");
-  //   }
-  // }, [currentUser]);
 
   const errorElements = errors.map((error) => {
     return (
@@ -66,7 +60,7 @@ export const LoginForm = () => {
     <div className="columns is-centered">
       <div className="column is-8">
         <div className="box">
-          <p className="title has-text-centered">DebonairBnB</p>
+          <p className="title has-text-centered is-brand-font">DebonairBnB</p>
           <p className="subtitle has-text-centered">Log In</p>
           <form onSubmit={handleSubmit}>
             <div className="field">
@@ -113,12 +107,16 @@ export const LoginForm = () => {
           </form>
         </div>
       </div>
+      <div className="column is-narrow">
+        <p className="is-size-5">Don't have an account?</p>
+        <NavButton path="/signup" text="Sign Up" />
+      </div>
     </div>
   );
 };
 
 export const SignupForm = () => {
-  const [ errors, setErrors ] = useState([]);
+  const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -152,26 +150,25 @@ export const SignupForm = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
-    })
-      .then( res => {
-        if (res.ok) {
-          res.json().then((user) => {
-            dispatch(setCurrentUser(user));
-            navigate("/home");
-          });
-        } else {
-          res.json().then((data) => {
-            setErrors(data.errors)
-          });
-        }
-      } )
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          dispatch(setCurrentUser(user));
+          navigate("/home");
+        });
+      } else {
+        res.json().then((data) => {
+          setErrors(data.errors);
+        });
+      }
+    });
   };
 
   return (
     <div className="columns is-centered">
-      <div className="column is-10">
+      <div className="column is-8">
         <div className="box">
-          <p className="title has-text-centered">DebonairBnB</p>
+          <p className="title has-text-centered is-brand-font">DebonairBnB</p>
           <p className="subtitle has-text-centered">Sign up is free!</p>
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
@@ -290,7 +287,7 @@ export const SignupForm = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="field is-horizontal">
               <div className="field-label is-hidden"></div>
               <div className="field-body">
@@ -306,9 +303,14 @@ export const SignupForm = () => {
                 </div>
               </div>
             </div>
-            { errorElements }
+            {errorElements}
           </form>
         </div>
+      </div>
+      
+      <div className="column is-narrow">
+        <p className="is-size-5">Already have an account?</p>
+        <NavButton path="/login" text="Log In" />
       </div>
     </div>
   );

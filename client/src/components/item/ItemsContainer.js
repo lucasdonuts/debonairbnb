@@ -64,10 +64,6 @@ const ItemsContainer = () => {
     return <option value={c} key={uuid()}>{ c }</option>
   })
 
-  // const itemsToDisplay = items.map((item) => {
-  //   return <ItemCard item={item} key={uuid()} />;
-  // });
-
   if (isLoading) {
     return <Loading />;
   }
