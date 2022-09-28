@@ -27,7 +27,6 @@ const UserPage = () => {
 
   const deleteAccount = () => {
     fetch(`/users/${user.id}`, { method: 'DELETE' })
-      .then( console.log('Account Deleted') )
       .then( () => {
         dispatch(clearCurrentUser());
         navigate('/') 

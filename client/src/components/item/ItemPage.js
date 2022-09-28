@@ -76,7 +76,6 @@ const ItemPage = () => {
         dispatch(getCurrentUser());
       });
   };
-  // console.log(user.rentals)
 
   const borrowButton = (
     <button onClick={handleBorrowClick} className="button is-primary">
@@ -145,7 +144,7 @@ const ItemPage = () => {
             <p className="modal-card-title mb-3">Borrow {item.name}?</p>
             <section className="columns is-mobile modal-card-image">
               <div className="column is-4 is-offset-4">
-                <figure className="image is-2by3">
+                <figure className="image">
                   <img src={item.image} alt={item.name} />
                 </figure>
               </div>

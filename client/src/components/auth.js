@@ -40,8 +40,6 @@ export const LoginForm = () => {
     });
   };
 
-  console.log(formData);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("/login", {

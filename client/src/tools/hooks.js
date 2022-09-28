@@ -33,9 +33,7 @@ export const AuthRoute = ({ children, /* currentUser */ }) => {
   const { currentUser, isLoading } = useSelector( state => state.user );
   
   useEffect( () => {
-    console.log("Inside useEffect: ", currentUser)
     if(!currentUser){
-      console.log('navigate')
       navigate('/login')
     }
   }, [])
