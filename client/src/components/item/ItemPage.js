@@ -8,6 +8,7 @@ const ItemPage = () => {
   const [item, setItem] = useState({});
   const [isRented, setIsRented] = useState(false);
   const [userHasItem, setUserHasItem] = useState(false);
+  const [currentRental, setCurrentRental] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
   const [duration, setDuration] = useState(1);
   const [errors, setErrors] = useState([]);
@@ -27,8 +28,10 @@ const ItemPage = () => {
       .then((data) => {
         setItem(data);
         setIsRented(data.rentals.some((r) => r.current));
-        console.log(data.rentals)
-        setUserHasItem(data.rentals.some((r) => r.user.id === user.id && r.current))
+        setUserHasItem(
+          data.rentals.some((r) => r.user.id === user.id && r.current)
+        );
+        setCurrentRental(data.rentals.find((r) => r.current) || {});
       });
   }, []);
 
@@ -51,6 +54,7 @@ const ItemPage = () => {
         res.json().then((data) => {
           setItem(data.item);
           setIsRented(true);
+          setCurrentRental(data);
           setUserHasItem(true);
           setModalVisible(false);
         });
@@ -74,6 +78,7 @@ const ItemPage = () => {
       .then((data) => {
         setIsRented(false);
         setUserHasItem(false);
+        setCurrentRental({});
         // setModalVisible(false);
       });
   };
@@ -100,7 +105,6 @@ const ItemPage = () => {
     if (!isRented) {
       return borrowButton;
     } else if (userHasItem) {
-    // } else if (user.is_currently_borrowing(item.id)) {
       return returnButton;
     }
     return disabledButton;
@@ -113,11 +117,10 @@ const ItemPage = () => {
     </p>
   );
 
-  const returnInfo =(
-    <p>
-
-    </p>
-  )
+  const getReturnInfo = () => {
+    console.log(currentRental.days_remaining);
+    return <p>You have {currentRental.days_remaining} day{currentRental.days_remaining > 1 && 's'} left on this rental</p>;
+  };
 
   return (
     <div className="item-details box">
@@ -132,12 +135,7 @@ const ItemPage = () => {
             </div>
             <div className="column is-half my-auto">
               {/* name, image, sex, size, price, category */}
-              <p>
-                <strong className="has-text-primary is-size-4">
-                  ${item.price}
-                </strong>
-                /day
-              </p>
+              { userHasItem ? getReturnInfo() : borrowInfo }
               {getButton()}
             </div>
           </div>
