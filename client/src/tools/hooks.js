@@ -28,9 +28,9 @@ export const NavButton = ({ path = '/', text = 'Back' }) => {
   )
 }
 
-export const AuthRoute = ({ children, /* currentUser */ }) => {
+export const AuthRoute = ({ children }) => {
   const navigate = useNavigate();
-  const { currentUser, isLoading } = useSelector( state => state.user );
+  const { currentUser } = useSelector( state => state.user );
   
   useEffect( () => {
     if(!currentUser){
@@ -38,10 +38,14 @@ export const AuthRoute = ({ children, /* currentUser */ }) => {
     }
   }, [])
 
-  return(
-    <>
-      { children }
-    </>
-  )
+  if(!currentUser){
+    return <></>
+  } else {
+    return(
+      <>
+        { children }
+      </>
+    )
+  }
 
 }

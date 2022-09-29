@@ -12,11 +12,15 @@ export const Root = ({ currentUser }) => {
     }
   }, [])
 
-  return(
-    <div className="columns is-centered">
-      <SignupForm />
-    </div>
-  )
+  if(currentUser){
+    return <></>
+  } else {
+    return(
+      <div className="columns is-centered">
+        <SignupForm />
+      </div>
+    )
+  }
 }
 
 export const NotFound = () => {
@@ -25,6 +29,7 @@ export const NotFound = () => {
       <h1 className="title has-text-white">
         Not Found
       </h1>
+      <NavButton path="/home" text="Home" />
     </>
   )
 }
