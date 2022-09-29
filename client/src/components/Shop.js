@@ -4,7 +4,7 @@ const Shop = () => {
   
   return(
     <>
-      <h1 className="title has-text-white has-text-centered">Browse</h1>
+      <h1 className="is-size-2 is-brand-font is-honeydew-color has-text-centered">Browse</h1>
       <ItemsContainer />
     </>
   )

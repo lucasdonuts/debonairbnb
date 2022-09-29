@@ -1,5 +1,6 @@
 {
   "cSpell.ignoreWords": [
+    "Oooh",
     "bulma",
     "fontawesome",
     "fortawesome",
@@ -10,10 +11,16 @@
     "mybulma",
     "mystyles",
     "reduxjs",
+    "richblack",
     "vcentered"
   ],
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
-  "editor.semanticHighlighting.enabled": true
+  "editor.semanticHighlighting.enabled": true,
+  "cSpell.words": [
+    "bitterlime",
+    "maxyellowred",
+    "yellowred"
+  ]
 }

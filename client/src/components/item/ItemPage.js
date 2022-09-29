@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getCurrentUser } from "../../reducers/userSlice";
+// import { getCurrentUser } from "../../reducers/userSlice";
 
 const ItemPage = () => {
   const { currentUser: user } = useSelector((state) => state.user);
@@ -14,7 +14,7 @@ const ItemPage = () => {
   const [errors, setErrors] = useState([]);
 
   const params = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   document.addEventListener("click", () => setModalVisible(false));
 
@@ -123,7 +123,7 @@ const ItemPage = () => {
   };
 
   return (
-    <div className="item-details box">
+    <div className="item-details box is-secondary-background">
       <div className="columns is-centered">
         <div className="column">
           <p className="title is-size-4">{item.name}</p>

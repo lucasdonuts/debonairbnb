@@ -70,7 +70,8 @@ const ItemsContainer = () => {
 
   return (
     <>
-      <div className="box pt-1">
+      <div className="box pt-1 is-base-background is-secondary-color">
+      {/* <div className="box pt-1 is-maxyellowred-background"> */}
         <p className="has-text-centered is-size-4">Filters</p>
         <div className="field">
           <div className="control">
@@ -119,7 +120,7 @@ const ItemsContainer = () => {
           </div>
         </div>
       </div>
-      <div className="columns is-multiline is-centered">{itemsToDisplay}</div>
+      <div className="columns is-multiline is-centered is-variable is-1">{itemsToDisplay}</div>
     </>
   );
 };

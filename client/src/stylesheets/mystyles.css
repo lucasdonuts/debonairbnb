@@ -1,6 +1,6 @@
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
-@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
 .pagination-next,
@@ -7877,9 +7877,95 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+html {
+  margin: auto; }
+
+* {
+  color: #ccdbdc; }
+
+div#root {
+  background-color: #1c0221;
+  min-height: 100vh; }
+
 .is-brand-font {
   font-family: "Oooh Baby", cursive;
   font-weight: bold; }
+
+.is-secondary-font {
+  font-family: "Kalam", cursive;
+  font-weight: bold; }
+
+.is-base-color {
+  color: #1c0221; }
+
+.is-base-background {
+  background-color: #1c0221 !important; }
+
+.is-base-background-light {
+  background-color: rgba(28, 2, 33, 0.7) !important; }
+
+.is-secondary-color {
+  color: #ccdbdc; }
+
+.is-secondary-background {
+  background-color: #ccdbdc; }
+
+.is-secondary-background-light {
+  background-color: rgba(204, 219, 220, 0.7); }
+
+.is-burgundy-color {
+  color: #a4303f; }
+
+.is-burgundy-background {
+  background-color: #a4303f; }
+
+.is-burgundy-background-light {
+  background-color: rgba(164, 48, 63, 0.7); }
+
+.is-ebony-color {
+  color: #5f634f; }
+
+.is-ebony-background {
+  background-color: #5f634f; }
+
+.is-ebony-background-light {
+  background-color: rgba(95, 99, 79, 0.7); }
+
+.is-richblack-color {
+  color: #1a3a3a; }
+
+.is-richblack-background {
+  background-color: #1a3a3a; }
+
+.is-richblack-background-light {
+  background-color: rgba(26, 58, 58, 0.7); }
+
+.is-bitterlime-color {
+  color: #baff29; }
+
+.is-bitterlime-background {
+  background-color: #baff29; }
+
+.is-bitterlime-background-light {
+  background-color: rgba(186, 255, 41, 0.5); }
+
+.is-maxyellowred-color {
+  color: #e9b44c; }
+
+.is-maxyellowred-background {
+  background-color: #e9b44c; }
+
+.is-maxyellowred-background-light {
+  background-color: rgba(233, 180, 76, 0.7); }
+
+.is-honeydew-color {
+  color: #d2f1e4; }
+
+.is-honeydew-background {
+  background-color: #d2f1e4; }
+
+.is-honeydew-background-light {
+  background-color: rgba(210, 241, 228, 0.7); }
 
 .navbar-brand > .navbar-menu {
   background-color: #363636;
@@ -7888,7 +7974,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .navbar-item {
   height: 100%; }
 
-.navbar-item,
-a.navbar-item:focus,
-a.navbar-item:hover {
-  color: white; }
+.navbar-item > p {
+  color: #d2f1e4;
+  font-family: "Kalam", cursive;
+  font-weight: bold; }

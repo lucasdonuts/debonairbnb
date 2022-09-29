@@ -1,21 +1,150 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
-
-// Google Logo font
-// @import url(https://fonts.googleapis.com/css2?family=Oooh+Baby:400|Molle:400italic|Kalam:300,400,700|Marck+Script:400);
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap');
-//Open+Sans:400italic,700italic,400,700
+@import url(
+  'https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap'
+  );
 
 $brand-font: 'Oooh Baby', cursive;
-// $brand-font: 'Marck Script', cursive;
+$secondary-font: 'Kalam', cursive;
+$base: rgba(28, 2, 33, 1); // #1C0221
+$base-light: rgba(28, 2, 33, 0.7); // #1C0221
+$secondary: rgba(204, 219, 220, 1); // #CCDBDC;
+$secondary-light: rgba(204, 219, 220, 0.7); // #CCDBDC;
+$burgundy: rgba(164, 48, 63, 1); // #A4303F;
+$burgundy-light: rgba(164, 48, 63, 0.7); // #A4303F;
+$ebony: rgba(95, 99, 79, 1); // #5F634F;
+$ebony-light: rgba(95, 99, 79, 0.7); // #5F634F;
+$richblack: rgba(26, 58, 58, 1); // #1A3A3A;
+$richblack-light: rgba(26, 58, 58, 0.7); // #1A3A3A;
+$bitterlime: rgba(186, 255, 41, 1); // #BAFF29;
+$bitterlime-light: rgba(186, 255, 41, 0.5); // #BAFF29;
+$maxyellowred: rgba(233, 180, 76, 1);
+$maxyellowred-light: rgba(233, 180, 76, 0.7);
+$honeydew: rgba(210, 241, 228, 1);
+$honeydew-light: rgba(210, 241, 228, 0.7);
+// $turquoise: rgba(115, 238, 220, 1);
+// $turquoise-light: rgba(115, 238, 220, 0.7);
 
-// Whack
-// $brand-font: 'Molle', cursive;
-// $brand-font: 'Kalam', cursive;
+
+// $primary: #CCDBDC;
+
+html {
+  margin: auto;
+}
+
+* {
+  color: $secondary;
+}
+
+div#root {
+  background-color: $base;
+  min-height: 100vh;
+}
 
 .is-brand-font {
   font-family: $brand-font;
   font-weight: bold;
+}
+
+.is-secondary-font {
+  font-family: $secondary-font;
+  font-weight: bold;
+}
+
+.is-base-color {
+  color: $base;
+}
+
+.is-base-background {
+  background-color: $base !important;
+}
+
+.is-base-background-light {
+  background-color: $base-light !important;
+}
+
+.is-secondary-color {
+  color: $secondary;
+}
+
+.is-secondary-background {
+  background-color: $secondary;
+}
+
+.is-secondary-background-light {
+  background-color: $secondary-light;
+}
+
+.is-burgundy-color {
+  color: $burgundy;
+}
+
+.is-burgundy-background {
+  background-color: $burgundy;
+}
+
+.is-burgundy-background-light {
+  background-color: $burgundy-light;
+}
+
+.is-ebony-color {
+  color: $ebony;
+}
+
+.is-ebony-background {
+  background-color: $ebony;
+}
+
+.is-ebony-background-light {
+  background-color: $ebony-light;
+}
+
+.is-richblack-color {
+  color: $richblack;
+}
+
+.is-richblack-background {
+  background-color: $richblack;
+}
+
+.is-richblack-background-light {
+  background-color: $richblack-light;
+}
+
+.is-bitterlime-color {
+  color: $bitterlime;
+}
+
+.is-bitterlime-background {
+  background-color: $bitterlime;
+}
+
+.is-bitterlime-background-light {
+  background-color: $bitterlime-light;
+}
+
+.is-maxyellowred-color {
+  color: $maxyellowred;
+}
+
+.is-maxyellowred-background {
+  background-color: $maxyellowred;
+}
+
+.is-maxyellowred-background-light {
+  background-color: $maxyellowred-light;
+}
+
+.is-honeydew-color {
+  color: $honeydew;
+}
+
+.is-honeydew-background {
+  background-color: $honeydew;
+}
+
+.is-honeydew-background-light {
+  background-color: $honeydew-light;
 }
 
 .navbar-brand>.navbar-menu {
@@ -27,8 +156,30 @@ $brand-font: 'Oooh Baby', cursive;
   height: 100%;
 }
 
-.navbar-item,
-a.navbar-item:focus,
-a.navbar-item:hover {
-  color: white;
+.navbar-item > p {
+  color: $honeydew;
+  font-family: $secondary-font;
+  font-weight: bold;
 }
+
+// .navbar-item,
+// a.navbar-item:focus,
+// a.navbar-item:hover {
+//   color: $secondary;
+// }
+
+// .item-card.column {
+//   display: flex;
+// }
+
+// .is-turquoise-color {
+//   color: $turquoise;
+// }
+
+// .is-turquoise-background {
+//   background-color: $turquoise;
+// }
+
+// .is-turquoise-background-light {
+//   background-color: $turquoise-light;
+// }

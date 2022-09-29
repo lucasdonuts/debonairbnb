@@ -192,19 +192,19 @@ export const OldNav = () => {
   return (
     <nav
       // className="navbar is-dark"
-      className="navbar is-dark columns is-centered m-0"
+      className="navbar is-base-background columns is-centered m-0"
       role="navigation"
       aria-label="main navigation"
     >
       <div className="navbar-brand column is-11 is-8-fullhd p-0">
         {/* <div className="navbar-brand mx-auto"> */}
-        <div className="navbar-menu is-active is-flex is-justify-content-space-between">
+        <div className="navbar-menu is-base-background is-active is-flex is-justify-content-space-between">
           <div className="navbar-start is-flex">
             {/* <div className="navbar-item"> */}
             <NavLink to="/" className="navbar-item" end>
-              <p className="is-brand-font has-text-white is-size-3">
+              <h1 className="is-brand-font is-bitterlime-color is-size-1">
                 DebonairBnB
-              </p>
+              </h1>
             </NavLink>
             {/* </div> */}
             {currentUser && userLinks}
