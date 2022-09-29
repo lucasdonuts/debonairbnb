@@ -8,6 +8,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: :true, presence: true
 
   def current_rentals
-    self.rentals.where(current: true);
+    self.rentals.where(current: true)
   end
+
+  # def is_currently_borrowing
+  #   # !self.rentals.where(item_id: itemID, current: true).empty?
+  #   self.current_rentals.any? { |r| r.item_id == params[:id] }
+  # end
 end

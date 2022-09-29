@@ -7,6 +7,7 @@ const ItemPage = () => {
   const { currentUser: user } = useSelector((state) => state.user);
   const [item, setItem] = useState({});
   const [isRented, setIsRented] = useState(false);
+  const [userHasItem, setUserHasItem] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [duration, setDuration] = useState(1);
   const [errors, setErrors] = useState([]);
@@ -26,6 +27,8 @@ const ItemPage = () => {
       .then((data) => {
         setItem(data);
         setIsRented(data.rentals.some((r) => r.current));
+        console.log(data.rentals)
+        setUserHasItem(data.rentals.some((r) => r.user.id === user.id && r.current))
       });
   }, []);
 
@@ -43,20 +46,18 @@ const ItemPage = () => {
         item_id: item.id,
         duration: duration,
       }),
-    })
-      .then((res) => {
-        if(res.ok){
-          res.json().then((data) => {
-            setItem(data.item);
-            dispatch(getCurrentUser());
-            setIsRented(true);
-            setModalVisible(false);
-          });
-        } else {
-          res.json().then( data => setErrors([...errors, data.errors]) )
-        }
-      })
-      
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setItem(data.item);
+          setIsRented(true);
+          setUserHasItem(true);
+          setModalVisible(false);
+        });
+      } else {
+        res.json().then((data) => setErrors([...errors, data.errors]));
+      }
+    });
   };
 
   const returnItem = () => {
@@ -72,7 +73,8 @@ const ItemPage = () => {
       .then((res) => res.json())
       .then((data) => {
         setIsRented(false);
-        dispatch(getCurrentUser());
+        setUserHasItem(false);
+        // setModalVisible(false);
       });
   };
 
@@ -97,11 +99,25 @@ const ItemPage = () => {
   const getButton = () => {
     if (!isRented) {
       return borrowButton;
-    } else if (user.current_rentals.some((r) => r.item_id === item.id)) {
+    } else if (userHasItem) {
+    // } else if (user.is_currently_borrowing(item.id)) {
       return returnButton;
     }
     return disabledButton;
   };
+
+  const borrowInfo = (
+    <p>
+      <strong className="has-text-primary is-size-4">${item.price}</strong>
+      /day
+    </p>
+  );
+
+  const returnInfo =(
+    <p>
+
+    </p>
+  )
 
   return (
     <div className="item-details box">
@@ -152,9 +168,7 @@ const ItemPage = () => {
                     onChange={(e) => setDuration(parseInt(e.target.value))}
                     defaultValue="1"
                   >
-                    <option value="">
-                      How long?
-                    </option>
+                    <option value="">How long?</option>
                     <option value="1">1 Day</option>
                     <option value="2">2 Days</option>
                     <option value="3">3 Days</option>
@@ -182,7 +196,7 @@ const ItemPage = () => {
                 </button>
               </p>
             </div>
-            <p className="is-danger">{ errors }</p>
+            <p className="is-danger">{errors}</p>
           </div>
         </div>
         <button
