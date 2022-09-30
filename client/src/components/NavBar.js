@@ -173,7 +173,7 @@ const NavBar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand column is-11 is-8-fullhd p-0">
-        <div className="navbar-menu is-active is-flex is-justify-content-space-between">
+        <div className="navbar-menu is-active is-flex is-shadowless is-justify-content-space-around">
           <div className="navbar-start is-flex">
             <NavLink to="/" className="navbar-item" end>
               <h1 className="is-brand-font is-accent-color is-size-1">

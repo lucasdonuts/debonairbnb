@@ -16,20 +16,14 @@ export const Root = ({ currentUser }) => {
     return <></>;
   } else {
     return (
-      <div className="columns is-centered">
+      <div className="unauth-landing-container columns is-centered">
         <div className="column">
           <h1 className="is-brand-font is-accent-color is-xl-text has-text-centered">DebonairBnB</h1>
-          <div className="columns is-centered is-justify-content-space-around">
-            <div className="column is-5">
-              <h1 className="is-brand-font is-size-2 has-text-centered">
-                Sign Up
-              </h1>
+          <div className="columns is-centered is-align-items-centered">
+            <div className="column is-6">
               <SignupForm />
             </div>
-            <div className="column is-4">
-              <h1 className="is-brand-font is-size-2 has-text-centered">
-                Log In
-              </h1>
+            <div className="column is-5">
               <LoginForm />
             </div>
           </div>

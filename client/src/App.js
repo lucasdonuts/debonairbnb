@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       {currentUser && <NavBar />}
-      <div className="section columns is-centered">
+      <div className="main section columns is-centered">
         <div className="column is-11 is-9-fullhd has-text-centered">
           <Routes>
             <Route index element={<Root currentUser={currentUser} />} />

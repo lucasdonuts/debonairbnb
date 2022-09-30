@@ -57,149 +57,144 @@ export const SignupForm = () => {
   };
 
   return (
-        <div className="box is-secondary-background">
-          <form onSubmit={handleSubmit}>
-            <div className="field is-horizontal">
-              <div className="field-label is-hidden">
-                <label className="label" htmlFor="first_name"></label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <p className="control is-expanded has-icons-left">
-                    <input
-                      onChange={handleChange}
-                      className="input"
-                      type="text"
-                      name="first_name"
-                      placeholder="First Name"
-                      value={formData.first_name}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-signature"></i>
-                    </span>
-                  </p>
-                </div>
-                <div className="field">
-                  <p className="control is-expanded has-icons-left">
-                    <input
-                      onChange={handleChange}
-                      className="input"
-                      type="text"
-                      name="last_name"
-                      placeholder="Last Name"
-                      value={formData.last_name}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-signature"></i>
-                    </span>
-                  </p>
-                </div>
-              </div>
+    <div className="box is-secondary-background">
+      <h1 className="is-brand-font is-size-2 has-text-centered">Sign Up</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="field is-horizontal">
+          <div className="field-label is-hidden">
+            <label className="label" htmlFor="first_name"></label>
+          </div>
+          <div className="field-body">
+            <div className="field">
+              <p className="control is-expanded has-icons-left">
+                <input
+                  onChange={handleChange}
+                  className="input"
+                  type="text"
+                  name="first_name"
+                  placeholder="First Name"
+                  value={formData.first_name}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-signature"></i>
+                </span>
+              </p>
             </div>
-
-            <div className="field is-horizontal">
-              <div className="field-label is-hidden">
-                <label className="label" htmlFor="address"></label>
-              </div>
-              <div className="field-body">
-                <div className="field">
-                  <div className="control has-icons-left">
-                    <input
-                      onChange={handleChange}
-                      className="input"
-                      type="text"
-                      name="address"
-                      placeholder="Address"
-                      value={formData.address}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-house"></i>
-                    </span>
-                  </div>
-                  {/* <p className="help is-danger">This field is required</p> */}
-                </div>
-              </div>
+            <div className="field">
+              <p className="control is-expanded has-icons-left">
+                <input
+                  onChange={handleChange}
+                  className="input"
+                  type="text"
+                  name="last_name"
+                  placeholder="Last Name"
+                  value={formData.last_name}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-signature"></i>
+                </span>
+              </p>
             </div>
-
-            <div className="field is-horizontal">
-              <div className="field-label is-hidden"></div>
-              <div className="field-body">
-                <div className="field is-expanded">
-                  <div className="field has-addons">
-                    <p className="control is-expanded has-icons-left">
-                      <input
-                        onChange={handleChange}
-                        className="input"
-                        type="email"
-                        name="email"
-                        placeholder="Email Address"
-                        value={formData.email}
-                      />
-                      <span className="icon is-small is-left">
-                        <i className="fas fa-envelope"></i>
-                      </span>
-                    </p>
-                  </div>
-                  <p className="help">
-                    This is how you will log in to your account
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="field is-horizontal">
-              <div className="field-label is-hidden">
-                <label className="label" htmlFor="password"></label>
-              </div>
-              <div className="field-body">
-                <div className="field is-grouped is-grouped-centered">
-                  <p className="control is-expanded has-icons-left">
-                    <input
-                      onChange={handleChange}
-                      className="input"
-                      type="password"
-                      name="password"
-                      placeholder="Password"
-                      value={formData.password}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-lock"></i>
-                    </span>
-                  </p>
-                </div>
-                <div className="field">
-                  <p className="control is-expanded has-icons-left">
-                    <input
-                      onChange={handleChange}
-                      className="input"
-                      type="password"
-                      name="password_confirmation"
-                      placeholder="Confirm Password"
-                      value={formData.password_confirmation}
-                    />
-                    <span className="icon is-small is-left">
-                      <i className="fas fa-lock"></i>
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="field is-horizontal">
-              <div className="field-label is-hidden"></div>
-              <div className="field-body">
-                <div className="field">
-                  <div className="control">
-                    <button type="submit" className="button is-accent-button">
-                      Sign Up
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {errorElements}
-          </form>
+          </div>
         </div>
+
+        <div className="field is-horizontal">
+          <div className="field-label is-hidden">
+            <label className="label" htmlFor="address"></label>
+          </div>
+          <div className="field-body">
+            <div className="field">
+              <div className="control has-icons-left">
+                <input
+                  onChange={handleChange}
+                  className="input"
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  value={formData.address}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-house"></i>
+                </span>
+              </div>
+              {/* <p className="help is-danger">This field is required</p> */}
+            </div>
+          </div>
+        </div>
+
+        <div className="field is-horizontal">
+          <div className="field-label is-hidden"></div>
+          <div className="field-body">
+            <div className="field is-expanded">
+              <div className="field has-addons">
+                <p className="control is-expanded has-icons-left">
+                  <input
+                    onChange={handleChange}
+                    className="input"
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    value={formData.email}
+                  />
+                  <span className="icon is-small is-left">
+                    <i className="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+              <p className="help">
+                This is how you will log in to your account
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="field is-horizontal">
+          <div className="field-label is-hidden">
+            <label className="label" htmlFor="password"></label>
+          </div>
+          <div className="field-body">
+            <div className="field is-grouped is-grouped-centered">
+              <p className="control is-expanded has-icons-left">
+                <input
+                  onChange={handleChange}
+                  className="input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={formData.password}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control is-expanded has-icons-left">
+                <input
+                  onChange={handleChange}
+                  className="input"
+                  type="password"
+                  name="password_confirmation"
+                  placeholder="Confirm Password"
+                  value={formData.password_confirmation}
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="field">
+          <div className="control">
+            <button type="submit" className="button is-rounded is-dark-button">
+              Sign Up
+            </button>
+          </div>
+        </div>
+        {errorElements}
+      </form>
+    </div>
   );
 };
 
@@ -256,46 +251,47 @@ export const LoginForm = () => {
   };
 
   return (
-        <div className="box is-secondary-background">
-          <form onSubmit={handleSubmit}>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  required
-                  onChange={handleChange}
-                  className="input"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  required
-                  onChange={handleChange}
-                  className="input"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-
-            {errorElements}
-
-              <div className="control">
-                <button className="button is-base-button">Login</button>
-              </div>
-          </form>
+    <div className="box is-secondary-background">
+      <h1 className="is-brand-font is-size-2 has-text-centered">Log In</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="field">
+          <p className="control has-icons-left">
+            <input
+              required
+              onChange={handleChange}
+              className="input"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <span className="icon is-small is-left">
+              <i className="fas fa-envelope"></i>
+            </span>
+          </p>
         </div>
+        <div className="field">
+          <p className="control has-icons-left">
+            <input
+              required
+              onChange={handleChange}
+              className="input"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+            <span className="icon is-small is-left">
+              <i className="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+
+        {errorElements}
+
+        <div className="control">
+          <button className="button is-rounded is-dark-button">Login</button>
+        </div>
+      </form>
+    </div>
   );
 };
 

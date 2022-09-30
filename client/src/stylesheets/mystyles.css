@@ -1,6 +1,6 @@
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
-@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Abril+Fatface&family=Montserrat&family=Tangerine&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
 .pagination-next,
@@ -7879,17 +7879,26 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 html {
   margin: auto;
-  background-color: #1c0221; }
+  background-color: #0b5200; }
 
 body {
   font-family: "Montserrat", sans-serif; }
 
 * {
-  color: white; }
+  color: #1a3a3a; }
 
 div#root {
-  background-color: #1c0221;
+  background-color: #0b5200;
   min-height: 100vh; }
+
+.main.section {
+  background-color: white;
+  min-height: 100vh; }
+
+.unauth-landing-container {
+  min-height: 100%;
+  display: grid;
+  align-items: center; }
 
 .is-brand-font {
   font-family: "Oooh Baby", cursive;
@@ -7900,100 +7909,58 @@ div#root {
   font-weight: bold; }
 
 .is-base-color {
-  color: #1c0221; }
+  color: #0b5200; }
 
 .is-base-background {
-  background-color: #1c0221 !important; }
+  background-color: #0b5200 !important; }
 
 .is-base-button {
-  background-color: #1c0221;
-  border: 2px solid #1c0221;
-  color: #fcdf00;
+  background-color: #0b5200;
+  border: 2px solid #0b5200;
+  color: #c7f1ff;
   font-weight: 700; }
+
+.is-base-border {
+  border: 2px solid #0b5200; }
 
 .is-secondary-color {
-  color: #998888; }
+  color: white; }
 
 .is-secondary-background {
-  background-color: #998888; }
+  background-color: white; }
+
+.is-secondary-button {
+  background-color: white;
+  border: none;
+  color: #c7f1ff;
+  font-weight: 500; }
 
 .is-accent-color {
-  color: #fcdf00; }
+  color: #c7f1ff; }
 
 .is-accent-background {
-  background-color: #fcdf00; }
+  background-color: #c7f1ff; }
 
 .is-accent-button {
-  background-color: #fcdf00;
-  border: 2px solid #fcdf00;
-  color: #1c0221;
+  background-color: #c7f1ff;
+  border: 2px solid #c7f1ff;
+  color: #0b5200;
   font-weight: 700; }
 
-.is-rosewood-color {
-  color: #520005; }
+.is-accent-border {
+  border: 2px solid #c7f1ff; }
 
-.is-rosewood-background {
-  background-color: #520005 !important; }
+.is-dark-button {
+  background-color: #1a3a3a;
+  color: white;
+  border: 2px solid white;
+  font-weight: 500; }
 
-.is-jonquil-color {
-  color: #f0c808; }
-
-.is-jonquil-background {
-  background-color: #f0c808 !important; }
-
-.is-papayawhip-color {
-  color: #fff1d0; }
-
-.is-papayawhip-background {
-  background-color: #fff1d0 !important; }
-
-.is-bluegreen-color {
-  color: #07a0c3; }
-
-.is-bluegreen-background {
-  background-color: #07a0c3 !important; }
-
-.is-bluesapphire-color {
-  color: #086788; }
-
-.is-bluesapphire-background {
-  background-color: #086788 !important; }
-
-.is-burgundy-color {
-  color: #a4303f; }
-
-.is-burgundy-background {
-  background-color: #a4303f; }
-
-.is-ebony-color {
-  color: #5f634f; }
-
-.is-ebony-background {
-  background-color: #5f634f; }
-
-.is-richblack-color {
-  color: #1a3a3a; }
-
-.is-richblack-background {
-  background-color: #1a3a3a; }
-
-.is-bitterlime-color {
-  color: #baff29; }
-
-.is-bitterlime-background {
-  background-color: #baff29; }
-
-.is-maxyellowred-color {
-  color: #e9b44c; }
-
-.is-maxyellowred-background {
-  background-color: #e9b44c; }
-
-.is-honeydew-color {
-  color: #d2f1e4; }
-
-.is-honeydew-background {
-  background-color: #d2f1e4; }
+.is-light-button {
+  background-color: white;
+  color: #1a3a3a;
+  border: 2px solid #1a3a3a;
+  font-weight: 500; }
 
 .navbar-brand > .navbar-menu {
   background: transparent;
@@ -8008,7 +7975,7 @@ div#root {
   font-weight: bold; }
 
 i {
-  color: #1c0221; }
+  color: #0b5200; }
 
 .is-xl-text {
   font-size: 4rem; }
