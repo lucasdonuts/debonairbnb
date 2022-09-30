@@ -61,8 +61,8 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="columns is-centered">
-      <div className="column is-8">
+    // <div className="columns is-centered">
+      // {/* <div className="column is-8"> */}
         <div className="box">
           <p className="title has-text-centered is-brand-font">DebonairBnB</p>
           <p className="subtitle has-text-centered">Log In</p>
@@ -110,12 +110,12 @@ export const LoginForm = () => {
             </div>
           </form>
         </div>
-      </div>
-      <div className="column is-narrow">
-        <p className="is-size-5">Don't have an account?</p>
-        <NavButton path="/signup" text="Sign Up" />
-      </div>
-    </div>
+      // {/* </div> */}
+      // {/* <div className="column is-narrow">
+      //   <p className="is-size-5">Don't have an account?</p>
+      //   <NavButton path="/signup" text="Sign Up" />
+      // </div> */}
+    // {/* </div> */}
   );
 };
 
@@ -169,8 +169,8 @@ export const SignupForm = () => {
   };
 
   return (
-    <div className="columns is-centered">
-      <div className="column is-8">
+    // <div className="columns is-centered">
+    //   <div className="column is-8">
         <div className="box">
           <p className="title has-text-centered is-brand-font">DebonairBnB</p>
           <p className="subtitle has-text-centered">Sign up is free!</p>
@@ -310,13 +310,13 @@ export const SignupForm = () => {
             {errorElements}
           </form>
         </div>
-      </div>
+      // </div>
       
-      <div className="column is-narrow">
+      /* <div className="column is-narrow">
         <p className="is-size-5">Already have an account?</p>
         <NavButton path="/login" text="Log In" />
-      </div>
-    </div>
+      </div> */
+    // </div>
   );
 };
 

@@ -1,39 +1,46 @@
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 @import url(
-  'https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap'
+  'https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap'
   );
 
-$brand-font: 'Oooh Baby', cursive;
+$base-font: 'Montserrat', sans-serif;
 $secondary-font: 'Kalam', cursive;
-$base: rgba(28, 2, 33, 1); // #1C0221
-$base-light: rgba(28, 2, 33, 0.7); // #1C0221
-$secondary: rgba(204, 219, 220, 1); // #CCDBDC;
-$secondary-light: rgba(204, 219, 220, 0.7); // #CCDBDC;
+$brand-font: 'Oooh Baby', cursive;
 $burgundy: rgba(164, 48, 63, 1); // #A4303F;
-$burgundy-light: rgba(164, 48, 63, 0.7); // #A4303F;
 $ebony: rgba(95, 99, 79, 1); // #5F634F;
-$ebony-light: rgba(95, 99, 79, 0.7); // #5F634F;
 $richblack: rgba(26, 58, 58, 1); // #1A3A3A;
-$richblack-light: rgba(26, 58, 58, 0.7); // #1A3A3A;
 $bitterlime: rgba(186, 255, 41, 1); // #BAFF29;
-$bitterlime-light: rgba(186, 255, 41, 0.5); // #BAFF29;
 $maxyellowred: rgba(233, 180, 76, 1);
-$maxyellowred-light: rgba(233, 180, 76, 0.7);
 $honeydew: rgba(210, 241, 228, 1);
-$honeydew-light: rgba(210, 241, 228, 0.7);
-// $turquoise: rgba(115, 238, 220, 1);
-// $turquoise-light: rgba(115, 238, 220, 0.7);
+$darkpurple: rgba(28, 2, 33, 1); // #1C0221
 
+$jonquil: rgba( 240, 200, 8, 1);
+$papayawhip: rgba( 255, 241, 208, 1);
+$rosewood: rgba( 82, 0, 5, 1);
+$bluegreen: rgba( 7, 160, 195, 1);
+$bluesapphire: rgba( 8, 103, 136, 1);
 
-// $primary: #CCDBDC;
+$yellowpantone: rgba(252, 223, 0, 1);
+$cinereous: rgba(153, 136, 136, 1);
+
+$base: $darkpurple;
+$secondary: $cinereous;
+$accent: $yellowpantone;
+
+$base-text: $papayawhip;
+
 
 html {
   margin: auto;
 }
 
+body {
+  font-family: $base-font;
+}
+
 * {
-  color: $secondary;
+  color: white;
 }
 
 div#root {
@@ -59,10 +66,6 @@ div#root {
   background-color: $base !important;
 }
 
-.is-base-background-light {
-  background-color: $base-light !important;
-}
-
 .is-secondary-color {
   color: $secondary;
 }
@@ -71,20 +74,56 @@ div#root {
   background-color: $secondary;
 }
 
-.is-secondary-background-light {
-  background-color: $secondary-light;
+.is-accent-color {
+  color: $accent;
+}
+////////////////////////////////
+.is-rosewood-color {
+  color: $rosewood;
 }
 
+.is-rosewood-background {
+  background-color: $rosewood !important;
+}
+
+.is-jonquil-color {
+  color: $jonquil;
+}
+
+.is-jonquil-background {
+  background-color: $jonquil !important;
+}
+
+.is-papayawhip-color {
+  color: $papayawhip;
+}
+
+.is-papayawhip-background {
+  background-color: $papayawhip !important;
+}
+
+.is-bluegreen-color {
+  color: $bluegreen;
+}
+
+.is-bluegreen-background {
+  background-color: $bluegreen !important;
+}
+
+.is-bluesapphire-color {
+  color: $bluesapphire;
+}
+
+.is-bluesapphire-background {
+  background-color: $bluesapphire !important;
+}
+///////////////////////////////////
 .is-burgundy-color {
   color: $burgundy;
 }
 
 .is-burgundy-background {
   background-color: $burgundy;
-}
-
-.is-burgundy-background-light {
-  background-color: $burgundy-light;
 }
 
 .is-ebony-color {
@@ -95,20 +134,12 @@ div#root {
   background-color: $ebony;
 }
 
-.is-ebony-background-light {
-  background-color: $ebony-light;
-}
-
 .is-richblack-color {
   color: $richblack;
 }
 
 .is-richblack-background {
   background-color: $richblack;
-}
-
-.is-richblack-background-light {
-  background-color: $richblack-light;
 }
 
 .is-bitterlime-color {
@@ -119,20 +150,12 @@ div#root {
   background-color: $bitterlime;
 }
 
-.is-bitterlime-background-light {
-  background-color: $bitterlime-light;
-}
-
 .is-maxyellowred-color {
   color: $maxyellowred;
 }
 
 .is-maxyellowred-background {
   background-color: $maxyellowred;
-}
-
-.is-maxyellowred-background-light {
-  background-color: $maxyellowred-light;
 }
 
 .is-honeydew-color {
@@ -143,12 +166,8 @@ div#root {
   background-color: $honeydew;
 }
 
-.is-honeydew-background-light {
-  background-color: $honeydew-light;
-}
-
 .navbar-brand>.navbar-menu {
-  background-color: #363636;
+  background: transparent;
   padding: 0;
 }
 

@@ -1,6 +1,6 @@
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
-@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
 .button, .input, .textarea, .select select, .file-cta,
 .file-name, .pagination-previous,
 .pagination-next,
@@ -7880,8 +7880,11 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 html {
   margin: auto; }
 
+body {
+  font-family: "Montserrat", sans-serif; }
+
 * {
-  color: #ccdbdc; }
+  color: white; }
 
 div#root {
   background-color: #1c0221;
@@ -7901,17 +7904,44 @@ div#root {
 .is-base-background {
   background-color: #1c0221 !important; }
 
-.is-base-background-light {
-  background-color: rgba(28, 2, 33, 0.7) !important; }
-
 .is-secondary-color {
-  color: #ccdbdc; }
+  color: #998888; }
 
 .is-secondary-background {
-  background-color: #ccdbdc; }
+  background-color: #998888; }
 
-.is-secondary-background-light {
-  background-color: rgba(204, 219, 220, 0.7); }
+.is-accent-color {
+  color: #fcdf00; }
+
+.is-rosewood-color {
+  color: #520005; }
+
+.is-rosewood-background {
+  background-color: #520005 !important; }
+
+.is-jonquil-color {
+  color: #f0c808; }
+
+.is-jonquil-background {
+  background-color: #f0c808 !important; }
+
+.is-papayawhip-color {
+  color: #fff1d0; }
+
+.is-papayawhip-background {
+  background-color: #fff1d0 !important; }
+
+.is-bluegreen-color {
+  color: #07a0c3; }
+
+.is-bluegreen-background {
+  background-color: #07a0c3 !important; }
+
+.is-bluesapphire-color {
+  color: #086788; }
+
+.is-bluesapphire-background {
+  background-color: #086788 !important; }
 
 .is-burgundy-color {
   color: #a4303f; }
@@ -7919,17 +7949,11 @@ div#root {
 .is-burgundy-background {
   background-color: #a4303f; }
 
-.is-burgundy-background-light {
-  background-color: rgba(164, 48, 63, 0.7); }
-
 .is-ebony-color {
   color: #5f634f; }
 
 .is-ebony-background {
   background-color: #5f634f; }
-
-.is-ebony-background-light {
-  background-color: rgba(95, 99, 79, 0.7); }
 
 .is-richblack-color {
   color: #1a3a3a; }
@@ -7937,17 +7961,11 @@ div#root {
 .is-richblack-background {
   background-color: #1a3a3a; }
 
-.is-richblack-background-light {
-  background-color: rgba(26, 58, 58, 0.7); }
-
 .is-bitterlime-color {
   color: #baff29; }
 
 .is-bitterlime-background {
   background-color: #baff29; }
-
-.is-bitterlime-background-light {
-  background-color: rgba(186, 255, 41, 0.5); }
 
 .is-maxyellowred-color {
   color: #e9b44c; }
@@ -7955,20 +7973,14 @@ div#root {
 .is-maxyellowred-background {
   background-color: #e9b44c; }
 
-.is-maxyellowred-background-light {
-  background-color: rgba(233, 180, 76, 0.7); }
-
 .is-honeydew-color {
   color: #d2f1e4; }
 
 .is-honeydew-background {
   background-color: #d2f1e4; }
 
-.is-honeydew-background-light {
-  background-color: rgba(210, 241, 228, 0.7); }
-
 .navbar-brand > .navbar-menu {
-  background-color: #363636;
+  background: transparent;
   padding: 0; }
 
 .navbar-item {

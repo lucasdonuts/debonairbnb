@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavButton } from '../tools/hooks';
-import { SignupForm } from './auth';
+import { SignupForm, LoginForm } from './auth';
 
 export const Root = ({ currentUser }) => {
   const navigate = useNavigate();
@@ -17,7 +17,12 @@ export const Root = ({ currentUser }) => {
   } else {
     return(
       <div className="columns is-centered">
-        <SignupForm />
+        <div className="column is-half">
+          <SignupForm />
+        </div>
+        <div className="column is-half">
+          <LoginForm />
+        </div>
       </div>
     )
   }

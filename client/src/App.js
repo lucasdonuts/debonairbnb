@@ -1,6 +1,4 @@
-// import "bulma/css/bulma.min.css";
 import "./stylesheets/mystyles.css";
-// import "./stylesheets/App.css";
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getCurrentUser } from "./reducers/userSlice";
@@ -8,7 +6,6 @@ import { useEffect } from "react";
 
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
-import { OldNav } from "./components/NavBar";
 import { Root, NotFound } from "./components/landings";
 import { SignupForm, LoginForm } from "./components/auth";
 import { AuthRoute } from "./tools/hooks";
@@ -31,8 +28,7 @@ function App() {
 
   return (
     <>
-      {/* <NavBar /> */}
-      <OldNav />
+      {currentUser && <NavBar />}
       <div className="section columns is-centered">
         <div className="column is-11 is-9-fullhd has-text-centered">
           <Routes>
