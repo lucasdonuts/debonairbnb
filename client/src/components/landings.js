@@ -19,14 +19,14 @@ export const Root = ({ currentUser }) => {
       <div className="columns is-centered">
         <div className="column">
           <h1 className="is-brand-font is-accent-color is-xl-text has-text-centered">DebonairBnB</h1>
-          <div className="columns">
-            <div className="column">
+          <div className="columns is-centered is-justify-content-space-around">
+            <div className="column is-5">
               <h1 className="is-brand-font is-size-2 has-text-centered">
                 Sign Up
               </h1>
               <SignupForm />
             </div>
-            <div className="column">
+            <div className="column is-4">
               <h1 className="is-brand-font is-size-2 has-text-centered">
                 Log In
               </h1>

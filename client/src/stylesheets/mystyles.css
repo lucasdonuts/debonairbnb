@@ -7878,7 +7878,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 3rem 1.5rem 6rem; }
 
 html {
-  margin: auto; }
+  margin: auto;
+  background-color: #1c0221; }
 
 body {
   font-family: "Montserrat", sans-serif; }
@@ -7904,6 +7905,12 @@ div#root {
 .is-base-background {
   background-color: #1c0221 !important; }
 
+.is-base-button {
+  background-color: #1c0221;
+  border: 2px solid #1c0221;
+  color: #fcdf00;
+  font-weight: 700; }
+
 .is-secondary-color {
   color: #998888; }
 
@@ -7912,6 +7919,15 @@ div#root {
 
 .is-accent-color {
   color: #fcdf00; }
+
+.is-accent-background {
+  background-color: #fcdf00; }
+
+.is-accent-button {
+  background-color: #fcdf00;
+  border: 2px solid #fcdf00;
+  color: #1c0221;
+  font-weight: 700; }
 
 .is-rosewood-color {
   color: #520005; }

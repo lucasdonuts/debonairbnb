@@ -7,108 +7,6 @@ import {
   clearCurrentUser,
   setErrors,
 } from "../reducers/userSlice";
-
-export const LoginForm = () => {
-  const { currentUser } = useSelector((state) => state.user);
-  const [errors, setErrors] = useState([]);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (currentUser) {
-      navigate("/home");
-    }
-  }, [currentUser]);
-
-  const errorElements = errors.map((error) => {
-    return (
-      <p key={error} className="help is-danger">
-        {error}
-      </p>
-    );
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          dispatch(setCurrentUser(user));
-          navigate("/home");
-        });
-      } else {
-        res.json().then((data) => {
-          setErrors(data.errors);
-        });
-      }
-    });
-  };
-
-  return (
-        <div className="box">
-          <form onSubmit={handleSubmit}>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  required
-                  onChange={handleChange}
-                  className="input"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-              </p>
-            </div>
-            <div className="field">
-              <p className="control has-icons-left">
-                <input
-                  required
-                  onChange={handleChange}
-                  className="input"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </p>
-            </div>
-
-            {errorElements}
-
-            <div className="field is-grouped is-grouped-centered">
-              <div className="control">
-                <button className="button is-success">Login</button>
-              </div>
-              <div className="control">
-                <NavButton />
-              </div>
-            </div>
-          </form>
-        </div>
-  );
-};
-
 export const SignupForm = () => {
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({
@@ -159,7 +57,7 @@ export const SignupForm = () => {
   };
 
   return (
-        <div className="box">
+        <div className="box is-secondary-background">
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
               <div className="field-label is-hidden">
@@ -292,7 +190,7 @@ export const SignupForm = () => {
               <div className="field-body">
                 <div className="field">
                   <div className="control">
-                    <button type="submit" className="button is-primary">
+                    <button type="submit" className="button is-accent-button">
                       Sign Up
                     </button>
                   </div>
@@ -300,6 +198,102 @@ export const SignupForm = () => {
               </div>
             </div>
             {errorElements}
+          </form>
+        </div>
+  );
+};
+
+export const LoginForm = () => {
+  const { currentUser } = useSelector((state) => state.user);
+  const [errors, setErrors] = useState([]);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/home");
+    }
+  }, [currentUser]);
+
+  const errorElements = errors.map((error) => {
+    return (
+      <p key={error} className="help is-danger">
+        {error}
+      </p>
+    );
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          dispatch(setCurrentUser(user));
+          navigate("/home");
+        });
+      } else {
+        res.json().then((data) => {
+          setErrors(data.errors);
+        });
+      }
+    });
+  };
+
+  return (
+        <div className="box is-secondary-background">
+          <form onSubmit={handleSubmit}>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  required
+                  onChange={handleChange}
+                  className="input"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  required
+                  onChange={handleChange}
+                  className="input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <span className="icon is-small is-left">
+                  <i className="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+
+            {errorElements}
+
+              <div className="control">
+                <button className="button is-base-button">Login</button>
+              </div>
           </form>
         </div>
   );

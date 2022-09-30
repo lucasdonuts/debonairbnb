@@ -33,6 +33,7 @@ $base-text: $papayawhip;
 
 html {
   margin: auto;
+  background-color: $base;
 }
 
 body {
@@ -66,6 +67,13 @@ div#root {
   background-color: $base !important;
 }
 
+.is-base-button {
+  background-color: $base;
+  border: 2px solid $base;
+  color: $accent;
+  font-weight: 700;
+}
+
 .is-secondary-color {
   color: $secondary;
 }
@@ -76,6 +84,17 @@ div#root {
 
 .is-accent-color {
   color: $accent;
+}
+
+.is-accent-background {
+  background-color: $accent;
+}
+
+.is-accent-button {
+  background-color: $accent;
+  border: 2px solid $accent;
+  color: $base;
+  font-weight: 700;
 }
 ////////////////////////////////
 .is-rosewood-color {
