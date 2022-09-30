@@ -57,7 +57,9 @@ const ItemsContainer = () => {
   });
 
   const itemsToDisplay = filteredItems.map((item) => {
-    return <ItemCard item={item} key={uuid()} />;
+    return(
+        <ItemCard item={item} key={uuid()} />
+    )
   });
 
   const categoryOptions = categories.map( c => {
