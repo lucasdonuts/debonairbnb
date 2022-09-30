@@ -61,11 +61,7 @@ export const LoginForm = () => {
   };
 
   return (
-    // <div className="columns is-centered">
-      // {/* <div className="column is-8"> */}
         <div className="box">
-          <p className="title has-text-centered is-brand-font">DebonairBnB</p>
-          <p className="subtitle has-text-centered">Log In</p>
           <form onSubmit={handleSubmit}>
             <div className="field">
               <p className="control has-icons-left">
@@ -110,12 +106,6 @@ export const LoginForm = () => {
             </div>
           </form>
         </div>
-      // {/* </div> */}
-      // {/* <div className="column is-narrow">
-      //   <p className="is-size-5">Don't have an account?</p>
-      //   <NavButton path="/signup" text="Sign Up" />
-      // </div> */}
-    // {/* </div> */}
   );
 };
 
@@ -169,11 +159,7 @@ export const SignupForm = () => {
   };
 
   return (
-    // <div className="columns is-centered">
-    //   <div className="column is-8">
         <div className="box">
-          <p className="title has-text-centered is-brand-font">DebonairBnB</p>
-          <p className="subtitle has-text-centered">Sign up is free!</p>
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
               <div className="field-label is-hidden">
@@ -196,7 +182,7 @@ export const SignupForm = () => {
                   </p>
                 </div>
                 <div className="field">
-                  <p className="control is-expanded" /* has-icons-left" */>
+                  <p className="control is-expanded has-icons-left">
                     <input
                       onChange={handleChange}
                       className="input"
@@ -205,6 +191,9 @@ export const SignupForm = () => {
                       placeholder="Last Name"
                       value={formData.last_name}
                     />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-signature"></i>
+                    </span>
                   </p>
                 </div>
               </div>
@@ -216,7 +205,7 @@ export const SignupForm = () => {
               </div>
               <div className="field-body">
                 <div className="field">
-                  <div className="control">
+                  <div className="control has-icons-left">
                     <input
                       onChange={handleChange}
                       className="input"
@@ -225,6 +214,9 @@ export const SignupForm = () => {
                       placeholder="Address"
                       value={formData.address}
                     />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-house"></i>
+                    </span>
                   </div>
                   {/* <p className="help is-danger">This field is required</p> */}
                 </div>
@@ -262,7 +254,7 @@ export const SignupForm = () => {
                 <label className="label" htmlFor="password"></label>
               </div>
               <div className="field-body">
-                <div className="field">
+                <div className="field is-grouped is-grouped-centered">
                   <p className="control is-expanded has-icons-left">
                     <input
                       onChange={handleChange}
@@ -278,7 +270,7 @@ export const SignupForm = () => {
                   </p>
                 </div>
                 <div className="field">
-                  <p className="control is-expanded" /* has-icons-left" */>
+                  <p className="control is-expanded has-icons-left">
                     <input
                       onChange={handleChange}
                       className="input"
@@ -287,6 +279,9 @@ export const SignupForm = () => {
                       placeholder="Confirm Password"
                       value={formData.password_confirmation}
                     />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-lock"></i>
+                    </span>
                   </p>
                 </div>
               </div>
@@ -295,14 +290,11 @@ export const SignupForm = () => {
             <div className="field is-horizontal">
               <div className="field-label is-hidden"></div>
               <div className="field-body">
-                <div className="field is-grouped is-grouped-centered">
+                <div className="field">
                   <div className="control">
                     <button type="submit" className="button is-primary">
                       Sign Up
                     </button>
-                  </div>
-                  <div className="control">
-                    <NavButton />
                   </div>
                 </div>
               </div>
@@ -310,13 +302,6 @@ export const SignupForm = () => {
             {errorElements}
           </form>
         </div>
-      // </div>
-      
-      /* <div className="column is-narrow">
-        <p className="is-size-5">Already have an account?</p>
-        <NavButton path="/login" text="Log In" />
-      </div> */
-    // </div>
   );
 };
 

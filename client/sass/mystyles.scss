@@ -181,24 +181,10 @@ div#root {
   font-weight: bold;
 }
 
-// .navbar-item,
-// a.navbar-item:focus,
-// a.navbar-item:hover {
-//   color: $secondary;
-// }
+i {
+  color: $base;
+}
 
-// .item-card.column {
-//   display: flex;
-// }
-
-// .is-turquoise-color {
-//   color: $turquoise;
-// }
-
-// .is-turquoise-background {
-//   background-color: $turquoise;
-// }
-
-// .is-turquoise-background-light {
-//   background-color: $turquoise-light;
-// }
+.is-xl-text {
+  font-size: 4rem;
+}

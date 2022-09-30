@@ -7990,3 +7990,9 @@ div#root {
   color: #d2f1e4;
   font-family: "Kalam", cursive;
   font-weight: bold; }
+
+i {
+  color: #1c0221; }
+
+.is-xl-text {
+  font-size: 4rem; }
