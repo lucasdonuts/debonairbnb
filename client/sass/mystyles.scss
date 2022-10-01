@@ -1,3 +1,4 @@
+
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
 @import url(
@@ -187,4 +188,8 @@ i {
 
 .is-xl-text {
   font-size: 4rem;
+}
+
+.super {
+  vertical-align: super;
 }
