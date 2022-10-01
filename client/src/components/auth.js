@@ -307,7 +307,7 @@ export const LogoutButton = () => {
   };
 
   return (
-    <button onClick={handleLogout} className="button is-primary">
+    <button onClick={handleLogout} className="button is-dark has-text-white is-size-6 has-text-weight-bold">
       Log Out
     </button>
   );

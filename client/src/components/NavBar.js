@@ -168,7 +168,7 @@ const NavBar = () => {
 
   return (
     <nav
-      className="navbar is-base-background columns is-centered m-0"
+      className="navbar is-dark columns is-centered mt-0"
       role="navigation"
       aria-label="main navigation"
     >
@@ -176,7 +176,7 @@ const NavBar = () => {
         <div className="navbar-menu is-active is-flex is-shadowless is-justify-content-space-around">
           <div className="navbar-start is-flex">
             <NavLink to="/" className="navbar-item" end>
-              <h1 className="is-brand-font is-accent-color is-size-1">
+              <h1 className="is-brand-font has-text-white is-size-1">
                 DebonairBnB
               </h1>
             </NavLink>

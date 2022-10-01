@@ -7970,7 +7970,7 @@ div#root {
   height: 100%; }
 
 .navbar-item > p {
-  color: #d2f1e4;
+  color: white;
   font-family: "Kalam", cursive;
   font-weight: bold; }
 
@@ -7982,3 +7982,8 @@ i {
 
 .super {
   vertical-align: super; }
+
+.divider {
+  margin-top: -5px;
+  margin-bottom: 30px;
+  background-color: #0b5200; }

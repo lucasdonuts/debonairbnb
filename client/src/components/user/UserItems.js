@@ -25,11 +25,13 @@ const UserItems = () => {
 
   return (
     <>
-      <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-centered">Currently Renting</h1>
+      <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left">Current</h1>
+      <hr className="divider"></hr>
       <div className="columns is-multiline is-centered is-variable is-1">
         {currentRentals}
       </div>
-      <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-centered">Past Rentals</h1>
+      <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left">Past Rentals</h1>
+      <hr className="divider"></hr>
       <div className="columns is-multiline is-centered is-variable is-1">
         {pastRentals}
       </div>
