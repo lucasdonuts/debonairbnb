@@ -1,42 +1,44 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { v4 as uuid } from 'uuid';
-import ItemCard from "../item/ItemCard";
+import ItemsContainer from '../item/ItemsContainer';
 import Loading from '../Loading';
 
 const UserItems = () => {
-  const { currentUser: user, isLoading } = useSelector( state => state.user );
-  const [ itemCards, setItemCards ] = useState([]);
-  const [ currentRentals, setCurrentRentals ] = useState([]);
-  const [ pastRentals, setPastRentals ] = useState([]);
+  const { currentUser, isLoading: userLoading } = useSelector(state => state.user);
+  const { entities: items, isLoading: itemsLoading } = useSelector( state => state.items );
+  const [currentRentalItems, setCurrentRentalItems] = useState([]);
+  const [pastRentalItems, setPastRentalItems] = useState([]);
 
   useEffect( () => {
-    setItemCards(user.rentals.map( rental => <ItemCard item={rental.item} current={rental.current} key={uuid()} /> ))
-  }, [])
+    setPastRentalItems(
+      currentUser.past_rentals.map( r => {
+          return items.find( item => item.id === r.item_id )
+        })
+      )
+    setCurrentRentalItems(
+      items.filter( item => item.current_rental && item.current_rental.user_id === currentUser.id )
+      )
+  }, [currentUser, items])
 
-  useEffect( () => {
-    setCurrentRentals(itemCards.filter( card => card.props.current ))
-    setPastRentals(itemCards.filter( card => !card.props.current ))
-  }, [itemCards])
-
-  if (isLoading) {
+  if(userLoading){
     return <Loading />
   }
 
-  return (
+  return(
     <>
       <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left">Current</h1>
       <hr className="divider"></hr>
       <div className="columns is-multiline is-centered is-variable is-1 user-items">
-        {currentRentals}
+        {itemsLoading ? <Loading /> : <ItemsContainer items={currentRentalItems} isLoading={itemsLoading} />}
       </div>
       <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left">Past Rentals</h1>
       <hr className="divider"></hr>
       <div className="columns is-multiline is-centered is-variable is-1 user-items">
-        {pastRentals}
+        {itemsLoading ? <Loading /> : <ItemsContainer items={pastRentalItems} isLoading={itemsLoading} />}
       </div>
     </>
-  );
+  )
+
 };
 
 export default UserItems;

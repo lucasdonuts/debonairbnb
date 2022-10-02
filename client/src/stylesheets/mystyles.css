@@ -7879,7 +7879,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 html {
   margin: auto;
-  background-color: #0b5200; }
+  background-color: white; }
 
 body {
   font-family: "Montserrat", sans-serif; }
@@ -7888,7 +7888,7 @@ body {
   color: #1a3a3a; }
 
 div#root {
-  background-color: #0b5200;
+  background-color: white;
   min-height: 100vh; }
 
 .main.section {
@@ -7988,6 +7988,9 @@ i {
   margin-bottom: 30px;
   background-color: #0b5200; }
 
+.item-card {
+  display: grid; }
+
 .card {
   display: grid;
   align-content: space-between; }
@@ -7995,5 +7998,17 @@ i {
 .are-small > .tag {
   height: 1rem; }
 
+.image {
+  display: contents; }
+
 .card-footer {
-  border: none; }
+  border: none;
+  display: block;
+  margin-bottom: 10px; }
+
+.filters-container {
+  width: 80%;
+  margin: auto; }
+
+.tag.availability {
+  height: 1rem; }

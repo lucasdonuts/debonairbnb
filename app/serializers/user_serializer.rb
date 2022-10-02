@@ -4,8 +4,8 @@ class UserSerializer < ActiveModel::Serializer
             :last_name,
             :email,
             :address,
-            :current_rentals
-            # :is_currently_borrowing
+            :current_rentals,
+            :past_rentals
 
   has_many :rentals
   has_many :items

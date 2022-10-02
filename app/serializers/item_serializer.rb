@@ -1,5 +1,13 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :name, :sex, :category, :size, :price, :image
+  attributes :id,
+    :name,
+    :sex,
+    :category,
+    :size,
+    :price,
+    :image,
+    :available?,
+    :current_rental
 
   has_many :rentals
   has_many :users

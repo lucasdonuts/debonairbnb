@@ -118,7 +118,6 @@ const ItemPage = () => {
   );
 
   const getReturnInfo = () => {
-    console.log(currentRental.days_remaining);
     return <p>You have {currentRental.days_remaining} day{currentRental.days_remaining > 1 && 's'} left on this rental</p>;
   };
 

@@ -2,6 +2,7 @@ import "./stylesheets/mystyles.css";
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getCurrentUser } from "./reducers/userSlice";
+import { getItems } from './reducers/itemsSlice';
 import { useEffect } from "react";
 
 import Loading from "./components/Loading";
@@ -20,6 +21,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getCurrentUser());
+    dispatch(getItems());
   }, []);
 
   if (isLoading) {

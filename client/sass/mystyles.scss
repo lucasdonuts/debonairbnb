@@ -1,38 +1,11 @@
-
 @charset "utf-8";
+@import "colors.scss";
 @import "../node_modules/bulma/bulma.sass";
-@import url(
-  'https://fonts.googleapis.com/css2?family=Courgette&family=Abril+Fatface&family=Montserrat&family=Tangerine&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap'
-  );
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Abril+Fatface&family=Montserrat&family=Tangerine&family=Kalam:wght@300;400;700&family=Marck+Script&family=Molle&family=Oooh+Baby&display=swap");
 
-$base-font: 'Montserrat', sans-serif;
-$secondary-font: 'Kalam', cursive;
-$brand-font: 'Oooh Baby', cursive;
-// $brand-font: 'Abril Fatface', cursive;
-$burgundy: rgba(164, 48, 63, 1); // #A4303F;
-$ebony: rgba(95, 99, 79, 1); // #5F634F;
-$richblack: rgba(26, 58, 58, 1); // #1A3A3A;
-$bitterlime: rgba(186, 255, 41, 1); // #BAFF29;
-$maxyellowred: rgba(233, 180, 76, 1);
-$honeydew: rgba(210, 241, 228, 1);
-$darkpurple: rgba(28, 2, 33, 1); // #1C0221
-
-$jonquil: rgba( 240, 200, 8, 1);
-$papayawhip: rgba( 255, 241, 208, 1);
-$rosewood: rgba( 82, 0, 5, 1);
-$bluegreen: rgba( 7, 160, 195, 1);
-$bluesapphire: rgba( 8, 103, 136, 1);
-
-$goldenyellow: rgba(252, 223, 0, 1);
-$cinereous: rgba(153, 136, 136, 1);
-$wildorchid: rgba(200, 119, 147, 1);
-
-$forestgreen: rgba(8, 61, 0, 1);
-$darkgreen: rgba(13, 99, 0, 1);
-$lincolngreen: rgba(11, 82, 0, 1);
-$blizzardblue: rgba(199, 241, 255, 1);
-$blackcoral: rgba(94, 101, 114, 1);
-$ivory: rgba(255, 255, 245, 1);
+$base-font: "Montserrat", sans-serif;
+$secondary-font: "Kalam", cursive;
+$brand-font: "Oooh Baby", cursive;
 
 // $base: $darkpurple;
 // $base: $forestgreen;
@@ -63,7 +36,7 @@ $base-text: $papayawhip;
 
 html {
   margin: auto;
-  background-color: $base;
+  background-color: $secondary;
 }
 
 body {
@@ -75,7 +48,7 @@ body {
 }
 
 div#root {
-  background-color: $base;
+  background-color: $secondary;
   min-height: 100vh;
 }
 
@@ -167,7 +140,7 @@ div#root {
   font-weight: 500;
 }
 
-.navbar-brand>.navbar-menu {
+.navbar-brand > .navbar-menu {
   background: transparent;
   padding: 0;
 }
@@ -200,15 +173,34 @@ i {
   background-color: $base;
 }
 
+.item-card {
+  display: grid;
+}
+
 .card {
   display: grid;
   align-content: space-between;
 }
 
-.are-small>.tag {
+.are-small > .tag {
   height: 1rem;
+}
+
+.image {
+  display: contents;
 }
 
 .card-footer {
   border: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.filters-container {
+  width: 80%;
+  margin: auto;
+}
+
+.tag.availability {
+  height: 1rem;
 }

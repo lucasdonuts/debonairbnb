@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def current_rentals
     self.rentals.where(current: true)
   end
+
+  def past_rentals
+    self.rentals.where(current: false)
+  end
 end
