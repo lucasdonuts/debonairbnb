@@ -183,7 +183,7 @@ div#root {
 }
 
 i {
-  color: $base;
+  color: $blackcoral;
 }
 
 .is-xl-text {
@@ -198,4 +198,17 @@ i {
   margin-top: -5px;
   margin-bottom: 30px;
   background-color: $base;
+}
+
+.card {
+  display: grid;
+  align-content: space-between;
+}
+
+.are-small>.tag {
+  height: 1rem;
+}
+
+.card-footer {
+  border: none;
 }

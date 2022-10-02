@@ -27,12 +27,12 @@ const UserItems = () => {
     <>
       <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left">Current</h1>
       <hr className="divider"></hr>
-      <div className="columns is-multiline is-centered is-variable is-1">
+      <div className="columns is-multiline is-centered is-variable is-1 user-items">
         {currentRentals}
       </div>
       <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left">Past Rentals</h1>
       <hr className="divider"></hr>
-      <div className="columns is-multiline is-centered is-variable is-1">
+      <div className="columns is-multiline is-centered is-variable is-1 user-items">
         {pastRentals}
       </div>
     </>

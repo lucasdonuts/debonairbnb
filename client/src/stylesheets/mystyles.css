@@ -7975,7 +7975,7 @@ div#root {
   font-weight: bold; }
 
 i {
-  color: #0b5200; }
+  color: #5e6572; }
 
 .is-xl-text {
   font-size: 4rem; }
@@ -7987,3 +7987,13 @@ i {
   margin-top: -5px;
   margin-bottom: 30px;
   background-color: #0b5200; }
+
+.card {
+  display: grid;
+  align-content: space-between; }
+
+.are-small > .tag {
+  height: 1rem; }
+
+.card-footer {
+  border: none; }

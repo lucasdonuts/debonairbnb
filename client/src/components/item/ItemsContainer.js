@@ -122,7 +122,7 @@ const ItemsContainer = () => {
           </div>
         </div>
       </div>
-      <div className="columns is-multiline is-centered is-variable is-1">{itemsToDisplay}</div>
+      <div className="columns is-multiline is-centered is-variable is-1 has-background-dark">{itemsToDisplay}</div>
     </>
   );
 };
