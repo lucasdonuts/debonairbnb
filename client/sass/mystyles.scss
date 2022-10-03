@@ -45,6 +45,11 @@ body {
 
 * {
   color: $richblack;
+  font-family: $base-font;
+}
+
+a {
+  color: inherit;
 }
 
 div#root {
@@ -52,7 +57,12 @@ div#root {
   min-height: 100vh;
 }
 
+.level {
+  align-items: flex-end;
+}
+
 .nav.level-item {
+  height: 100%;
   width: calc(100% / 3);
 }
 
@@ -96,6 +106,23 @@ a.navbar-item.logo:active {
   }
 }
 
+.account-button {
+  font-family: $base-font;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.dropdown-item {
+  font-family: $base-font;
+  font-weight: 500;
+  color: $dark;
+}
+
+.dropdown-item:hover {
+  background-color: $dark;
+  color: white;
+}
+
 .loading {
   height: 100vh;
   display: grid;
@@ -128,6 +155,10 @@ a.navbar-item.logo:active {
 .is-secondary-font {
   font-family: $secondary-font;
   font-weight: bold;
+}
+
+.is-base-font {
+  font-family: $base-font;
 }
 
 .is-base-color {

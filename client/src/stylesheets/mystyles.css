@@ -7885,13 +7885,21 @@ body {
   font-family: "Montserrat", sans-serif; }
 
 * {
-  color: #1a3a3a; }
+  color: #1a3a3a;
+  font-family: "Montserrat", sans-serif; }
+
+a {
+  color: inherit; }
 
 div#root {
   background-color: white;
   min-height: 100vh; }
 
+.level {
+  align-items: flex-end; }
+
 .nav.level-item {
+  height: 100%;
   width: calc(100% / 3); }
 
 a.navbar-item:not(.logo) {
@@ -7927,6 +7935,20 @@ a.navbar-item.logo:active {
   .navbar-item {
     display: block; } }
 
+.account-button {
+  font-family: "Montserrat", sans-serif;
+  font-size: larger;
+  font-weight: 700; }
+
+.dropdown-item {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #363636; }
+
+.dropdown-item:hover {
+  background-color: #363636;
+  color: white; }
+
 .loading {
   height: 100vh;
   display: grid;
@@ -7954,6 +7976,9 @@ a.navbar-item.logo:active {
 .is-secondary-font {
   font-family: "Kalam", cursive;
   font-weight: bold; }
+
+.is-base-font {
+  font-family: "Montserrat", sans-serif; }
 
 .is-base-color {
   color: #0b5200; }

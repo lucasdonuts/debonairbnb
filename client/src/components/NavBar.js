@@ -1,9 +1,20 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { LogoutButton } from "./auth";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCurrentUser } from "../reducers/userSlice";
 
 const NavBar = () => {
+  const { currentUser } = useSelector((state) => state.user);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    fetch("/logout", { method: "DELETE" }).then(() => {
+      dispatch(clearCurrentUser());
+      navigate("/");
+    });
+  };
+
   return (
     <nav className="navbar has-background-dark is-mobile">
       <div className="columns is-centered">
@@ -27,10 +38,43 @@ const NavBar = () => {
               </NavLink>
             </div>
             <div className="nav level-item has-text-centered has-text-white">
+              <div className="dropdown is-hoverable">
+                <div className="dropdown-trigger">
+                  <button
+                    className="button account-button is-dark"
+                    aria-haspopup="true"
+                    aria-controls="dropdown-menu4"
+                  >
+                    <span className="has-text-white">
+                      {`${currentUser.first_name} ${currentUser.last_name}`}
+                    </span>
+                    <span className="icon is-small">
+                      <i className="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                  <div className="dropdown-content p-0">
+                    <div className="dropdown-item">
+                      <NavLink className="is-size-6" to="/account" end>
+                        Account
+                      </NavLink>
+                    </div>
+                    <hr className="dropdown-divider m-0" />
+                    <div className="dropdown-item" onClick={handleLogout}>
+                      <NavLink className="is-size-6">
+                        Log Out
+                      </NavLink>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className="nav level-item has-text-centered has-text-white">
               <NavLink className="navbar-item" to="/account" end>
                 Account
               </NavLink>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
