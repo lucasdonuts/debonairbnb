@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getItems, getCategories } from "../reducers/itemsSlice";
-import ItemsContainer from './item/ItemsContainer';
-import FiltersContainer from './item/FiltersContainer';
-import Loading from './Loading';
+import ItemsContainer from "./item/ItemsContainer";
+import FiltersContainer from "./item/FiltersContainer";
+import Loading from "./Loading";
 
 const Shop = () => {
   const { entities: items, isLoading } = useSelector((state) => state.items);
@@ -18,8 +18,9 @@ const Shop = () => {
       Medium: false,
       Large: false,
       XL: false,
-      '2XL': false
+      "2XL": false,
     },
+    available: { active: false },
     // price: { active: false, value: "" },
   });
 
@@ -43,34 +44,58 @@ const Shop = () => {
       (!filters.sex.active ||
         (filters.sex.active && item.sex === filters.sex.value)) &&
       (!filters.category.active ||
-        (filters.category.active && item.category === filters.category.value)) &&
-      (!Object.entries(filters.sizes).some(size => size[1]) ||
-        (Object.entries(filters.sizes).filter(size => size[1]).some(size => size[0] === item.size)))
+        (filters.category.active &&
+          item.category === filters.category.value)) &&
+      (!Object.entries(filters.sizes).some((size) => size[1]) ||
+        Object.entries(filters.sizes)
+          .filter((size) => size[1])
+          .some((size) => size[0] === item.size)) &&
+      (!filters.available.active ||
+        (filters.available.active && item["available?"]))
       // (!filters.price.active || filters.price.active && item.price === filters.price.value)
     );
   });
 
   const applyFilter = (name, value) => {
-    setFilters({
-      ...filters,
-      [name]: { active: !!value, value: value },
-    });
+    if (name === "available") {
+      setFilters({
+        ...filters,
+        available: {
+          active: value,
+        },
+      });
+    } else {
+      setFilters({
+        ...filters,
+        [name]: { active: !!value, value: value },
+      });
+    }
   };
 
   const updateSizeFilter = (size) => {
     setFilters({
       ...filters,
-      sizes: {...filters.sizes, [size]: !filters.sizes[size]}
-    })
-  }
+      sizes: { ...filters.sizes, [size]: !filters.sizes[size] },
+    });
+  };
 
-  return(
+  return (
     <>
-      <h1 className="is-size-2 is-brand-font is-honeydew-color has-text-centered">Browse</h1>
-      <FiltersContainer filters={filters} applyFilter={applyFilter} updateSizeFilter={updateSizeFilter} />
-      {isLoading ? <Loading /> : <ItemsContainer items={filteredItems} isLoading={isLoading} />}
+      <h1 className="is-size-2 is-brand-font is-honeydew-color has-text-centered">
+        Browse
+      </h1>
+      <FiltersContainer
+        filters={filters}
+        applyFilter={applyFilter}
+        updateSizeFilter={updateSizeFilter}
+      />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <ItemsContainer items={filteredItems} isLoading={isLoading} />
+      )}
     </>
-  )
-}
+  );
+};
 
 export default Shop;

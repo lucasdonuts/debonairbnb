@@ -19,11 +19,11 @@ const ItemCard = ({ item }) => {
   const availableTag = (
     <div className="field">
       <div className="control">
-        <span className="tag availability is-success is-light">Available</span>
+        <span className="tag availability is-success">Available Now</span>
       </div>
     </div>
   );
-  
+
   const unavailableTag = (
     <div className="field">
       <div className="control">

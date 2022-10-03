@@ -52,6 +52,19 @@ div#root {
   min-height: 100vh;
 }
 
+.loading {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.tag.available-now-button {
+  height: 1.75em;
+  width: 30%;
+  border: 1px solid $success;
+  font-size: 0.9rem;
+}
+
 .main.section {
   background-color: white;
   min-height: 100vh;
