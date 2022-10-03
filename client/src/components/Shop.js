@@ -12,15 +12,21 @@ const Shop = () => {
     name: { active: false, value: "" },
     sex: { active: false, value: "" },
     category: { active: false, value: "" },
-    // size: { active: false, value: "" },
+    sizes: {
+      Small: false,
+      Medium: false,
+      Large: false,
+      XL: false,
+      '2XL': false
+    },
     // price: { active: false, value: "" },
   });
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getItems());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getItems());
+  // }, []);
 
   useEffect(() => {
     dispatch(getCategories());
@@ -36,26 +42,31 @@ const Shop = () => {
       (!filters.sex.active ||
         (filters.sex.active && item.sex === filters.sex.value)) &&
       (!filters.category.active ||
-        (filters.category.active && item.category === filters.category.value)) //&&
-      // (!filters.size.active || filters.size.active && item.size === filters.size.value) &&
+        (filters.category.active && item.category === filters.category.value)) &&
+      (!Object.entries(filters.sizes).some(size => size[1]) ||
+        (Object.entries(filters.sizes).filter(size => size[1]).some(size => size[0] === item.size)))
       // (!filters.price.active || filters.price.active && item.price === filters.price.value)
     );
   });
 
   const applyFilter = (name, value) => {
-    // If value is an empty string, set that filter inactive
-    const active = !!value;
-
     setFilters({
       ...filters,
-      [name]: { active: active, value: value },
+      [name]: { active: !!value, value: value },
     });
   };
+
+  const updateSizeFilter = (size) => {
+    setFilters({
+      ...filters,
+      sizes: {...filters.sizes, [size]: !filters.sizes[size]}
+    })
+  }
 
   return(
     <>
       <h1 className="is-size-2 is-brand-font is-honeydew-color has-text-centered">Browse</h1>
-      <FiltersContainer filters={filters} applyFilter={applyFilter} />
+      <FiltersContainer filters={filters} applyFilter={applyFilter} updateSizeFilter={updateSizeFilter} />
       {isLoading ? <Loading /> : <ItemsContainer items={filteredItems} isLoading={isLoading} />}
     </>
   )

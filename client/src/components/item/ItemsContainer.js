@@ -2,17 +2,13 @@ import { v4 as uuid } from "uuid";
 import ItemCard from "./ItemCard";
 import Loading from "../Loading";
 
-const ItemsContainer = ({ items, isLoading }) => {
+const ItemsContainer = ({ items }) => {
 
   const itemsToDisplay = items.map((item) => {
     return(
         <ItemCard item={item} key={uuid()} />
     )
   });
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <>

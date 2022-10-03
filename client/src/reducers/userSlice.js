@@ -19,7 +19,9 @@ const userSlice = createSlice({
   },
   reducers: {
     setCurrentUser(state, action){
+      state.isLoading = true;
       state.currentUser = action.payload;
+      state.isLoading = false;
     },
     clearCurrentUser(state){
       state.currentUser = null;

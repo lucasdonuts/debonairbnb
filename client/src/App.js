@@ -16,7 +16,8 @@ import UserPage from "./components/user/UserPage";
 import ItemPage from "./components/item/ItemPage";
 
 function App() {
-  const { currentUser, isLoading } = useSelector((store) => store.user);
+  const { currentUser, userLoading } = useSelector((state) => state.user);
+  const { isLoading: itemsLoading } = useSelector(state => state.items)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
     dispatch(getItems());
   }, []);
 
-  if (isLoading) {
+  if (userLoading || itemsLoading) {
     return <Loading />;
   }
 

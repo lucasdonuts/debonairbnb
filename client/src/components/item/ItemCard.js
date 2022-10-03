@@ -92,6 +92,10 @@ const ItemCard = ({ item }) => {
     </div>
   );
 
+  if(!item){
+    return "Loading"
+  }
+
   return (
     <Link
       to={`/items/${item.id}`}
