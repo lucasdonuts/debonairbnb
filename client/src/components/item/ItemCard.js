@@ -6,6 +6,8 @@ const ItemCard = ({ item }) => {
   const { currentUser } = useSelector((state) => state.user);
   const [isRented, setIsRented] = useState(false);
   const [userHasItem, setUserHasItem] = useState(false);
+  console.log("currentUser: ", currentUser)
+  console.log("item: ", item)
 
   useEffect(() => {
     setIsRented(!item["available?"]);
@@ -92,9 +94,9 @@ const ItemCard = ({ item }) => {
     </div>
   );
 
-  if(!item){
-    return "Loading"
-  }
+  // if(!item){
+  //   return "Loading"
+  // }
 
   return (
     <Link

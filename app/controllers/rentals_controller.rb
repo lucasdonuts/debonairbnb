@@ -1,7 +1,7 @@
 class RentalsController < ApplicationController
-
+  
   def show
-    rental = Rental.find!(params[:id])
+    rental = Rental.find(params[:id])
     render json: rental, status: :ok
   end
 

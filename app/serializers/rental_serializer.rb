@@ -4,9 +4,9 @@ class RentalSerializer < ActiveModel::Serializer
     :current,
     :created_at,
     :due_date,
-    :days_remaining,
-    :item,
-    :user
+    :days_remaining# ,
+    # :item,
+    # :user
   
   belongs_to :user
   belongs_to :item
@@ -15,11 +15,11 @@ class RentalSerializer < ActiveModel::Serializer
     object.created_at.strftime("%B %e, %Y")
   end
 
-  def item
-    object.item
-  end
+  # def item
+  #   object.item
+  # end
 
-  def user
-    object.user
-  end
+  # def user
+  #   object.user
+  # end
 end

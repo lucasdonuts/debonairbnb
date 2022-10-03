@@ -29,6 +29,9 @@ const itemsSlice = createSlice({
   reducers: {
     getCategories(state) {
       state.categories = [...new Set(state.entities.map( item => item.category ))]
+    },
+    updateAnItem(state, action) {
+      console.log(action)
     }
   },
   extraReducers: {

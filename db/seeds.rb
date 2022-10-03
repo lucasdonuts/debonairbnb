@@ -4,12 +4,12 @@ require 'json'
 
 User.destroy_all
 Item.destroy_all
-# Rental.destroy_all
+Rental.destroy_all
 
 
 User.reset_pk_sequence
 Item.reset_pk_sequence
-# Rental.reset_pk_sequence
+Rental.reset_pk_sequence
 
 user1 = User.create!(first_name: "Test", last_name: "User", address: "123 Road Street", email: "test1@email.com", password: "test")
 user2 = User.create!(first_name: "Test", last_name: "User", address: "123 Road Street", email: "test2@email.com", password: "test")

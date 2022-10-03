@@ -12,7 +12,7 @@ const ItemsContainer = ({ items }) => {
 
   return (
     <>
-      <div className="columns is-multiline is-centered is-variable is-1">{itemsToDisplay}</div>
+      <div className="columns is-multiline is-centered is-variable is-1 is-mobile">{itemsToDisplay}</div>
     </>
   );
 };

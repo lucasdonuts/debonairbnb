@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :rentals
+  has_many :rentals, dependent: :destroy
   has_many :items, through: :rentals
 
   validates :first_name, :last_name, :address, presence: true

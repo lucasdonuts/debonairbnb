@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-// import { getCurrentUser } from "../../reducers/userSlice";
+import { updateCurrentUser } from "../../reducers/userSlice";
 
 const ItemPage = () => {
-  const { currentUser: user } = useSelector((state) => state.user);
+  const { currentUser } = useSelector((state) => state.user);
   const [item, setItem] = useState({});
   const [isRented, setIsRented] = useState(false);
   const [userHasItem, setUserHasItem] = useState(false);
@@ -14,13 +14,15 @@ const ItemPage = () => {
   const [errors, setErrors] = useState([]);
 
   const params = useParams();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   document.addEventListener("click", () => setModalVisible(false));
 
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
+  console.log("currentUser.current_rentals: ", currentUser.current_rentals)
+  console.log("Item: ", item)
 
   useEffect(() => {
     fetch(`/items/${params.id}`)
@@ -29,7 +31,7 @@ const ItemPage = () => {
         setItem(data);
         setIsRented(data.rentals.some((r) => r.current));
         setUserHasItem(
-          data.rentals.some((r) => r.user.id === user.id && r.current)
+          data.rentals.some((r) => r.user.id === currentUser.id && r.current)
         );
         setCurrentRental(data.rentals.find((r) => r.current) || {});
       });
@@ -57,6 +59,8 @@ const ItemPage = () => {
           setCurrentRental(data);
           setUserHasItem(true);
           setModalVisible(false);
+          console.log("Borrow data: ", data)
+          dispatch(updateCurrentUser({...currentUser, current_rentals: [...currentUser.current_rentals, data]}))
         });
       } else {
         res.json().then((data) => setErrors([...errors, data.errors]));
@@ -70,7 +74,7 @@ const ItemPage = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         item_id: item.id,
-        user_id: user.id,
+        user_id: currentUser.id,
         current: false,
       }),
     })
@@ -79,6 +83,9 @@ const ItemPage = () => {
         setIsRented(false);
         setUserHasItem(false);
         setCurrentRental({});
+        console.log("Return data: ", data)
+        // dispatch(updateItems);
+        dispatch(updateCurrentUser({...currentUser, current_rentals: currentUser.current_rentals.filter(r => r.id !== data.id)}))
         // setModalVisible(false);
       });
   };
@@ -126,7 +133,7 @@ const ItemPage = () => {
       <div className="columns is-centered">
         <div className="column">
           <p className="title is-size-4">{item.name}</p>
-          <div className="columns">
+          <div className="columns is-mobile">
             <div className="column is-half">
               <figure className="image">
                 <img src={item.image} alt={`${item.name}`} />

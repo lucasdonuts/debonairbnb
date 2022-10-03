@@ -10,6 +10,7 @@ const UserItems = () => {
   const [pastRentalItems, setPastRentalItems] = useState([]);
 
   useEffect( () => {
+    console.log(currentUser)
     setPastRentalItems(
       currentUser.past_rentals.map( r => {
           return items.find( item => item.id === r.item_id )
