@@ -52,6 +52,50 @@ div#root {
   min-height: 100vh;
 }
 
+.nav.level-item {
+  width: calc(100% / 3);
+}
+
+a.navbar-item:not(.logo) {
+  font-size: larger;
+}
+
+a.navbar-item,
+a.navbar-item > h1 {
+  height: 100%;
+  width: 100%;
+  color: white;
+  font-weight: 700;
+}
+
+a.navbar-item.active,
+a.navbar-item.active:hover {
+  background-color: $accent;
+  color: $dark;
+}
+
+a.navbar-item:hover,
+a.navbar-item.logo:hover,
+a.navbar-item.logo:focus,
+a.navbar-item.logo:active {
+  background-color: $dark;
+  color: $accent;
+}
+
+.navbar-item.logo > h1:hover {
+  color: $accent;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar,
+  .navbar-menu,
+  .navbar-start,
+  .navbar-end,
+  .navbar-item {
+    display: block;
+  }
+}
+
 .loading {
   height: 100vh;
   display: grid;

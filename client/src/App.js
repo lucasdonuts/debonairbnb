@@ -17,7 +17,7 @@ import ItemPage from "./components/item/ItemPage";
 
 function App() {
   const { currentUser, userLoading } = useSelector((state) => state.user);
-  const { items, isLoading: itemsLoading } = useSelector(
+  const { isLoading: itemsLoading } = useSelector(
     (state) => state.items
   );
   const dispatch = useDispatch();
@@ -33,7 +33,6 @@ function App() {
   if (userLoading || itemsLoading) {
     return <Loading />;
   }
-  // console.log("App.js items: ", items)
 
   return (
     <>
