@@ -71,11 +71,6 @@ const NavBar = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="nav level-item has-text-centered has-text-white">
-              <NavLink className="navbar-item" to="/account" end>
-                Account
-              </NavLink>
-            </div> */}
           </div>
         </div>
       </div>
