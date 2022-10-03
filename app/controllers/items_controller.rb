@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
 
   def index
     items = Item.all
-    render json: items, include: ['rentals', 'rentals.user'],  status: :ok
+    render json: items, include: ['rentals', 'rentals.user', 'rentals.days_remaining'],  status: :ok
   end
   
   def show
     item = Item.find(params[:id])
-    render json: item, include: ['rentals', 'rentals.user'],  status: :ok
+    render json: item, include: ['rentals', 'rentals.user', 'rentals.days_remaining'],  status: :ok
   end
 
   def create

@@ -35,7 +35,8 @@ const ItemPage = () => {
           data.rentals.some((r) => r.user.id === currentUser.id && r.current)
         );
         // setCurrentRental(data.rentals.find((r) => r.current) || {});
-        setCurrentRental(data.current_rental || {});
+        // setCurrentRental(data.current_rental || {});
+        setCurrentRental(data.rentals.find((r) => r.current) || {});
       });
   }, []);
 
@@ -61,8 +62,8 @@ const ItemPage = () => {
           setCurrentRental(data);
           setUserHasItem(true);
           setModalVisible(false);
-          console.log("Borrow data: ", data);
-          console.log("currentUser: ", currentUser);
+          // console.log("Borrow data: ", data);
+          // console.log("currentUser: ", currentUser);
           dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
         });
       } else {
@@ -88,7 +89,7 @@ const ItemPage = () => {
           setCurrentRental({});
           setUserHasItem(false);
           // setModalVisible(false);
-          console.log("Return data: ", data);
+          // console.log("Return data: ", data);
           dispatch(updateItems(data.item));
           dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
         });
@@ -98,7 +99,7 @@ const ItemPage = () => {
     });
   };
 
-  console.log("CurrentUser: ", currentUser);
+  // console.log("CurrentUser: ", currentUser);
 
   const borrowButton = (
     <button onClick={handleBorrowClick} className="button is-primary">
@@ -135,6 +136,7 @@ const ItemPage = () => {
   );
 
   const getReturnInfo = () => {
+    console.log(item);
     return (
       <p>
         You have {currentRental.days_remaining} day

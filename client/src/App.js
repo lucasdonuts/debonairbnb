@@ -31,7 +31,7 @@ function App() {
   if (userLoading || itemsLoading) {
     return <Loading />;
   }
-  console.log("App.js items: ", items)
+  // console.log("App.js items: ", items)
 
   return (
     <>
