@@ -10,7 +10,7 @@ const UserItems = () => {
   const [pastRentalItems, setPastRentalItems] = useState([]);
 
   useEffect( () => {
-    console.log(currentUser)
+    console.log(currentUser, items)
     setPastRentalItems(
       currentUser.past_rentals.map( r => {
           return items.find( item => item.id === r.item_id )
@@ -21,7 +21,7 @@ const UserItems = () => {
       )
   }, [currentUser, items])
 
-  if(userLoading){
+  if(userLoading, itemsLoading){
     return <Loading />
   }
 

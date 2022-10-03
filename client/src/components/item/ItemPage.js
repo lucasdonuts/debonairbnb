@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCurrentUser } from "../../reducers/userSlice";
+import { updateItems } from "../../reducers/itemsSlice";
 
 const ItemPage = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -21,8 +22,8 @@ const ItemPage = () => {
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
-  console.log("currentUser.current_rentals: ", currentUser.current_rentals)
-  console.log("Item: ", item)
+  // console.log("currentUser.current_rentals: ", currentUser.current_rentals)
+  // console.log("Item: ", item)
 
   useEffect(() => {
     fetch(`/items/${params.id}`)
@@ -33,7 +34,8 @@ const ItemPage = () => {
         setUserHasItem(
           data.rentals.some((r) => r.user.id === currentUser.id && r.current)
         );
-        setCurrentRental(data.rentals.find((r) => r.current) || {});
+        // setCurrentRental(data.rentals.find((r) => r.current) || {});
+        setCurrentRental(data.current_rental || {});
       });
   }, []);
 
@@ -54,13 +56,14 @@ const ItemPage = () => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          setItem(data.item);
+          setItem({ ...item, ...data.item });
           setIsRented(true);
           setCurrentRental(data);
           setUserHasItem(true);
           setModalVisible(false);
-          console.log("Borrow data: ", data)
-          dispatch(updateCurrentUser({...currentUser, current_rentals: [...currentUser.current_rentals, data]}))
+          console.log("Borrow data: ", data);
+          console.log("currentUser: ", currentUser);
+          dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
         });
       } else {
         res.json().then((data) => setErrors([...errors, data.errors]));
@@ -77,18 +80,25 @@ const ItemPage = () => {
         user_id: currentUser.id,
         current: false,
       }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setIsRented(false);
-        setUserHasItem(false);
-        setCurrentRental({});
-        console.log("Return data: ", data)
-        // dispatch(updateItems);
-        dispatch(updateCurrentUser({...currentUser, current_rentals: currentUser.current_rentals.filter(r => r.id !== data.id)}))
-        // setModalVisible(false);
-      });
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((data) => {
+          setItem({ ...item, ...data.item });
+          setIsRented(false);
+          setCurrentRental({});
+          setUserHasItem(false);
+          // setModalVisible(false);
+          console.log("Return data: ", data);
+          dispatch(updateItems(data.item));
+          dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
+        });
+      } else {
+        res.json().then((data) => setErrors([...errors, data.errors]));
+      }
+    });
   };
+
+  console.log("CurrentUser: ", currentUser);
 
   const borrowButton = (
     <button onClick={handleBorrowClick} className="button is-primary">
@@ -125,7 +135,12 @@ const ItemPage = () => {
   );
 
   const getReturnInfo = () => {
-    return <p>You have {currentRental.days_remaining} day{currentRental.days_remaining > 1 && 's'} left on this rental</p>;
+    return (
+      <p>
+        You have {currentRental.days_remaining} day
+        {currentRental.days_remaining > 1 && "s"} left on this rental
+      </p>
+    );
   };
 
   return (
@@ -141,7 +156,7 @@ const ItemPage = () => {
             </div>
             <div className="column is-half my-auto">
               {/* name, image, sex, size, price, category */}
-              { userHasItem ? getReturnInfo() : borrowInfo }
+              {userHasItem ? getReturnInfo() : borrowInfo}
               {getButton()}
             </div>
           </div>
@@ -214,3 +229,28 @@ const ItemPage = () => {
 };
 
 export default ItemPage;
+
+// const borrowItem = () => {
+//   fetch(`/rent_item`, {
+//     method: `POST`,
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify({
+//       item_id: item.id,
+//       duration: duration,
+//     }),
+//   }).then((res) => {
+//     if (res.ok) {
+//       res.json().then((data) => {
+//         setItem(data.item);
+//         setIsRented(true);
+//         setCurrentRental(data);
+//         setUserHasItem(true);
+//         setModalVisible(false);
+//         console.log("Borrow data: ", data)
+//         dispatch(updateCurrentUser({...currentUser, current_rentals: [...currentUser.current_rentals, data]}))
+//       });
+//     } else {
+//       res.json().then((data) => setErrors([...errors, data.errors]));
+//     }
+//   });
+// };

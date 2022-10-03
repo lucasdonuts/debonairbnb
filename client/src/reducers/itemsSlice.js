@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // export const getItems = createAsyncThunk('items/getItems', () => {
 //     return Promise.all([
@@ -8,43 +8,50 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 //       .then( data => [...data[0], ...data[1]])
 // })
 
-export const getItems = createAsyncThunk('items/getItems', () => {
-  return fetch('/items')
-    .then(res => {
-      if(res.ok){
-        return res.json()
-      } else {
-        return []
-      }
-    })
-})
+export const getItems = createAsyncThunk("items/getItems", () => {
+  return fetch("/items").then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return [];
+    }
+  });
+});
 
 const itemsSlice = createSlice({
-  name: 'items',
+  name: "items",
   initialState: {
     entities: [],
     isLoading: true,
-    categories: []
+    categories: [],
   },
   reducers: {
     getCategories(state) {
-      state.categories = [...new Set(state.entities.map( item => item.category ))]
+      state.categories = [
+        ...new Set(state.entities.map((item) => item.category)),
+      ];
     },
-    updateAnItem(state, action) {
-      console.log(action)
-    }
+    updateItems(state, action) {
+      state.entities = state.entities.map(item => {
+        if(item.id === action.payload.id){
+          return {...item, ...action.payload}
+        } else {
+          return item
+        }
+      })
+    },
   },
   extraReducers: {
-    [getItems.pending](state){
+    [getItems.pending](state) {
       state.isLoading = true;
     },
-    [getItems.fulfilled](state, action){
+    [getItems.fulfilled](state, action) {
       state.isLoading = false;
-      state.entities = action.payload
-    }
-  }
-})
+      state.entities = action.payload;
+    },
+  },
+});
 
-export const { getCategories } = itemsSlice.actions;
+export const { getCategories, updateItems } = itemsSlice.actions;
 
 export default itemsSlice.reducer;
