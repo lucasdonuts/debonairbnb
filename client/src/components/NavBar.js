@@ -55,17 +55,18 @@ const NavBar = () => {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu4" role="menu">
                   <div className="dropdown-content p-0">
-                    <div className="dropdown-item">
-                      <NavLink className="is-size-6" to="/account" end>
-                        Account
-                      </NavLink>
-                    </div>
+                    <NavLink to="/account">
+                      <div className="dropdown-item is-size-6">Account</div>
+                    </NavLink>
                     <hr className="dropdown-divider m-0" />
-                    <div className="dropdown-item" onClick={handleLogout}>
-                      <NavLink className="is-size-6">
+                    <NavLink>
+                      <div
+                        className="dropdown-item is-size-6"
+                        onClick={handleLogout}
+                      >
                         Log Out
-                      </NavLink>
-                    </div>
+                      </div>
+                    </NavLink>
                   </div>
                 </div>
               </div>
