@@ -48,13 +48,20 @@ body {
   font-family: $base-font;
 }
 
-a {
-  color: inherit;
-}
-
 div#root {
   background-color: $secondary;
   min-height: 100vh;
+}
+
+.unauth-landing-container {
+  min-height: 103vh;
+  display: grid;
+  align-items: center;
+  background-color: $dark;
+}
+
+a {
+  color: inherit;
 }
 
 .level {
@@ -106,6 +113,17 @@ a.navbar-item.logo:active {
   }
 }
 
+@media screen and (min-width: 1408px) {
+  .filters-container {
+    max-width: 50%;
+  }
+}
+
+.filters-container {
+  width: 80%;
+  margin: auto;
+}
+
 .account-button {
   font-family: $base-font;
   font-size: larger;
@@ -139,12 +157,6 @@ a.navbar-item.logo:active {
 .main.section {
   background-color: white;
   min-height: 100vh;
-}
-
-.unauth-landing-container {
-  min-height: 100%;
-  display: grid;
-  align-items: center;
 }
 
 .is-brand-font {
@@ -266,8 +278,13 @@ i {
 }
 
 .card {
+  border: 2px solid $secondary;
   display: grid;
   align-content: space-between;
+}
+
+.card:hover {
+  border: 2px solid $accent;
 }
 
 .are-small > .tag {
@@ -282,11 +299,6 @@ i {
   border: none;
   display: block;
   margin-bottom: 10px;
-}
-
-.filters-container {
-  width: 80%;
-  margin: auto;
 }
 
 .tag.availability {

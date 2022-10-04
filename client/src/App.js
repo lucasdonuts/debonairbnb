@@ -17,9 +17,7 @@ import ItemPage from "./components/item/ItemPage";
 
 function App() {
   const { currentUser, userLoading } = useSelector((state) => state.user);
-  const { isLoading: itemsLoading } = useSelector(
-    (state) => state.items
-  );
+  const { isLoading: itemsLoading } = useSelector((state) => state.items);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,64 +30,66 @@ function App() {
 
   if (userLoading || itemsLoading) {
     return <Loading />;
-  }
+  } else if (!currentUser) {
+    return <Root />;
+  } else {
+    return (
+      <>
+        {currentUser && <NavBar />}
+        <div className="section columns is-centered">
+          <div id="main" className="column is-11-fullhd has-text-centered">
+            <Routes>
+              <Route index element={<Root currentUser={currentUser} />} />
+              <Route path="/signup" element={<SignupForm />} />
+              <Route path="/login" element={<LoginForm />} />
+              <Route
+                path="/home"
+                element={
+                  <AuthRoute>
+                    <Home />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/shop"
+                element={
+                  <AuthRoute>
+                    <Shop />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/account"
+                element={
+                  <AuthRoute>
+                    <UserPage />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/items"
+                element={
+                  <AuthRoute>
+                    <Shop />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="/items/:id"
+                element={
+                  <AuthRoute>
+                    <ItemPage />
+                  </AuthRoute>
+                }
+              />
 
-  return (
-    <>
-      {currentUser && <NavBar />}
-      <div className="main section columns is-centered">
-        <div className="column is-11 is-9-fullhd has-text-centered">
-          <Routes>
-            <Route index element={<Root currentUser={currentUser} />} />
-            <Route path="/signup" element={<SignupForm />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route
-              path="/home"
-              element={
-                <AuthRoute>
-                  <Home />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/shop"
-              element={
-                <AuthRoute>
-                  <Shop />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/account"
-              element={
-                <AuthRoute>
-                  <UserPage />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/items"
-              element={
-                <AuthRoute>
-                  <Shop />
-                </AuthRoute>
-              }
-            />
-            <Route
-              path="/items/:id"
-              element={
-                <AuthRoute>
-                  <ItemPage />
-                </AuthRoute>
-              }
-            />
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 export default App;

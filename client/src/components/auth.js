@@ -186,7 +186,7 @@ export const SignupForm = () => {
           </div>
         </div>
         <div className="field">
-          <div className="control">
+          <div className="control has-text-centered">
             <button type="submit" className="button is-rounded is-dark-button">
               Sign Up
             </button>
@@ -287,7 +287,7 @@ export const LoginForm = () => {
 
         {errorElements}
 
-        <div className="control">
+        <div className="control has-text-centered">
           <button className="button is-rounded is-dark-button">Login</button>
         </div>
       </form>
@@ -307,7 +307,10 @@ export const LogoutButton = () => {
   };
 
   return (
-    <button onClick={handleLogout} className="button is-dark has-text-white is-size-6 has-text-weight-bold">
+    <button
+      onClick={handleLogout}
+      className="button is-dark has-text-white is-size-6 has-text-weight-bold"
+    >
       Log Out
     </button>
   );

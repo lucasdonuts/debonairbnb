@@ -94,15 +94,11 @@ const ItemCard = ({ item }) => {
     </div>
   );
 
-  // if(!item){
-  //   return "Loading"
-  // }
-
   return (
     <Link
       to={`/items/${item.id}`}
-      className="column item-card is-3 is-2-desktop mb-5"
-      style={{ minWidth: "190px" }}
+      className="column item-card is-2 mb-5"
+      style={{ minWidth: "180px" }}
     >
       <div className="card is-shadowless">
         <div className="card-header item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless">

@@ -7888,12 +7888,18 @@ body {
   color: #1a3a3a;
   font-family: "Montserrat", sans-serif; }
 
-a {
-  color: inherit; }
-
 div#root {
   background-color: white;
   min-height: 100vh; }
+
+.unauth-landing-container {
+  min-height: 103vh;
+  display: grid;
+  align-items: center;
+  background-color: #363636; }
+
+a {
+  color: inherit; }
 
 .level {
   align-items: flex-end; }
@@ -7935,6 +7941,14 @@ a.navbar-item.logo:active {
   .navbar-item {
     display: block; } }
 
+@media screen and (min-width: 1408px) {
+  .filters-container {
+    max-width: 50%; } }
+
+.filters-container {
+  width: 80%;
+  margin: auto; }
+
 .account-button {
   font-family: "Montserrat", sans-serif;
   font-size: larger;
@@ -7963,11 +7977,6 @@ a.navbar-item.logo:active {
 .main.section {
   background-color: white;
   min-height: 100vh; }
-
-.unauth-landing-container {
-  min-height: 100%;
-  display: grid;
-  align-items: center; }
 
 .is-brand-font {
   font-family: "Oooh Baby", cursive;
@@ -8064,8 +8073,12 @@ i {
   display: grid; }
 
 .card {
+  border: 2px solid white;
   display: grid;
   align-content: space-between; }
+
+.card:hover {
+  border: 2px solid #c7f1ff; }
 
 .are-small > .tag {
   height: 1rem; }
@@ -8077,10 +8090,6 @@ i {
   border: none;
   display: block;
   margin-bottom: 10px; }
-
-.filters-container {
-  width: 80%;
-  margin: auto; }
 
 .tag.availability {
   height: 1rem; }

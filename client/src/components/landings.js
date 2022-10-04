@@ -18,12 +18,14 @@ export const Root = ({ currentUser }) => {
     return (
       <div className="unauth-landing-container columns is-centered">
         <div className="column">
-          <h1 className="is-brand-font is-accent-color is-xl-text has-text-centered">DebonairBnB</h1>
+          <h1 className="is-brand-font is-accent-color is-xl-text has-text-centered">
+            DebonairBnB
+          </h1>
           <div className="columns is-centered is-align-items-centered">
-            <div className="column is-6">
+            <div className="column is-6 is-4-desktop is-narrow-desktop">
               <SignupForm />
             </div>
-            <div className="column is-5">
+            <div className="column is-5 is-3-desktop">
               <LoginForm />
             </div>
           </div>
