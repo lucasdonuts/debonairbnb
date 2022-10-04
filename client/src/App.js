@@ -7,6 +7,7 @@ import { useEffect } from "react";
 
 import Loading from "./components/Loading";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 import { Root, NotFound } from "./components/landings";
 import { SignupForm, LoginForm } from "./components/auth";
 import { AuthRoute } from "./tools/hooks";
@@ -36,8 +37,8 @@ function App() {
     return (
       <>
         {currentUser && <NavBar />}
-        <div className="section columns is-centered">
-          <div id="main" className="column is-11-fullhd has-text-centered">
+        <div className="main section columns is-centered">
+          <div className="column is-11-fullhd has-text-centered">
             <Routes>
               <Route index element={<Root currentUser={currentUser} />} />
               <Route path="/signup" element={<SignupForm />} />
@@ -87,6 +88,7 @@ function App() {
             </Routes>
           </div>
         </div>
+        <Footer />
       </>
     );
   }

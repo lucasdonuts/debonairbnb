@@ -7879,7 +7879,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 html {
   margin: auto;
-  background-color: white; }
+  background-color: white;
+  min-height: 100vh; }
 
 body {
   font-family: "Montserrat", sans-serif; }
@@ -7976,7 +7977,10 @@ a.navbar-item.logo:active {
 
 .main.section {
   background-color: white;
-  min-height: 100vh; }
+  min-height: 70vh; }
+
+.footer {
+  padding: 2rem 1.5rem 1.5rem; }
 
 .is-brand-font {
   font-family: "Oooh Baby", cursive;

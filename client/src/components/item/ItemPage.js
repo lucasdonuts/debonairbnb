@@ -25,10 +25,6 @@ const ItemPage = () => {
     setReturnModalVisible(false);
   };
 
-  const stopPropagation = (e) => {
-    e.stopPropagation();
-  };
-
   useEffect(() => {
     fetch(`/items/${params.id}`)
       .then((res) => res.json())
@@ -111,8 +107,6 @@ const ItemPage = () => {
     });
   };
 
-  // console.log("CurrentUser: ", currentUser);
-
   const borrowButton = (
     <button onClick={handleBorrowClick} className="button is-dark">
       Borrow This Item
@@ -164,7 +158,7 @@ const ItemPage = () => {
   document.addEventListener("click", closeModals);
 
   return (
-    <div className="item-details box is-shadowless is-secondary-background">
+    <div className="item-details box is-secondary-background">
       <div className="columns is-centered">
         <div className="column">
           <p className="title is-size-4">{item.name}</p>
