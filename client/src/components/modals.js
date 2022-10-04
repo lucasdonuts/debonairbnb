@@ -1,18 +1,3 @@
-import { useState } from "react";
-// export const closeModal = (modal) => {
-//   switch(modal){
-//     case 'borrow':
-//       setBorrowModalVisible(false);
-//       break;
-//     case 'return':
-//       setReturnModalVisible(false);
-//       break;
-//     case 'logout':
-//       setLogoutModalVisible(false);
-//       break;
-//   }
-// }
-
 export const BorrowModal = ({
   borrowModalVisible,
   setBorrowModalVisible,
@@ -121,7 +106,7 @@ export const ReturnModal = ({
 
   return (
     <div
-      id="confirm-borrow"
+      id="confirm-return"
       className={returnModalVisible ? "modal is-active" : "modal"}
     >
       <div className="modal-background"></div>
@@ -159,6 +144,51 @@ export const ReturnModal = ({
       </div>
       <button
         onClick={() => setReturnModalVisible(false)}
+        className="modal-close is-large"
+        aria-label="close"
+      ></button>
+    </div>
+  );
+};
+
+export const LogoutModal = ({
+  handleLogout,
+  logoutModalVisible,
+  setLogoutModalVisible,
+}) => {
+  return (
+    <div
+      id="confirm-logout"
+      className={logoutModalVisible ? "modal is-active" : "modal"}
+    >
+      <div className="modal-background"></div>
+      <div
+        className="modal-card has-text-centered"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="modal-card-body">
+          <p className="modal-card-title mb-3">
+            Are you sure you want to log out?
+          </p>
+          <div className="field is-grouped is-grouped-centered">
+            <p className="control">
+              <button onClick={handleLogout} className="button is-dark">
+                Log Out
+              </button>
+            </p>
+            <p className="control">
+              <button
+                onClick={() => setLogoutModalVisible(false)}
+                className="button"
+              >
+                Cancel
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+      <button
+        onClick={() => setLogoutModalVisible(false)}
         className="modal-close is-large"
         aria-label="close"
       ></button>

@@ -25,8 +25,6 @@ const ItemPage = () => {
     setReturnModalVisible(false);
   };
 
-  document.addEventListener("click", closeModals);
-
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
@@ -162,6 +160,8 @@ const ItemPage = () => {
   const selectDuration = (e) => {
     setDuration(parseInt(e.target.value));
   };
+
+  document.addEventListener("click", closeModals);
 
   return (
     <div className="item-details box is-shadowless is-secondary-background">

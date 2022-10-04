@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCurrentUser } from "../reducers/userSlice";
+import { LogoutModal } from "./modals";
 
 const NavBar = () => {
   const { currentUser } = useSelector((state) => state.user);
+  const [logoutModalVisible, setLogoutModalVisible] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -14,6 +17,13 @@ const NavBar = () => {
       navigate("/");
     });
   };
+
+  const confirmLogout = (e) => {
+    e.stopPropagation();
+    setLogoutModalVisible(true);
+  };
+
+  document.addEventListener("click", () => setLogoutModalVisible(false));
 
   return (
     <nav className="navbar has-background-dark is-mobile">
@@ -59,14 +69,12 @@ const NavBar = () => {
                       <div className="dropdown-item is-size-6">Account</div>
                     </NavLink>
                     <hr className="dropdown-divider m-0" />
-                    <NavLink>
-                      <div
-                        className="dropdown-item is-size-6"
-                        onClick={handleLogout}
-                      >
-                        Log Out
-                      </div>
-                    </NavLink>
+                    <div
+                      className="dropdown-item is-clickable is-size-6"
+                      onClick={confirmLogout}
+                    >
+                      Log Out
+                    </div>
                   </div>
                 </div>
               </div>
@@ -74,6 +82,11 @@ const NavBar = () => {
           </div>
         </div>
       </div>
+      <LogoutModal
+        handleLogout={handleLogout}
+        logoutModalVisible={logoutModalVisible}
+        setLogoutModalVisible={setLogoutModalVisible}
+      />
     </nav>
   );
 };
