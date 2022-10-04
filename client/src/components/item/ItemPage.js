@@ -4,26 +4,32 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateCurrentUser } from "../../reducers/userSlice";
 import { updateItems } from "../../reducers/itemsSlice";
 
+import { BorrowModal, ReturnModal } from "../modals";
+
 const ItemPage = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [item, setItem] = useState({});
   const [isRented, setIsRented] = useState(false);
   const [userHasItem, setUserHasItem] = useState(false);
   const [currentRental, setCurrentRental] = useState({});
-  const [modalVisible, setModalVisible] = useState(false);
+  const [borrowModalVisible, setBorrowModalVisible] = useState(false);
+  const [returnModalVisible, setReturnModalVisible] = useState(false);
   const [duration, setDuration] = useState(1);
   const [errors, setErrors] = useState([]);
 
   const params = useParams();
   const dispatch = useDispatch();
 
-  document.addEventListener("click", () => setModalVisible(false));
+  const closeModals = () => {
+    setBorrowModalVisible(false);
+    setReturnModalVisible(false);
+  };
+
+  document.addEventListener("click", closeModals);
 
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
-  // console.log("currentUser.current_rentals: ", currentUser.current_rentals)
-  // console.log("Item: ", item)
 
   useEffect(() => {
     fetch(`/items/${params.id}`)
@@ -41,9 +47,17 @@ const ItemPage = () => {
   }, []);
 
   const handleBorrowClick = (e) => {
+    // To stop from triggering document wide click event listener
     e.stopPropagation();
     // Show confirmation pop-up
-    setModalVisible(true);
+    setBorrowModalVisible(true);
+  };
+
+  const handleReturnClick = (e) => {
+    // To stop from triggering document wide click event listener
+    e.stopPropagation();
+    // Show confirmation pop-up
+    setReturnModalVisible(true);
   };
 
   const borrowItem = () => {
@@ -61,7 +75,7 @@ const ItemPage = () => {
           setIsRented(true);
           setCurrentRental(data);
           setUserHasItem(true);
-          setModalVisible(false);
+          setBorrowModalVisible(false);
           // console.log("Borrow data: ", data);
           // console.log("currentUser: ", currentUser);
           dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
@@ -114,7 +128,7 @@ const ItemPage = () => {
   );
 
   const returnButton = (
-    <button onClick={returnItem} className="button is-accent-button">
+    <button onClick={handleReturnClick} className="button is-accent-button">
       Return This Item
     </button>
   );
@@ -145,18 +159,22 @@ const ItemPage = () => {
     );
   };
 
+  const selectDuration = (e) => {
+    setDuration(parseInt(e.target.value));
+  };
+
   return (
-    <div className="item-details box is-secondary-background">
+    <div className="item-details box is-shadowless is-secondary-background">
       <div className="columns is-centered">
         <div className="column">
           <p className="title is-size-4">{item.name}</p>
-          <div className="columns is-mobile">
-            <div className="column is-half">
+          <div className="columns is-centered is-mobile">
+            <div className="column is-3">
               <figure className="image">
                 <img src={item.image} alt={`${item.name}`} />
               </figure>
             </div>
-            <div className="column is-half my-auto">
+            <div className="column is-3 my-auto">
               {/* name, image, sex, size, price, category */}
               {userHasItem ? getReturnInfo() : borrowInfo}
               {getButton()}
@@ -165,94 +183,25 @@ const ItemPage = () => {
         </div>
       </div>
 
-      {/* Modal */}
-      <div
-        id="confirm-borrow"
-        className={modalVisible ? "modal is-active" : "modal"}
-      >
-        <div className="modal-background"></div>
-        <div className="modal-card has-text-centered" onClick={stopPropagation}>
-          <div className="modal-card-body">
-            <p className="modal-card-title mb-3">Borrow {item.name}?</p>
-            <section className="columns is-mobile modal-card-image">
-              <div className="column is-4 is-offset-4">
-                <figure className="image">
-                  <img src={item.image} alt={item.name} />
-                </figure>
-              </div>
-            </section>
+      <BorrowModal
+        borrowModalVisible={borrowModalVisible}
+        setBorrowModalVisible={setBorrowModalVisible}
+        borrowItem={borrowItem}
+        item={item}
+        selectDuration={selectDuration}
+        errors={errors}
+      />
 
-            <div className="field is-grouped is-grouped-centered">
-              <div className="control">
-                <div className="select">
-                  <select
-                    onChange={(e) => setDuration(parseInt(e.target.value))}
-                    defaultValue="1"
-                  >
-                    <option value="">How long?</option>
-                    <option value="1">1 Day</option>
-                    <option value="2">2 Days</option>
-                    <option value="3">3 Days</option>
-                    <option value="4">4 Days</option>
-                    <option value="5">5 Days</option>
-                    <option value="6">6 Days</option>
-                    <option value="7">7 Days</option>
-                    <option value="8">8 Days</option>
-                    <option value="9">9 Days</option>
-                    <option value="10">10 Days</option>
-                  </select>
-                </div>
-              </div>
-              <p className="control">
-                <button onClick={borrowItem} className="button is-dark">
-                  Borrow
-                </button>
-              </p>
-              <p className="control">
-                <button
-                  onClick={() => setModalVisible(false)}
-                  className="button"
-                >
-                  Cancel
-                </button>
-              </p>
-            </div>
-            <p className="is-danger">{errors}</p>
-          </div>
-        </div>
-        <button
-          onClick={() => setModalVisible(false)}
-          className="modal-close is-large"
-          aria-label="close"
-        ></button>
-      </div>
+      <ReturnModal
+        returnModalVisible={returnModalVisible}
+        setReturnModalVisible={setReturnModalVisible}
+        item={item}
+        currentRental={currentRental}
+        returnItem={returnItem}
+        errors={errors}
+      />
     </div>
   );
 };
 
 export default ItemPage;
-
-// const borrowItem = () => {
-//   fetch(`/rent_item`, {
-//     method: `POST`,
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       item_id: item.id,
-//       duration: duration,
-//     }),
-//   }).then((res) => {
-//     if (res.ok) {
-//       res.json().then((data) => {
-//         setItem(data.item);
-//         setIsRented(true);
-//         setCurrentRental(data);
-//         setUserHasItem(true);
-//         setModalVisible(false);
-//         console.log("Borrow data: ", data)
-//         dispatch(updateCurrentUser({...currentUser, current_rentals: [...currentUser.current_rentals, data]}))
-//       });
-//     } else {
-//       res.json().then((data) => setErrors([...errors, data.errors]));
-//     }
-//   });
-// };
