@@ -42,7 +42,7 @@ const ItemCard = ({ item }) => {
         return (
           <div className="control">
             <span className="tag availability is-info is-light">
-              {`${rental.days_remaining} day ${
+              {`${rental.days_remaining} day${
                 rental.days_remaining > 1 ? "s" : ""
               } left`}
             </span>
@@ -75,7 +75,8 @@ const ItemCard = ({ item }) => {
       <div className="item-price is-justify-content-center">
         <p className="is-size-7">
           <span className="super">$</span>
-          <strong className="is-size-5">{item.price}</strong>/day
+          <strong className="is-size-5 has-text-primary">{item.price}</strong>
+          /day
         </p>
       </div>
 
