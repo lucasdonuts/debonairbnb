@@ -8083,7 +8083,7 @@ i {
   display: grid;
   align-content: space-between; }
 
-.card:hover {
+.card:not(.item-page-card):hover {
   border: 2px solid #c7f1ff; }
 
 .are-small > .tag {

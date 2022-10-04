@@ -169,7 +169,7 @@ const ItemPage = () => {
                 className="item-card mb-5"
                 // style={{ minWidth: "min-content" }}
               >
-                <div className="card is-shadowless">
+                <div className="card item-page-card is-shadowless">
                   <div className="card-header item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless"></div>
                   <div className="card-content py-1">
                     <div className="card-image item-image">
