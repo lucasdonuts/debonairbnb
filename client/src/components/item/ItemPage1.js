@@ -164,39 +164,9 @@ const ItemPage = () => {
           <p className="title is-size-4">{item.name}</p>
           <div className="columns is-centered is-mobile">
             <div className="column is-3">
-              {/* Item card start */}
-              <div
-                className="item-card mb-5"
-                // style={{ minWidth: "min-content" }}
-              >
-                <div className="card is-shadowless">
-                  <div className="card-header item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless"></div>
-                  <div className="card-content py-1">
-                    <div className="card-image item-image">
-                      <figure className="image">
-                        <img src={item.image} alt={item.name} />
-                      </figure>
-                    </div>
-                  </div>
-                  <div className="card-footer">
-                    <div className="tags is-centered">
-                      {item.category !== "Accessories" && (
-                        <div className="control">
-                          <span className="tag is-dark is-medium">
-                            {item.size}
-                          </span>
-                        </div>
-                      )}
-                      <div className="control">
-                        <span className="tag is-light is-medium">
-                          {item.category}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Item card info */}
+              <figure className="image">
+                <img src={item.image} alt={`${item.name}`} />
+              </figure>
             </div>
             <div className="column is-3 my-auto">
               {/* name, image, sex, size, price, category */}
