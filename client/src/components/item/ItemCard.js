@@ -79,7 +79,7 @@ const ItemCard = ({ item }) => {
         </p>
       </div>
 
-      <div className="field is-grouped is-grouped-centered">
+      <div className="is-flex-wrap-wrap field is-grouped is-grouped-centered item-tags">
         {item.category !== "Accessories" && (
           <div className="control">
             <div className="tags are-small">
@@ -99,8 +99,8 @@ const ItemCard = ({ item }) => {
   return (
     <Link
       to={`/items/${item.id}`}
-      className="column item-card is-2 mb-5"
-      style={{ minWidth: "180px" }}
+      className="column item-card is-2-fullhd is-2-widescreen is-3-desktop is-3-touch mb-5"
+      style={{ minWidth: "min-content" }}
     >
       <div className="card is-shadowless">
         <div className="card-header item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless">
