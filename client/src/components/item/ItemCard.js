@@ -19,7 +19,9 @@ const ItemCard = ({ item }) => {
   const availableTag = (
     <div className="field">
       <div className="control">
-        <span className="tag availability is-success">Available Now</span>
+        <span className="tag availability is-success has-text-weight-medium">
+          Available Now
+        </span>
       </div>
     </div>
   );
@@ -104,10 +106,10 @@ const ItemCard = ({ item }) => {
       style={{ minWidth: "min-content" }}
     >
       <div className="card is-shadowless">
-        <div className="card-header item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless">
+        <div className="card-header column item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless">
           {item.name}
-        </div>
-        <div className="card-header item-name is-justify-content-center is-shadowless">
+          {/* </div>
+        <div className="card-header item-name is-justify-content-center is-shadowless"> */}
           {getRentalStatusTag()}
         </div>
         <div className="card-content py-1">
