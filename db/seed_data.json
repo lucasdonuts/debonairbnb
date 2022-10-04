@@ -1,0 +1,292 @@
+[
+  {
+    "id": 1,
+    "name": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+    "sex": "Men",
+    "category": "Accessories",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mens Casual Premium Slim Fit T-Shirts ",
+    "sex": "Men",
+    "category": "Shirts",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Mens Cotton Jacket",
+    "sex": "Men",
+    "category": "Coats and Jackets",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Mens Casual Slim Fit",
+    "sex": "Men",
+    "category": "Shirts",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg"
+  },
+  {
+    "id": 15,
+    "name": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
+    "sex": "Women",
+    "category": "Coats and Jackets",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket",
+    "sex": "Women",
+    "category": "Coats and Jackets",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Rain Jacket Women Windbreaker Striped Climbing Raincoats",
+    "sex": "Women",
+    "category": "Coats and Jackets",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg"
+  },
+  {
+    "id": 18,
+    "name": "MBJ Women's Solid Short Sleeve Boat Neck V ",
+    "sex": "Women",
+    "category": "Shirts",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Opna Women's Short Sleeve Moisture",
+    "sex": "Women",
+    "category": "Shirts",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg"
+  },
+  {
+    "id": 20,
+    "name": "DANVOUY Womens T Shirt Casual Cotton Short",
+    "sex": "Women",
+    "category": "Shirts",
+    "price": 1,
+    "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
+  },
+  {
+    "name": "Black Blazer with Gold Floral Pattern",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://images.beautifulhalo.com/images/392x588/201904/N/fancy-floral-pattern-long-sleeve-notched-lapel-collar-single-button-slim-fit-blazer-prom-suit-for-men_1555521881462.jpg"
+  },
+  {
+    "name": "Red Suit with Black Web Pattern and Black Lapel",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://ae01.alicdn.com/kf/HTB16zfOaifrK1RjSspbq6A4pFXaZ/Fancy-Sequined-Suit-Men-Suits-Polyester-Single-Button-Pink-Yellow-Regular-Full-High-Street-Pink-Men.jpg_Q90.jpg_.webp"
+  },
+  {
+    "name": "Gold Patterned Blazer and Bowtie",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://handcmediastorage.blob.core.windows.net/productimages/JK/JKCRYS603P-B12V-163327-800px-1040px.jpg"
+  },
+  {
+    "name": "Blue 3-Piece Suit",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://handcmediastorage.blob.core.windows.net/productimages/JK/JKCRYS603P-B12V-163327-800px-1040px.jpg"
+  },
+  {
+    "name": "Teal Plaid 3-Piece Suit",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://s.yimg.com/aah/yhst-83114501141346/ej-samuel-men-s-charcoal-wine-plaid-3-piece-fashion-suit-m2718-52.jpg"
+  },
+  {
+    "name": "Light Grey 3-Piece Modern Suit",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://cdn.shopify.com/s/files/1/1874/2805/products/SO4M158-05__LIGHTGRAY.jpg?v=1583355100"
+  },
+  {
+    "name": "Navy 3-Piece Suit",
+    "sex": "Men",
+    "category": "Men's Formal",
+    "price": 1,
+    "image": "https://www.dapperconfidential.com/wp-content/uploads/2020/08/Three_Piece_Suit_3_-_Hawes_and_Curtis-e1598930074825.jpg.webp"
+  },
+  {
+    "name": "Long 2-Piece Prom Dress",
+    "sex": "Women",
+    "category": "Women's Formal",
+    "price": 1,
+    "image": "https://img.promgirl.com/_img/PGPRODUCTS/2342440/1000/heavenly-dress-PG-F2038-a.jpg"
+  },
+  {
+    "name": "Black Cocktail Dress",
+    "sex": "Women",
+    "category": "Women's Formal",
+    "price": 1,
+    "image": "https://i0.wp.com/greenweddingshoes.com/wp-content/uploads/2022/05/black-asymmetrical-formal-cocktail-dresses-for-weddings-with-leg-slit.jpeg?fit=728%2C9999"
+  },
+  {
+    "name": "Blue Split Pattern Semi-Formal Dress",
+    "sex": "Women",
+    "category": "Women's Formal",
+    "price": 1,
+    "image": "https://media.self.com/photos/576af9487f0f18607a92e479/master/w_1217,h_2048,c_limit/Semi-Formal-Midi-Dress.jpg"
+  },
+  {
+    "name": "Long Black Dress with Bird Patter",
+    "sex": "Women",
+    "category": "Women's Formal",
+    "price": 1,
+    "image": "https://images.squarespace-cdn.com/content/v1/547a3834e4b053a861c4874e/1633311421721-NPJNS5Y31Z3N5BRFT6VD/Sustainably+Chic+%7C+Sustainable+Fashion+Blog+%7C+The+Best+Sustainable+Dresses+%26+Gowns+for+Weddings%2C+Cocktail+Parties+%26+Special+Events+%7C+AGAATI.png"
+  },
+  {
+    "name": "Red Sequined Dress/Suit Hybrid with Extra Large Bowtie",
+    "sex": "Women",
+    "category": "Women's Formal",
+    "price": 1,
+    "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/boy-goes-viral-prom-dress-1657028985.jpeg"
+  },
+  {
+    "name": "Magenta Bridal Dress with Train",
+    "sex": "Women",
+    "category": "Women's Formal",
+    "price": 1,
+    "image": "https://millanova.nyc3.cdn.digitaloceanspaces.com/medium_Milla1000_39_14_d4b2576138.jpeg"
+  },
+  {
+    "name": "Sonoma Olive Dress Shoes",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://media.kohlsimg.com/is/image/kohls/3233736_Gray?wid=600&hei=600&op_sharpen=1"
+  },
+  {
+    "name": "Brown Leather Dress Shoes",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://images.dsw.com/is/image/DSWShoes/506813_240_ss_01?impolicy=colpg&imwidth=400&imdensity=1"
+  },
+  {
+    "name": "Brown Square Toe Dress Shoes",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://philipmichaelfashion.com/pub/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/rdi/rdi/steven-land-sl0082-square-toe-oxford-mens-dress-shoe-brown_1.jpg"
+  },
+  {
+    "name": "Basic Black Faux Leather Dress Shoes",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://pyxis.nymag.com/v1/imgs/3e4/160/12929765dae08fb2dbfe5327d557bc37bf-rockport-big-bucks-margin.rhorizontal.w600.jpg"
+  },
+  {
+    "name": "Brown Raised-Heel Dress Shoe",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://marvel-b1-cdn.bc0a.com/f00000000114841/www.florsheim.com/styleguide/resources/images/about/styleTips/Q27/27header.jpg"
+  },
+  {
+    "name": "Grey Semi-Formal Dress Shoe",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0558/4169/products/GreyDressShoes_1500_1000-2_dcc0e1f6-b4e9-4694-bdf3-f08b9117506a_700x.jpg?v=1571270503"
+  },
+  {
+    "name": "White Alligator Dress Shoe",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0681/8003/products/D685CC5D-487A-4D7A-A91E-1E22AD62C5F8_2048x2048.jpg?v=1606554181"
+  },
+  {
+    "name": "Black Fabric Semi Formal Shoe",
+    "sex": "Men",
+    "category": "Men's Shoes",
+    "price": 1,
+    "image": "https://www.ties.com/blog/wp-content/uploads/2022/02/Jousen-Mens-Oxford-Suede-Business-Casual-Dress-Shoes-Plain-Toe-Oxfords-Classic-Formal-Derby-Shoes.jpg"
+  },
+  {
+    "name": "White/Iridescent 4-Inch High Heels",
+    "sex": "Women",
+    "category": "Women's Shoes",
+    "price": 1,
+    "image": "http://cdn.shopify.com/s/files/1/0552/3095/5607/collections/3a15b13ca557a4894d059bdd5e196232.jpg?v=1659980701"
+  },
+  {
+    "name": "All-Fabric Lace-Lined Mudwalkers",
+    "sex": "Women",
+    "category": "Women's Shoes",
+    "price": 1,
+    "image": "https://cdn.vox-cdn.com/thumbor/6yeAull4ElJoW2Upafyo016W05g=/111x0:1888x1333/1400x1050/filters:focal(111x0:1888x1333):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/45646344/heels-lead.0.jpg"
+  },
+  {
+    "name": "Silver and Rhinestone Wedge Shoes",
+    "sex": "Women",
+    "category": "Women's Shoes",
+    "price": 1,
+    "image": "https://dimg.dillards.com/is/image/DillardsZoom/nav2/alex-marie-mersalo-rhinestone-wedges/05679268_zi_silver.jpg"
+  },
+  {
+    "name": "Yellow 3-Inch Heels",
+    "sex": "Women",
+    "category": "Women's Shoes",
+    "price": 1,
+    "image": "https://image-ie.s3.eu-west-1.amazonaws.com/uploads/2018/04/27125034/SS17-DetailM-00951.jpg"
+  },
+  {
+    "name": "90's Trainer-Chic Strap-on Heels",
+    "sex": "Women",
+    "category": "Women's Shoes",
+    "price": 1,
+    "image": "https://static.standard.co.uk/s3fs-public/thumbnails/image/2018/06/22/12/heels.jpg?width=1200"
+  },
+  {
+    "name": "White All-Purpose Flats",
+    "sex": "Women",
+    "category": "Women's Shoes",
+    "price": 1,
+    "image": "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2021_16/1704577/screen_shot_2021-04-20_at_10-21-30_am.png"
+  },
+  {
+    "name": "Black and Gold Checkered Tie",
+    "sex": "",
+    "category": "Accessories",
+    "price": 1,
+    "image": "https://img.joomcdn.net/926df1d185b80a3443c467c685e95e657433a251_original.jpeg"
+  },
+  {
+    "name": "Blue and Gold Striped Patterned Bowtie",
+    "sex": "",
+    "category": "Accessories",
+    "price": 1,
+    "image": "https://img.joomcdn.net/a84788264c16ae8e280b626336a4f4948e63ddfc_original.jpeg"
+  },
+  {
+    "name": "Dark Red Diamond Pattern Tie",
+    "sex": "",
+    "category": "Accessories",
+    "price": 1,
+    "image": "https://img.joomcdn.net/e5a4442eb8239389327d764718ea877edd2c3177_1024_1024.jpeg"
+  }
+]

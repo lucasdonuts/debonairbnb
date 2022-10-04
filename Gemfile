@@ -38,3 +38,5 @@ gem 'activerecord-reset-pk-sequence'
 
 gem 'rest-client'
 gem 'addressable', '~> 2.8', '>= 2.8.1'
+
+gem 'faker', '~> 2.23'
