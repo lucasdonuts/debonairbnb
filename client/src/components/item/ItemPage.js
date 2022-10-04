@@ -102,7 +102,7 @@ const ItemPage = () => {
   // console.log("CurrentUser: ", currentUser);
 
   const borrowButton = (
-    <button onClick={handleBorrowClick} className="button is-primary">
+    <button onClick={handleBorrowClick} className="button is-dark">
       Borrow This Item
     </button>
   );
@@ -114,7 +114,7 @@ const ItemPage = () => {
   );
 
   const returnButton = (
-    <button onClick={returnItem} className="button is-primary is-light">
+    <button onClick={returnItem} className="button is-accent-button">
       Return This Item
     </button>
   );
@@ -204,7 +204,7 @@ const ItemPage = () => {
                 </div>
               </div>
               <p className="control">
-                <button onClick={borrowItem} className="button is-primary">
+                <button onClick={borrowItem} className="button is-dark">
                   Borrow
                 </button>
               </p>

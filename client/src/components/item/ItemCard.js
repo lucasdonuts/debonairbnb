@@ -42,7 +42,9 @@ const ItemCard = ({ item }) => {
         return (
           <div className="control">
             <span className="tag availability is-info is-light">
-              {`${rental.days_remaining} days left`}
+              {`${rental.days_remaining} day ${
+                rental.days_remaining > 1 ? "s" : ""
+              } left`}
             </span>
           </div>
         );
