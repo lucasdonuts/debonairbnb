@@ -264,11 +264,11 @@ const FiltersContainer = ({
         <div id="slider-container" className="control">
           <input
             onChange={handleFilterChange}
-            class="slider is-success is-circle"
+            className="slider is-success is-circle"
             name="price"
             step="20"
             min="20"
-            max="300"
+            max="200"
             value={filters.price.value}
             type="range"
           />
