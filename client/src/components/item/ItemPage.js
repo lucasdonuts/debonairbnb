@@ -177,7 +177,7 @@ const ItemPage = () => {
                     {/* Item Image */}
                     <div
                       onClick={handleImageClick}
-                      className="card-image item-image"
+                      className="card-image item-image is-clickable"
                     >
                       <figure className="image">
                         <img src={item.image} alt={item.name} />
