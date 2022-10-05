@@ -27,7 +27,7 @@ const Shop = () => {
       12: false,
     },
     available: { active: false },
-    price: { active: false, value: "0" },
+    price: { active: false, value: "300" },
   });
 
   const dispatch = useDispatch();

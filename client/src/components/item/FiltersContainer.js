@@ -277,17 +277,19 @@ const FiltersContainer = ({
         <div id="slider-container" className="control">
           <input
             onChange={handleFilterChange}
-            class="slider is-fullwidth is-success is-circle"
+            class="slider is-success is-circle"
             name="price"
             step="20"
-            min="0"
+            min="20"
             max="300"
             value={filters.price.value}
             type="range"
           />
           <p>
             Max price:
-            {filters.price.value === "0" ? " None" : `$${filters.price.value}`}
+            {filters.price.value === "300"
+              ? " None"
+              : `$${filters.price.value}`}
           </p>
         </div>
       </div>
