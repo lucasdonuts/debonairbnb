@@ -7894,7 +7894,7 @@ div#root {
   min-height: 100vh; }
 
 .unauth-landing-container {
-  min-height: 103vh;
+  min-height: 101.3vh;
   display: grid;
   align-items: center;
   background-color: #363636; }
@@ -7960,6 +7960,11 @@ a.navbar-item.logo:active {
   font-size: larger;
   font-weight: 700; }
 
+.auth-button:hover,
+.auth-button:focus,
+.auth-button:active {
+  color: white; }
+
 .dropdown-item {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -7982,7 +7987,7 @@ a.navbar-item.logo:active {
 
 .main.section {
   background-color: white;
-  min-height: 77.8vh; }
+  min-height: 78vh; }
 
 .footer {
   padding: 1rem 1.5rem 0.75rem;

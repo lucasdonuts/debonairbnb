@@ -42,7 +42,7 @@ div#root {
 }
 
 .unauth-landing-container {
-  min-height: 103vh;
+  min-height: 101.3vh;
   display: grid;
   align-items: center;
   background-color: $dark;
@@ -124,6 +124,12 @@ a.navbar-item.logo:active {
   font-weight: 700;
 }
 
+.auth-button:hover,
+.auth-button:focus,
+.auth-button:active {
+  color: $secondary;
+}
+
 .dropdown-item {
   font-family: $base-font;
   font-weight: 500;
@@ -150,7 +156,7 @@ a.navbar-item.logo:active {
 
 .main.section {
   background-color: white;
-  min-height: 77.8vh;
+  min-height: 78vh;
 }
 
 .footer {

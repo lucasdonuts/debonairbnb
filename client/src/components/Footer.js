@@ -15,7 +15,7 @@ const Footer = () => {
               <i className="fab fa-github"></i>
             </a>
             <a
-              href="linkedin.com/in/lucaswdunc/"
+              href="https://linkedin.com/in/lucaswdunc/"
               target="_blank"
               className="icon is-size-4 mr-3"
             >
