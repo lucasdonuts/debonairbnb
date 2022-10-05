@@ -22,7 +22,6 @@ const FiltersContainer = ({
     11: false,
     12: false,
   });
-  const [sliderValue, setSliderValue] = useState("");
 
   const categoryOptions = categories.map((c) => {
     return (
@@ -67,18 +66,6 @@ const FiltersContainer = ({
       </div>
       {/* Category, Sex, Sizes */}
       <div className="field is-grouped is-justify-content-space-around">
-        {/* <div className="control">
-          <div className="select is-small">
-            <select
-              name="category"
-              onChange={handleFilterChange}
-              value={filters.category.value}
-            >
-              <option value="">All Categories</option>
-              {categoryOptions}
-            </select>
-          </div>
-        </div> */}
         <div className="control">
           <div className="tag has-addons p-0">
             <span
