@@ -7946,6 +7946,11 @@ a.navbar-item.logo:active {
   .filters-container {
     max-width: 50%; } }
 
+.image img.modal-image {
+  margin: auto;
+  height: 650px;
+  width: auto; }
+
 .filters-container {
   width: 80%;
   margin: auto; }

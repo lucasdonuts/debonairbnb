@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateCurrentUser } from "../../reducers/userSlice";
 import { updateItems } from "../../reducers/itemsSlice";
 
-import { BorrowModal, ReturnModal } from "../modals";
+import { BorrowModal, ReturnModal, LargeImageModal } from "../modals";
 
 const ItemPage = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -14,6 +14,7 @@ const ItemPage = () => {
   const [currentRental, setCurrentRental] = useState({});
   const [borrowModalVisible, setBorrowModalVisible] = useState(false);
   const [returnModalVisible, setReturnModalVisible] = useState(false);
+  const [imageModalVisible, setImageModalVisible] = useState(false);
   const [duration, setDuration] = useState(1);
   const [errors, setErrors] = useState([]);
 
@@ -23,6 +24,7 @@ const ItemPage = () => {
   const closeModals = () => {
     setBorrowModalVisible(false);
     setReturnModalVisible(false);
+    setImageModalVisible(false);
   };
 
   useEffect(() => {
@@ -34,8 +36,6 @@ const ItemPage = () => {
         setUserHasItem(
           data.rentals.some((r) => r.user.id === currentUser.id && r.current)
         );
-        // setCurrentRental(data.rentals.find((r) => r.current) || {});
-        // setCurrentRental(data.current_rental || {});
         setCurrentRental(data.rentals.find((r) => r.current) || {});
       });
   }, []);
@@ -54,6 +54,13 @@ const ItemPage = () => {
     setReturnModalVisible(true);
   };
 
+  const handleImageClick = (e) => {
+    // To stop from triggering document wide click event listener
+    e.stopPropagation();
+    // Show confirmation pop-up
+    setImageModalVisible(true);
+  };
+
   const borrowItem = () => {
     fetch(`/rent_item`, {
       method: `POST`,
@@ -70,8 +77,6 @@ const ItemPage = () => {
           setCurrentRental(data);
           setUserHasItem(true);
           setBorrowModalVisible(false);
-          // console.log("Borrow data: ", data);
-          // console.log("currentUser: ", currentUser);
           dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
         });
       } else {
@@ -96,8 +101,6 @@ const ItemPage = () => {
           setIsRented(false);
           setCurrentRental({});
           setUserHasItem(false);
-          // setModalVisible(false);
-          // console.log("Return data: ", data);
           dispatch(updateItems(data.item));
           dispatch(updateCurrentUser({ ...currentUser, ...data.user }));
         });
@@ -142,7 +145,6 @@ const ItemPage = () => {
   );
 
   const getReturnInfo = () => {
-    console.log(item);
     return (
       <p>
         You have {currentRental.days_remaining} day
@@ -167,12 +169,16 @@ const ItemPage = () => {
               {/* Item card start */}
               <div
                 className="item-card mb-5"
-                // style={{ minWidth: "min-content" }}
+                style={{ minWidth: "min-content" }}
               >
                 <div className="card item-page-card is-shadowless">
                   <div className="card-header item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless"></div>
                   <div className="card-content py-1">
-                    <div className="card-image item-image">
+                    {/* Item Image */}
+                    <div
+                      onClick={handleImageClick}
+                      className="card-image item-image"
+                    >
                       <figure className="image">
                         <img src={item.image} alt={item.name} />
                       </figure>
@@ -223,6 +229,13 @@ const ItemPage = () => {
         currentRental={currentRental}
         returnItem={returnItem}
         errors={errors}
+      />
+
+      <LargeImageModal
+        itemImage={item.image}
+        itemName={item.name}
+        imageModalVisible={imageModalVisible}
+        setImageModalVisible={setImageModalVisible}
       />
     </div>
   );

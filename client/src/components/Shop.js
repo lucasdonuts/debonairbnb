@@ -7,7 +7,6 @@ import Loading from "./Loading";
 
 const Shop = () => {
   const { entities: items, isLoading } = useSelector((state) => state.items);
-  // console.log("Shop: ", items)
 
   const [filters, setFilters] = useState({
     name: { active: false, value: "" },
@@ -25,10 +24,6 @@ const Shop = () => {
   });
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getItems());
-  // }, []);
 
   useEffect(() => {
     dispatch(getCategories());

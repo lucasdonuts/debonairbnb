@@ -6,8 +6,6 @@ const ItemCard = ({ item }) => {
   const { currentUser } = useSelector((state) => state.user);
   const [isRented, setIsRented] = useState(false);
   const [userHasItem, setUserHasItem] = useState(false);
-  // console.log("currentUser: ", currentUser)
-  // console.log("item: ", item)
 
   useEffect(() => {
     setIsRented(!item["available?"]);
@@ -108,8 +106,6 @@ const ItemCard = ({ item }) => {
       <div className="card is-shadowless">
         <div className="card-header column item-name is-justify-content-center is-size-7 has-text-weight-bold is-shadowless">
           {item.name}
-          {/* </div>
-        <div className="card-header item-name is-justify-content-center is-shadowless"> */}
           {getRentalStatusTag()}
         </div>
         <div className="card-content py-1">

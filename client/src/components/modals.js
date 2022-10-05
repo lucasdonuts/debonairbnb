@@ -195,3 +195,36 @@ export const LogoutModal = ({
     </div>
   );
 };
+
+export const LargeImageModal = ({
+  itemImage,
+  itemName,
+  imageModalVisible,
+  setImageModalVisible,
+}) => {
+  return (
+    <div
+      id="large-image-modal"
+      className={imageModalVisible ? "modal is-active" : "modal"}
+    >
+      <div className="modal-background"></div>
+      <div className="modal-content">
+        <p className="image">
+          <img
+            onClick={(e) => e.stopPropagation()}
+            src={itemImage}
+            alt={itemName}
+            className="modal-image"
+          />
+        </p>
+      </div>
+      <button className="modal-close is-large" aria-label="close"></button>
+    </div>
+  );
+};
+
+// export const DeleteAccountModal = ({
+
+// }) => {
+
+// }

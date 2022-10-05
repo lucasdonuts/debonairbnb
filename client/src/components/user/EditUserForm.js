@@ -6,8 +6,7 @@ const EditUserForm = ({ user, updateUser }) => {
     first_name: user.first_name,
     last_name: user.last_name,
     address: user.address,
-    email: user.email,
-    // password: user.,
+    email: user.email
   });
 
   const errorElements = errors.map((error) => {
@@ -49,7 +48,6 @@ const EditUserForm = ({ user, updateUser }) => {
     <div className="columns is-centered">
       <div className="column is-8">
         <div className="box">
-          {/* <p className="title has-text-centered">DebonairBnB</p> */}
           <p className="subtitle has-text-centered">Change your Account Details</p>
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
@@ -73,7 +71,7 @@ const EditUserForm = ({ user, updateUser }) => {
                   </p>
                 </div>
                 <div className="field">
-                  <p className="control is-expanded" /* has-icons-left" */>
+                  <p className="control is-expanded">
                     <input
                       onChange={handleChange}
                       className="input"
@@ -103,7 +101,6 @@ const EditUserForm = ({ user, updateUser }) => {
                       value={formData.address}
                     />
                   </div>
-                  {/* <p className="help is-danger">This field is required</p> */}
                 </div>
               </div>
             </div>

@@ -39,7 +39,6 @@ const FiltersContainer = ({
   const toggleAvailableFilter = () => {
     applyFilter("available", !filters.available.active);
   };
-  // console.log(filters);
 
   return (
     <div className="box is-shadowless pt-1 has-text-dark filters-container">
@@ -184,7 +183,6 @@ const FiltersContainer = ({
       {/* Available Now */}
       <div className="control">
         <span
-          // onClick={handleFilterChange}
           onClick={() => toggleAvailableFilter()}
           value={filters.available.value}
           className={`tag is-success is-clickable available-now-button ${
@@ -194,26 +192,6 @@ const FiltersContainer = ({
         >
           Available Now
         </span>
-        {/* 
-        <label
-          htmlFor="available"
-          className="label"
-          onClick={(e) => console.log(e.target.value)}
-        >
-          <span
-            className={`tag is-success has-text-weight-light ${
-              filters.available.active ? "" : ""
-            }`}
-          >
-            <input
-              type="checkbox"
-              className="mr-1"
-              name="available"
-              value={filters.available.value}
-            />
-            Available Now
-          </span>
-        </label> */}
       </div>
     </div>
   );

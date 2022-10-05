@@ -117,7 +117,6 @@ export const SignupForm = () => {
                   <i className="fas fa-house"></i>
                 </span>
               </div>
-              {/* <p className="help is-danger">This field is required</p> */}
             </div>
           </div>
         </div>

@@ -2,8 +2,6 @@ class Rental < ApplicationRecord
   belongs_to :user
   belongs_to :item
 
-  # validate :item_is_available
-
   def due_date
     self.created_at + self.duration.days
   end

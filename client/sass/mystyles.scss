@@ -7,22 +7,9 @@ $base-font: "Montserrat", sans-serif;
 $secondary-font: "Kalam", cursive;
 $brand-font: "Oooh Baby", cursive;
 
-// $base: $darkpurple;
-// $base: $forestgreen;
 $base: $lincolngreen;
-// $base: $darkgreen;
-// $base: $blackcoral;
-// $base: $blizzardblue;
-// $base: $ivory;
-// $secondary: $darkgreen;
-// $secondary: $blizzardblue;
-// $secondary: $ivory;
-// $secondary: $blackcoral;
 $secondary: $white;
 $accent: $blizzardblue;
-// $accent: $blackcoral;
-// $accent: $darkgreen;
-// $accent: $ivory;
 $button-light-bg: $white;
 $button-light-text: $richblack;
 
@@ -118,6 +105,12 @@ a.navbar-item.logo:active {
   .filters-container {
     max-width: 50%;
   }
+}
+
+.image img.modal-image {
+  margin: auto;
+  height: 650px;
+  width: auto;
 }
 
 .filters-container {

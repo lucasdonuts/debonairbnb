@@ -1,6 +1,5 @@
 require 'uri'
 require 'json'
-# require_relative './api_data.json'
 
 User.destroy_all
 Item.destroy_all
