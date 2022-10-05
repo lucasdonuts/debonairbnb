@@ -17,17 +17,17 @@ const Shop = () => {
       Medium: false,
       Large: false,
       XL: false,
-      '2XL': false,
-      '6': false,
-      '7': false,
-      '8': false,
-      '9': false,
-      '10': false,
-      '11': false,
-      '12': false,
+      "2XL": false,
+      6: false,
+      7: false,
+      8: false,
+      9: false,
+      10: false,
+      11: false,
+      12: false,
     },
     available: { active: false },
-    // price: { active: false, value: "" },
+    price: { active: false, value: "0" },
   });
 
   const dispatch = useDispatch();
@@ -53,8 +53,9 @@ const Shop = () => {
           .filter((size) => size[1])
           .some((size) => size[0] === item.size)) &&
       (!filters.available.active ||
-        (filters.available.active && item["available?"]))
-      // (!filters.price.active || filters.price.active && item.price === filters.price.value)
+        (filters.available.active && item["available?"])) &&
+      (!filters.price.active ||
+        (filters.price.active && item.price <= filters.price.value))
     );
   });
 
@@ -65,6 +66,11 @@ const Shop = () => {
         available: {
           active: value,
         },
+      });
+    } else if (name === "price") {
+      setFilters({
+        ...filters,
+        price: { active: value !== "0", value: value },
       });
     } else {
       setFilters({

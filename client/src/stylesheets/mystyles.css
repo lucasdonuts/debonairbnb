@@ -7979,11 +7979,25 @@ a.navbar-item.logo:active {
   display: grid;
   place-items: center; }
 
+#available-button-container {
+  width: 25%; }
+
 .tag.available-now-button {
   height: 1.75em;
-  width: 30%;
+  width: 100%;
   border: 1px solid #48c78e;
   font-size: 0.9rem; }
+
+#slider-container {
+  width: 45%;
+  color: #48c78e; }
+
+.slider {
+  width: 100%; }
+
+.available-and-price.field.is-grouped {
+  width: 100%;
+  justify-content: space-around; }
 
 .main.section {
   background-color: white;

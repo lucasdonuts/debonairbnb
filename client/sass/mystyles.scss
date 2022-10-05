@@ -147,11 +147,29 @@ a.navbar-item.logo:active {
   place-items: center;
 }
 
+#available-button-container {
+  width: 25%;
+}
+
 .tag.available-now-button {
   height: 1.75em;
-  width: 30%;
+  width: 100%;
   border: 1px solid $success;
   font-size: 0.9rem;
+}
+
+#slider-container {
+  width: 45%;
+  color: $success;
+}
+
+.slider {
+  width: 100%;
+}
+
+.available-and-price.field.is-grouped {
+  width: 100%;
+  justify-content: space-around;
 }
 
 .main.section {

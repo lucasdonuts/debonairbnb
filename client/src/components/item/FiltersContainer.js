@@ -13,15 +13,16 @@ const FiltersContainer = ({
     Medium: false,
     Large: false,
     XL: false,
-    '2XL': false,
-    '6': false,
-    '7': false,
-    '8': false,
-    '9': false,
-    '10': false,
-    '11': false,
-    '12': false,
+    "2XL": false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+    12: false,
   });
+  const [sliderValue, setSliderValue] = useState("");
 
   const categoryOptions = categories.map((c) => {
     return (
@@ -66,7 +67,7 @@ const FiltersContainer = ({
       </div>
       {/* Category, Sex, Sizes */}
       <div className="field is-grouped is-justify-content-space-around">
-        <div className="control">
+        {/* <div className="control">
           <div className="select is-small">
             <select
               name="category"
@@ -77,7 +78,7 @@ const FiltersContainer = ({
               {categoryOptions}
             </select>
           </div>
-        </div>
+        </div> */}
         <div className="control">
           <div className="tag has-addons p-0">
             <span
@@ -190,57 +191,57 @@ const FiltersContainer = ({
           <div className="tag has-addons p-0">
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['6'] ? "is-dark" : ""
+                activeSizeFilters["6"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('6')}
+              onClick={() => handleSizeClick("6")}
             >
               6
             </span>
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['7'] ? "is-dark" : ""
+                activeSizeFilters["7"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('7')}
+              onClick={() => handleSizeClick("7")}
             >
               7
             </span>
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['8'] ? "is-dark" : ""
+                activeSizeFilters["8"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('8')}
+              onClick={() => handleSizeClick("8")}
             >
               8
             </span>
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['9'] ? "is-dark" : ""
+                activeSizeFilters["9"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('9')}
+              onClick={() => handleSizeClick("9")}
             >
               9
             </span>
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['10'] ? "is-dark" : ""
+                activeSizeFilters["10"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('10')}
+              onClick={() => handleSizeClick("10")}
             >
               10
             </span>
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['11'] ? "is-dark" : ""
+                activeSizeFilters["11"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('11')}
+              onClick={() => handleSizeClick("11")}
             >
               11
             </span>
             <span
               className={`tag is-radiusless is-clickable ${
-                activeSizeFilters['12'] ? "is-dark" : ""
+                activeSizeFilters["12"] ? "is-dark" : ""
               }`}
-              onClick={() => handleSizeClick('12')}
+              onClick={() => handleSizeClick("12")}
             >
               12
             </span>
@@ -248,17 +249,47 @@ const FiltersContainer = ({
         </div>
       </div>
       {/* Available Now */}
-      <div className="control">
-        <span
-          onClick={() => toggleAvailableFilter()}
-          value={filters.available.value}
-          className={`tag is-success is-clickable available-now-button ${
-            filters.available.active ? "" : "is-light"
-          }`}
-          name="available"
-        >
-          Available Now
-        </span>
+      <div className="field is-grouped available-and-price">
+        <div className="control">
+          <div className="select is-small">
+            <select
+              name="category"
+              onChange={handleFilterChange}
+              value={filters.category.value}
+            >
+              <option value="">All Categories</option>
+              {categoryOptions}
+            </select>
+          </div>
+        </div>
+        <div id="available-button-container" className="control">
+          <span
+            onClick={() => toggleAvailableFilter()}
+            value={filters.available.value}
+            className={`tag is-success is-clickable available-now-button ${
+              filters.available.active ? "" : "is-light"
+            }`}
+            name="available"
+          >
+            Available Now
+          </span>
+        </div>
+        <div id="slider-container" className="control">
+          <input
+            onChange={handleFilterChange}
+            class="slider is-fullwidth is-success is-circle"
+            name="price"
+            step="20"
+            min="0"
+            max="300"
+            value={filters.price.value}
+            type="range"
+          />
+          <p>
+            Max price:
+            {filters.price.value === "0" ? " None" : `$${filters.price.value}`}
+          </p>
+        </div>
       </div>
     </div>
   );
