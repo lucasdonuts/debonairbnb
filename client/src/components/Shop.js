@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getItems, getCategories } from "../reducers/itemsSlice";
+import { getCategories } from "../reducers/itemsSlice";
 import ItemsContainer from "./item/ItemsContainer";
 import FiltersContainer from "./item/FiltersContainer";
 import Loading from "./Loading";
@@ -17,7 +17,14 @@ const Shop = () => {
       Medium: false,
       Large: false,
       XL: false,
-      "2XL": false,
+      '2XL': false,
+      '6': false,
+      '7': false,
+      '8': false,
+      '9': false,
+      '10': false,
+      '11': false,
+      '12': false,
     },
     available: { active: false },
     // price: { active: false, value: "" },

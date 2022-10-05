@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 
 const FiltersContainer = ({
@@ -13,7 +13,14 @@ const FiltersContainer = ({
     Medium: false,
     Large: false,
     XL: false,
-    "2XL": false,
+    '2XL': false,
+    '6': false,
+    '7': false,
+    '8': false,
+    '9': false,
+    '10': false,
+    '11': false,
+    '12': false,
   });
 
   const categoryOptions = categories.map((c) => {
@@ -176,6 +183,66 @@ const FiltersContainer = ({
               onClick={() => handleSizeClick("2XL")}
             >
               2XL
+            </span>
+          </div>
+        </div>
+        <div className="control">
+          <div className="tag has-addons p-0">
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['6'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('6')}
+            >
+              6
+            </span>
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['7'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('7')}
+            >
+              7
+            </span>
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['8'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('8')}
+            >
+              8
+            </span>
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['9'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('9')}
+            >
+              9
+            </span>
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['10'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('10')}
+            >
+              10
+            </span>
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['11'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('11')}
+            >
+              11
+            </span>
+            <span
+              className={`tag is-radiusless is-clickable ${
+                activeSizeFilters['12'] ? "is-dark" : ""
+              }`}
+              onClick={() => handleSizeClick('12')}
+            >
+              12
             </span>
           </div>
         </div>
