@@ -64,8 +64,9 @@ const FiltersContainer = ({
           />
         </div>
       </div>
-      {/* Category, Sex, Sizes */}
+      {/* Sex, Sizes */}
       <div className="field is-grouped is-justify-content-space-around">
+        {/* Sex */}
         <div className="control">
           <div className="tag has-addons p-0">
             <span
@@ -130,6 +131,7 @@ const FiltersContainer = ({
             </span>
           </div>
         </div>
+        {/* Clothing Size */}
         <div className="control">
           <div className="tag has-addons p-0">
             <span
@@ -174,6 +176,7 @@ const FiltersContainer = ({
             </span>
           </div>
         </div>
+        {/* Shoe Size */}
         <div className="control">
           <div className="tag has-addons p-0">
             <span
@@ -235,8 +238,9 @@ const FiltersContainer = ({
           </div>
         </div>
       </div>
-      {/* Available Now */}
+      {/* Categories, Available Now, Price*/}
       <div className="field is-grouped available-and-price">
+        {/* Category */}
         <div className="control">
           <div className="select is-small">
             <select
@@ -249,6 +253,7 @@ const FiltersContainer = ({
             </select>
           </div>
         </div>
+        {/* Available Now */}
         <div id="available-button-container" className="control">
           <span
             onClick={() => toggleAvailableFilter()}
@@ -261,6 +266,7 @@ const FiltersContainer = ({
             Available Now
           </span>
         </div>
+        {/* Price */}
         <div id="slider-container" className="control">
           <input
             onChange={handleFilterChange}
