@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { NavButton } from "../tools/hooks";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setCurrentUser,
   clearCurrentUser,
-  setErrors,
 } from "../reducers/userSlice";
 export const SignupForm = () => {
   const [errors, setErrors] = useState([]);

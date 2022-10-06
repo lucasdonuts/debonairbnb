@@ -274,7 +274,7 @@ const FiltersContainer = ({
           />
           <p>
             Max price:
-            {filters.price.value === "300"
+            {filters.price.value === "200"
               ? " None"
               : `$${filters.price.value}`}
           </p>
