@@ -1,24 +1,44 @@
-# README
+# DebonairBnB
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DebonairBnB is a mock up of a clothing rental service. Many events call for outfits that are either much nicer than your daily attire, or really only fit that event. So why buy it just for it to collect dust when you take it off?
 
-Things you may want to cover:
+## Technologies
+- **Ruby** 2.7.6
+- **PostgreSQL** 14.5
+- **React** 18.2
 
-* Ruby version
+## Setup
 
-* System dependencies
+**Clone the repository**
 
-* Configuration
+```
+git clone git@github.com:lucasdonuts/debonairbnb.git
+```
 
-* Database creation
+**Install dependencies**
 
-* Database initialization
+```
+npm install --prefix client && bundle install
+```
 
-* How to run the test suite
+**Setup and seed database**
 
-* Services (job queues, cache servers, search engines, etc.)
+See the [PostgreSQL downloads page](https://www.postgresql.org/download/) for installation
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* Deployment instructions
+**Startup**
+```
+sudo service postgresql start
+rails s
+```
+In a second terminal
+```
+npm start --prefix client
+```
 
-* ...
+## Notes
+The backend is set up to run on localhost port 3000 and the frontend on port 4000
