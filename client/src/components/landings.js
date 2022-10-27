@@ -8,7 +8,7 @@ export const Root = ({ currentUser }) => {
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/home");
+      navigate("/shop");
     }
   }, []);
 

@@ -44,7 +44,7 @@ export const SignupForm = () => {
       if (res.ok) {
         res.json().then((user) => {
           dispatch(setCurrentUser(user));
-          navigate("/home");
+          navigate("/shop");
         });
       } else {
         res.json().then((data) => {
@@ -208,7 +208,7 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if (currentUser) {
-      navigate("/home");
+      navigate("/shop");
     }
   }, [currentUser]);
 
@@ -237,7 +237,7 @@ export const LoginForm = () => {
       if (res.ok) {
         res.json().then((user) => {
           dispatch(setCurrentUser(user));
-          navigate("/home");
+          navigate("/shop");
         });
       } else {
         res.json().then((data) => {
