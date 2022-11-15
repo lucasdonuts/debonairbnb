@@ -2,26 +2,29 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 
+const initialSizeFilterState = {
+  Small: false,
+  Medium: false,
+  Large: false,
+  XL: false,
+  "2XL": false,
+  6: false,
+  7: false,
+  8: false,
+  9: false,
+  10: false,
+  11: false,
+  12: false,
+}
+
 const FiltersContainer = ({
   filters,
   applyFilter,
   updateSizeFilter = null,
+  clearFilters,
 }) => {
   const { categories } = useSelector((state) => state.items);
-  const [activeSizeFilters, setActiveSizeFilters] = useState({
-    Small: false,
-    Medium: false,
-    Large: false,
-    XL: false,
-    "2XL": false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
-    10: false,
-    11: false,
-    12: false,
-  });
+  const [activeSizeFilters, setActiveSizeFilters] = useState(initialSizeFilterState);
 
   const categoryOptions = categories.map((c) => {
     return (
@@ -47,9 +50,20 @@ const FiltersContainer = ({
     applyFilter("available", !filters.available.active);
   };
 
+  const handleClearFiltersClick = () => {
+    setActiveSizeFilters(initialSizeFilterState);
+    clearFilters();
+  }
+
   return (
     <div className="box is-shadowless pt-1 has-text-dark filters-container">
       <p className="has-text-centered is-size-4">Filters</p>
+      <p
+        onClick={handleClearFiltersClick}
+        className="has-text-centered is-size-7 is-clickable has-text-danger"
+      >
+        Clear all
+      </p>
       {/* Search Bar */}
       <div className="field">
         <div className="control">

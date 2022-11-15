@@ -5,30 +5,32 @@ import ItemsContainer from "./item/ItemsContainer";
 import FiltersContainer from "./item/FiltersContainer";
 import Loading from "./Loading";
 
+const initialFilterState = {
+  name: { active: false, value: "" },
+  sex: { active: false, value: "" },
+  category: { active: false, value: "" },
+  sizes: {
+    Small: false,
+    Medium: false,
+    Large: false,
+    XL: false,
+    "2XL": false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+    12: false,
+  },
+  available: { active: false },
+  price: { active: false, value: "200" },
+}
+
 const Shop = () => {
   const { entities: items, isLoading } = useSelector((state) => state.items);
 
-  const [filters, setFilters] = useState({
-    name: { active: false, value: "" },
-    sex: { active: false, value: "" },
-    category: { active: false, value: "" },
-    sizes: {
-      Small: false,
-      Medium: false,
-      Large: false,
-      XL: false,
-      "2XL": false,
-      6: false,
-      7: false,
-      8: false,
-      9: false,
-      10: false,
-      11: false,
-      12: false,
-    },
-    available: { active: false },
-    price: { active: false, value: "200" },
-  });
+  const [filters, setFilters] = useState(initialFilterState);
 
   const dispatch = useDispatch();
 
@@ -87,6 +89,10 @@ const Shop = () => {
     });
   };
 
+  const clearFilters = () => {
+    setFilters(initialFilterState)
+  }
+
   return (
     <>
       <h1 className="is-size-2 is-brand-font is-honeydew-color has-text-centered">
@@ -96,6 +102,7 @@ const Shop = () => {
         filters={filters}
         applyFilter={applyFilter}
         updateSizeFilter={updateSizeFilter}
+        clearFilters ={clearFilters}
       />
       {isLoading ? (
         <Loading />
