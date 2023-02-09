@@ -65,6 +65,9 @@ const NavBar = () => {
                 </div>
                 <div className="dropdown-menu" id="dropdown-menu4" role="menu">
                   <div className="dropdown-content p-0">
+                    <NavLink to="/wardrobe">
+                      <div className="dropdown-item is-size-6">Your Wardrobe</div>
+                    </NavLink>
                     <NavLink to="/account">
                       <div className="dropdown-item is-size-6">Account</div>
                     </NavLink>

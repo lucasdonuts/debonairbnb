@@ -15,6 +15,7 @@ import Home from "./components/Home";
 import Shop from "./components/Shop";
 import UserPage from "./components/user/UserPage";
 import ItemPage from "./components/item/ItemPage";
+import Wardrobe from "./components/user/Wardrobe";
 
 function App() {
   const { currentUser, userLoading } = useSelector((state) => state.user);
@@ -83,7 +84,14 @@ function App() {
                   </AuthRoute>
                 }
               />
-
+              <Route
+                path="/wardrobe"
+                element={
+                  <AuthRoute>
+                    <Wardrobe />
+                  </AuthRoute>
+                }
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
