@@ -34,5 +34,6 @@
     "wildorchid",
     "yellowpantone",
     "yellowred"
-  ]
+  ],
+  "terminal.integrated.cwd": ""
 }

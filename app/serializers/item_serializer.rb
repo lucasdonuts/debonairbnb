@@ -10,5 +10,6 @@ class ItemSerializer < ActiveModel::Serializer
     :current_rental
 
   has_many :rentals
-  has_many :users
+  has_many :renters
+  belongs_to :owner
 end

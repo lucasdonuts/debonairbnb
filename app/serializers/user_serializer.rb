@@ -8,5 +8,6 @@ class UserSerializer < ActiveModel::Serializer
             :past_rentals
 
   has_many :rentals
-  has_many :items
+  has_many :rented_items
+  has_many :items_for_rent
 end

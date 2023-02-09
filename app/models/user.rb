@@ -2,7 +2,10 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :rentals, dependent: :destroy
-  has_many :items, through: :rentals
+  has_many :rented_items, through: :rentals, source: :item
+  has_many :items_for_rent, class_name: "Item",
+                            foreign_key: "owner_id",
+                            dependent: :destroy
 
   validates :first_name, :last_name, :address, presence: true
   validates :email, uniqueness: :true, presence: true
