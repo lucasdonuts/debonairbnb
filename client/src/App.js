@@ -16,6 +16,7 @@ import Shop from "./components/Shop";
 import UserPage from "./components/user/UserPage";
 import ItemPage from "./components/item/ItemPage";
 import Wardrobe from "./components/user/Wardrobe";
+import NewItemForm from "./components/item/NewItemForm";
 
 function App() {
   const { currentUser, userLoading } = useSelector((state) => state.user);
@@ -81,6 +82,14 @@ function App() {
                 element={
                   <AuthRoute>
                     <ItemPage />
+                  </AuthRoute>
+                }
+              />
+              <Route
+                path="items/new"
+                element={
+                  <AuthRoute>
+                    <NewItemForm />
                   </AuthRoute>
                 }
               />

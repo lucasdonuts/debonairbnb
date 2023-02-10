@@ -5,6 +5,7 @@ import {
   setCurrentUser,
   clearCurrentUser,
 } from "../reducers/userSlice";
+
 export const SignupForm = () => {
   const [errors, setErrors] = useState([]);
   const [formData, setFormData] = useState({

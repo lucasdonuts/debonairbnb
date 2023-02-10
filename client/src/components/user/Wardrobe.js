@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import ItemsContainer from "../item/ItemsContainer";
+import NewItemForm from "../item/NewItemForm";
 import Loading from "../Loading";
 
 const Wardrobe = ({}) => {
@@ -16,6 +18,14 @@ const Wardrobe = ({}) => {
 
   return (
     <>
+      {/* Make this button look way better after it's functional */}
+      <Link to="/items/new" element={<NewItemForm />} >
+        <button
+          className="button is-success"
+        >
+          + Add to Wardrobe
+        </button>
+      </Link>
       <h1 className="is-size-2 is-honeydew-color is-brand-font has-text-left has-text-centered-fullhd">
         Current
       </h1>
