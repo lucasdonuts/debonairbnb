@@ -16,6 +16,7 @@ import Shop from "./components/Shop";
 import UserPage from "./components/user/UserPage";
 import ItemPage from "./components/item/ItemPage";
 import Wardrobe from "./components/user/Wardrobe";
+import AddToWardrobe from "./components/item/AddToWardrobe";
 import NewItemForm from "./components/item/NewItemForm";
 
 function App() {
@@ -89,7 +90,7 @@ function App() {
                 path="items/new"
                 element={
                   <AuthRoute>
-                    <NewItemForm />
+                    <AddToWardrobe />
                   </AuthRoute>
                 }
               />
