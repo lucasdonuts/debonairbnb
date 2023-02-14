@@ -6,7 +6,9 @@ import { getCategories } from "../../reducers/itemsSlice";
 const NewItemForm = () => {
   const { currentUser } = useSelector((state) => state.user);
   const { categories } = useSelector((state) => state.items);
+  const [categoryNotSelected, setCategoryNotSelected] = useState(true);
   const [errors, setErrors] = useState([]);
+  const [invalidInputs, setInvalidInputs] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     sex: "",
@@ -17,17 +19,48 @@ const NewItemForm = () => {
     owner_id: currentUser.id,
   });
 
-  const errorElements = errors.map((error) => {
-    return (
-      <p key={error} className="help is-danger">
-        {error}
-      </p>
-    );
-  });
+  // const errorElements = errors.map((error) => {
+  //   return (
+  //     <p key={error} className="help is-danger">
+  //       {error}
+  //     </p>
+  //   );
+  // });
 
   const dispatch = useDispatch();
 
+  const validateInput = (e) => {
+    if (e.target.tagName === "SELECT") {
+      if (e.target.value === "") {
+        setInvalidInputs([...invalidInputs, e.target.name]);
+      } else {
+        setInvalidInputs(
+          invalidInputs.filter((input) => input !== e.target.name)
+        );
+      }
+    }
+    /* 
+    
+    switch(e.target.name){
+      case 'category':
+      case 'size':
+        if(e.target.value === ""){
+          setInvalidInputs([
+            ...invalidInputs,
+            e.target.name
+          ])
+        } else {
+          setInvalidInputs(invalidInputs.filter(input => input !== e.target.name))
+        };
+        break;
+    }
+    
+    */
+  };
+
   const handleChange = (e) => {
+    validateInput(e);
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -54,6 +87,10 @@ const NewItemForm = () => {
     dispatch(getCategories());
   }, []);
 
+  useEffect(() => {
+    setCategoryNotSelected(formData.category === "");
+  }, [formData.category]);
+
   console.log(formData);
   console.log(errors);
   return (
@@ -69,6 +106,7 @@ const NewItemForm = () => {
               <label className="label is-small">Item Name</label>
               <div className="control">
                 <input
+                  required
                   onChange={handleChange}
                   className="input is-small"
                   type="text"
@@ -85,6 +123,8 @@ const NewItemForm = () => {
               <div className="control">
                 <label className="radio">
                   <input
+                    required
+                    selected={formData.sex === "Men's"}
                     onChange={handleChange}
                     type="radio"
                     name="sex"
@@ -94,12 +134,26 @@ const NewItemForm = () => {
                 </label>
                 <label className="radio">
                   <input
+                    required
+                    selected={formData.sex === "Women's"}
                     onChange={handleChange}
                     type="radio"
                     name="sex"
                     value="Women's"
                   />
                   Women's
+                </label>
+                <label className="radio">
+                  <input
+                    required
+                    defaultChecked
+                    selected={formData.sex === ""}
+                    onChange={handleChange}
+                    type="radio"
+                    name="sex"
+                    value=""
+                  />
+                  N/A
                 </label>
               </div>
             </div>
@@ -125,6 +179,16 @@ const NewItemForm = () => {
                     </select>
                   </div>
                 </div>
+                <p
+                  style={
+                    invalidInputs.includes("category")
+                      ? { visibility: "visible" }
+                      : { visibility: "hidden" }
+                  }
+                  className="help is-danger"
+                >
+                  Must select a category
+                </p>
               </div>
 
               {/* Size */}
@@ -134,14 +198,34 @@ const NewItemForm = () => {
                 <div className="control">
                   <div className="select is-small">
                     <select
+                      disabled={categoryNotSelected}
                       onChange={handleChange}
                       name="size"
                       value={formData.size}
                     >
-                      <option value="">--Select Size--</option>
+                      <option value="">
+                        {categoryNotSelected
+                          ? "Select a category first"
+                          : "--Select Size--"}
+                      </option>
+                      <option value="Small">Small</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Large">Large</option>
+                      <option value="XL">XL</option>
+                      <option value="2XL">2XL</option>
                     </select>
                   </div>
                 </div>
+                <p
+                  style={
+                    invalidInputs.includes("size") && !categoryNotSelected
+                      ? { visibility: "visible" }
+                      : { visibility: "hidden" }
+                  }
+                  className="help is-danger"
+                >
+                  Must select a size
+                </p>
               </div>
 
               {/* Price */}
@@ -166,6 +250,7 @@ const NewItemForm = () => {
               <label className="label is-small is-small">Image URL</label>
               <div className="control">
                 <input
+                  required
                   onChange={handleChange}
                   name="image"
                   className="input is-small"
@@ -176,6 +261,7 @@ const NewItemForm = () => {
               </div>
             </div>
 
+            {/* Submit/Cancel */}
             <div className="field is-grouped is-grouped-centered">
               <div className="control">
                 <button className="button is-link">Submit</button>
