@@ -19,25 +19,23 @@ const NewItemForm = () => {
     owner_id: currentUser.id,
   });
 
-  // const errorElements = errors.map((error) => {
-  //   return (
-  //     <p key={error} className="help is-danger">
-  //       {error}
-  //     </p>
-  //   );
-  // });
+  const errorElements = errors.map((error) => {
+    return (
+      <p key={error} className="help is-danger">
+        {error}
+      </p>
+    );
+  });
 
   const dispatch = useDispatch();
 
-  const validateInput = (e) => {
-    if (e.target.tagName === "SELECT") {
-      if (e.target.value === "") {
-        setInvalidInputs([...invalidInputs, e.target.name]);
-      } else {
-        setInvalidInputs(
-          invalidInputs.filter((input) => input !== e.target.name)
-        );
-      }
+  const validateSelectedOption = (targetName, targetValue) => {
+    if (targetValue === "") {
+      setInvalidInputs([...invalidInputs, targetName]);
+    } else {
+      setInvalidInputs(
+        invalidInputs.filter((input) => input !== targetName)
+      );
     }
     /* 
     
@@ -59,7 +57,9 @@ const NewItemForm = () => {
   };
 
   const handleChange = (e) => {
-    validateInput(e);
+    if (e.target.tagName === "SELECT") {
+      validateSelectedOption(e.target.name, e.target.value);
+    }
 
     setFormData({
       ...formData,
@@ -270,6 +270,7 @@ const NewItemForm = () => {
                 <button className="button is-link is-light">Cancel</button>
               </div>
             </div>
+            {errorElements}
           </div>
         </form>
       </div>
