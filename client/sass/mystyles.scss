@@ -344,7 +344,7 @@ i {
   align-content: space-between;
 }
 
-.card:not(.item-page-card):hover {
+.card:not(.item-page-card, .preview-card):hover {
   border: 2px solid $accent;
 }
 

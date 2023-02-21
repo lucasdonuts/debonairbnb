@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../reducers/itemsSlice";
 import validator from 'validator';
 
-const NewItemForm = () => {
+const NewItemForm = ({ updatePreviewData }) => {
   const { currentUser } = useSelector((state) => state.user);
   const { categories } = useSelector((state) => state.items);
   const [categoryNotSelected, setCategoryNotSelected] = useState(true);
@@ -78,6 +78,8 @@ const NewItemForm = () => {
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+    updatePreviewData(e.target.name, e.target.value)
   };
 
   const handleSubmit = (e) => {
